@@ -1,0 +1,44 @@
+{
+  "targetFPS": 70,
+  "refreshTime": 180,
+  "fpsTime": 180,
+  "screenRotation": 2,
+  "screenBlankHours": "",
+  "headless": false,
+  "previewMode": true,
+  "debug": false,
+  "dualScreen": true,
+  "firstDepartureBold": true,
+  "showDepartureNumbers": true,
+  "screen1": {
+    "departureStation": "WEA",
+    "destinationStation": "",
+    "platform": "4",
+    "mode": "rail",
+    "outOfHoursName": "West Ealing",
+    "individualStationDepartureTime": false,
+    "timeOffset": "0"
+  },
+  "screen2": {
+    "departureStation": "940GZZLUNFD",
+    "destinationStation": "",
+    "platform": "3",
+    "mode": "tfl",
+    "outOfHoursName": "Northfields",
+    "individualStationDepartureTime": false,
+    "timeOffset": "0"
+  },
+  "api": {
+    "apiKey": "9dc15c51-f949-470a-8319-35f6a75f7271",
+    "operatingHours": ""
+  },
+  "tfl": {
+    "enabled": true,
+    "appId": "DepartureBoard",
+    "appKey": "a432a817f61d4a65ba62e226e48e665b",
+    "direction": "all",
+    "refreshTime": 90,
+    "mode": "tube",
+    "platformStyle": "number"
+  }
+}

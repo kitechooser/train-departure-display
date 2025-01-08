@@ -113,7 +113,9 @@ def ProcessDepartures(journeyConfig, APIOut):
 
         # get platform, if available
         if 'lt4:platform' in eachService:
-            thisDeparture["platform"] = (eachService['lt4:platform'])
+            platform = eachService['lt4:platform']
+            print(f"Raw platform from API: '{platform}' for {eachService['lt4:std']} to {eachService['lt5:destination']['lt4:location']['lt4:locationName']}")
+            thisDeparture["platform"] = platform
 
         # get scheduled departure time
         thisDeparture["aimed_departure_time"] = eachService["lt4:std"]

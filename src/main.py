@@ -38,11 +38,13 @@ class MockDisplay:
         window_width = width + padding * 2
         window_height = height + padding * 2
         
-        # Configure window size and center it
+        # Configure window size and position
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
-        x = (screen_width - window_width) // 2
         y = (screen_height - window_height) // 2
+        
+        # Position primary window on the left, secondary on the right
+        x = 50 if not is_secondary else screen_width - window_width - 50
         self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
         
         # Create canvas with padding
@@ -240,12 +242,16 @@ def renderServiceStatus(departure):
 
 def renderPlatform(departure):
     def drawText(draw, *_):
-        if "platform" in departure:
+        if "display_platform" in departure:
+            platform = departure["display_platform"]
+        elif "platform" in departure:
             platform = "Plat " + departure["platform"]
             if departure["platform"].lower() == "bus":
                 platform = "BUS"
-            _, _, bitmap = cachedBitmapText(platform, font)
-            draw.bitmap((0, 0), bitmap, fill="yellow")
+        else:
+            return
+        _, _, bitmap = cachedBitmapText(platform, font)
+        draw.bitmap((0, 0), bitmap, fill="yellow")
     return drawText
 
 
@@ -565,15 +571,17 @@ def platform_filter(departureData, platformNumber, station):
         if platformNumber == "":
             platformDepartures.append(sub)
         elif sub.get('platform') is not None:
-            if sub['platform'] == platformNumber:
-                res = sub
-                platformDepartures.append(res)
+            # Convert both to strings for comparison
+            platform = str(sub['platform']).strip()
+            if platform == str(platformNumber).strip():
+                platformDepartures.append(sub)
 
     if len(platformDepartures) > 0:
         firstDepartureDestinations = platformDepartures[0]["calling_at_list"]
         platformData = platformDepartures, firstDepartureDestinations, station
     else:
-        platformData = platformDepartures, "", station
+        # Return False to trigger blank signage with station name
+        platformData = False, False, station
 
     return platformData
 
@@ -597,7 +605,7 @@ def drawSignage(device, width, height, data):
     w = int(font.getlength(status))
     pw = int(font.getlength("Plat 88"))
 
-    if len(departures) == 0:
+    if not departures:
         noTrains = drawBlankSignage(device, width=width, height=height, departureStation=departureStation)
         return noTrains
 
@@ -763,6 +771,9 @@ try:
                             departureData = data[0]
                             nextStations = data[1]
                             station = data[2]
+                            print("Raw departure data:")
+                            for dep in departureData:
+                                print(f"Platform: '{dep.get('platform', 'None')}' for {dep.get('destination_name', 'Unknown')}")
                             screenData = platform_filter(departureData, config["screen1"]["platform"], station)
                             virtual = drawSignage(device, width=widgetWidth, height=widgetHeight, data=screenData)
 

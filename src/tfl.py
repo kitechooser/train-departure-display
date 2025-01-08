@@ -5,15 +5,42 @@ import time
 class TflStation:
     def __init__(self, station_data):
         self.id = station_data.get('id')
-        self.name = station_data.get('name')
+        self.name = station_data.get('commonName', station_data.get('name', 'Unknown Station'))
         self.available_lines = []
         
     def add_available_lines(self, lines):
         self.available_lines = lines
 
 class TflArrival:
-    def __init__(self, item):
-        self.platform = item.get('platformName', '')
+    def __init__(self, item, config):
+        platform = item.get('platformName', '')
+        platform_style = config["tfl"].get("platformStyle", "direction")
+        self.line = item.get('lineName', 'Underground')
+        
+        if not platform:
+            self.platform = ''
+            self.display_platform = ''
+            return
+            
+        # Extract platform number for filtering
+        numbers = ''.join(c for c in platform if c.isdigit())
+        self.platform = numbers if numbers else platform
+        
+        # Set display format based on style
+        platform_lower = platform.lower()
+        if platform_style == "direction":
+            if 'westbound' in platform_lower:
+                self.display_platform = 'Westbound'
+            elif 'eastbound' in platform_lower:
+                self.display_platform = 'Eastbound'
+            elif 'northbound' in platform_lower:
+                self.display_platform = 'Northbound'
+            elif 'southbound' in platform_lower:
+                self.display_platform = 'Southbound'
+            else:
+                self.display_platform = f"Plat {self.platform}"
+        else:
+            self.display_platform = f"Plat {self.platform}"
         self.expected_arrival = time.time() + item['timeToStation']
         self.destination = self._format_destination(item['destinationName'])
         self.time_to_station = item['timeToStation']
@@ -44,51 +71,11 @@ def query_tfl(url, params):
         return None
 
 def get_tfl_station(config, screen_config):
-    # Convert station codes to full names for TfL API
-    station_names = {
-        'VIC': 'Victoria Underground Station',
-        'PAD': 'Paddington Underground Station',
-        'WAT': 'Waterloo Underground Station',
-        'KGX': 'King\'s Cross St. Pancras Underground Station',
-        'LBG': 'London Bridge Underground Station',
-        'EUS': 'Euston Underground Station'
-    }
+    station_id = screen_config["departureStation"]
+    print(f"Looking up TfL station: {station_id}")
     
-    station = screen_config["departureStation"]
-    station_name = station_names.get(station, station)
-    print(f"Searching for TfL station: {station_name}")
-    
-    # Query TfL API for station
-    url = 'https://api.tfl.gov.uk/StopPoint/Search'
-    params = {
-        'query': station_name,
-        'modes': config["tfl"]["mode"],
-        'app_id': config["tfl"]["appId"],
-        'app_key': config["tfl"]["appKey"],
-        'faresOnly': 'false',
-        'maxResults': 1,
-        'includeHubs': 'false'
-    }
-    
-    response = query_tfl(url, params)
-    if not response:
-        print(f"No response from TfL API for station search: {station}")
-        return None
-        
-    matches = response.get('matches', [])
-    if not matches:
-        print(f"No matches found for station: {station}")
-        return None
-        
-    station_data = matches[0]
-    if not station_data.get('id'):
-        print(f"No station ID found in response for: {station}")
-        return None
-        
-    tfl_station = TflStation(station_data)
-    
-    # Get available lines
-    url = f'https://api.tfl.gov.uk/StopPoint/{tfl_station.id}'
+    # Direct StopPoint lookup using NAPTAN code
+    url = f'https://api.tfl.gov.uk/StopPoint/{station_id}'
     params = {
         'app_id': config["tfl"]["appId"],
         'app_key': config["tfl"]["appKey"]
@@ -96,21 +83,33 @@ def get_tfl_station(config, screen_config):
     
     response = query_tfl(url, params)
     if not response:
-        print(f"No response from TfL API for stop point details: {tfl_station.id}")
+        print(f"No response from TfL API for station: {station_id}")
         return None
-        
+    
+    # Create station from direct response
+    tfl_station = TflStation(response)
+    
+    # Ensure we have a valid station name
+    if not tfl_station.name:
+        tfl_station.name = station_id
+    
+    # Get lines from the initial response
     line_groups = response.get('lineModeGroups', [])
-    if not line_groups:
-        print(f"No line groups found for station: {tfl_station.id}")
-        return None
-        
-    for group in line_groups:
-        if group['modeName'].lower() == config["tfl"]["mode"].lower():
-            tfl_station.add_available_lines(group['lineIdentifier'])
-            break
+    if line_groups:
+        for group in line_groups:
+            if group['modeName'].lower() == config["tfl"]["mode"].lower():
+                tfl_station.add_available_lines(group['lineIdentifier'])
+                break
+    
+    # If no lines found, try getting them from lines array
+    if not tfl_station.available_lines and 'lines' in response:
+        lines = [line['id'] for line in response['lines'] 
+                if line.get('modeName', '').lower() == config["tfl"]["mode"].lower()]
+        if lines:
+            tfl_station.add_available_lines(lines)
     
     if not tfl_station.available_lines:
-        print(f"No {config['tfl']['mode']} lines found for station: {tfl_station.id}")
+        print(f"No {config['tfl']['mode']} lines found for station: {station_id}")
         return None
                 
     return tfl_station
@@ -132,18 +131,20 @@ def get_tfl_arrivals(config, station):
         
     # Sort by arrival time
     arrivals = sorted(response, key=lambda k: k['timeToStation'])
-    return [TflArrival(arrival) for arrival in arrivals]
+    
+    return [TflArrival(arrival, config) for arrival in arrivals]
 
 def convert_tfl_arrivals(arrivals, mode):
     """Convert TfL arrivals to match National Rail format"""
     converted_arrivals = []
     for arr in arrivals:
         converted = {
-            "platform": arr.platform,
+            "platform": arr.platform,  # Use number for filtering
+            "display_platform": arr.display_platform,  # Use direction for display
             "aimed_departure_time": arr.status,
             "expected_departure_time": arr.status,
             "destination_name": arr.destination,
-            "calling_at_list": f"This is a {mode.upper()} service to {arr.destination}"
+            "calling_at_list": f"This is a {arr.line} line service to {arr.destination}. No intermediate stops available."
         }
         converted_arrivals.append(converted)
     return converted_arrivals
