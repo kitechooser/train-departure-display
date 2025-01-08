@@ -1,10 +1,10 @@
 import os
 import time
-
+import tkinter as tk
 import requests
 
 from datetime import datetime
-from PIL import ImageFont, Image, ImageDraw
+from PIL import ImageFont, Image, ImageDraw, ImageTk
 
 from trains import loadDeparturesForStation
 from config import loadConfig
@@ -17,6 +17,178 @@ from luma.core.virtual import viewport, snapshot
 from luma.core.sprite_system import framerate_regulator
 
 import socket, re, uuid
+
+class MockDisplay:
+    """Mock implementation of the SSD1322 display"""
+    def __init__(self, width=256, height=64, mode="1", rotate=0, is_secondary=False):
+        self.width = width
+        self.height = height
+        self.mode = mode
+        self.rotate = rotate
+        self.size = (width, height)  # Required by luma
+        self.image = Image.new('RGB', self.size, 'black')
+        self.draw = ImageDraw.Draw(self.image)
+        
+        # Create tkinter window for display
+        self.root = tk.Toplevel() if is_secondary else tk.Tk()
+        self.root.title(f"Train Display Preview {'Secondary' if is_secondary else 'Primary'}")
+        
+        # Add padding to window size
+        padding = 20
+        window_width = width + padding * 2
+        window_height = height + padding * 2
+        
+        # Configure window size and center it
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+        self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+        
+        # Create canvas with padding
+        self.canvas = tk.Canvas(self.root, width=window_width, height=window_height)
+        self.canvas.pack()
+        
+        # Handle window close
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+        self.running = True
+        
+        # Initialize PhotoImage with padding
+        self.photo = ImageTk.PhotoImage(self.image)
+        self.canvas.create_image(padding, padding, image=self.photo, anchor=tk.NW)
+        self.root.update()
+        print(f"MockDisplay initialized {'Secondary' if is_secondary else 'Primary'}")
+
+    def on_closing(self):
+        self.running = False
+        self.root.destroy()
+
+    def clear(self):
+        self.draw.rectangle([0, 0, self.width, self.height], fill='black')
+        self.update_display()
+
+    def display(self, image):
+        self.image = image.convert('RGB')
+        self.update_display()
+
+    def update_display(self):
+        try:
+            # Create new PhotoImage
+            new_photo = ImageTk.PhotoImage(self.image)
+            
+            # Update canvas with new image (with padding)
+            padding = 20
+            self.canvas.delete("all")
+            self.image_id = self.canvas.create_image(padding, padding, image=new_photo, anchor=tk.NW)
+            
+            # Keep reference and update
+            self.photo = new_photo
+            self.root.update()
+        except Exception as e:
+            print(f"Display update error: {e}")
+
+class MockCanvas:
+    """Mock implementation of Luma canvas context manager"""
+    def __init__(self, device):
+        self.device = device
+        self.image = Image.new('RGB', (device.width, device.height), 'black')
+        self.draw = ImageDraw.Draw(self.image)
+        print("MockCanvas initialized")
+
+    def __enter__(self):
+        return self.draw
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("MockCanvas exit - displaying image")
+        # Use the device's display method which handles image management
+        self.device.display(self.image)
+
+class MockViewport:
+    """Mock implementation of Luma viewport"""
+    def __init__(self, device, width, height):
+        self.device = device
+        self.width = width
+        self.height = height
+        self._hotspots = []
+
+    def add_hotspot(self, source, xy):
+        self._hotspots.append((source, xy))
+
+    def remove_hotspot(self, source, xy):
+        self._hotspots.remove((source, xy))
+
+    def refresh(self):
+        with MockCanvas(self.device) as draw:
+            for hotspot, (x, y) in self._hotspots:
+                if hasattr(hotspot, 'compose'):
+                    hotspot.compose(draw, x, y)
+                else:
+                    # Handle plain rendering functions
+                    hotspot(draw)
+
+class DisplayFactory:
+    """Factory for creating either hardware or preview displays"""
+    @staticmethod
+    def create_display(config, is_secondary=False):
+        """
+        Create appropriate display based on config
+        is_secondary: True if this is the second display in dual screen mode
+        """
+        preview_mode = config.get("previewMode", False)
+        
+        if preview_mode:
+            return MockDisplay(
+                width=256,
+                height=64,
+                mode="1",
+                rotate=config['screenRotation'],
+                is_secondary=is_secondary
+            )
+        else:
+            # Hardware display initialization
+            if is_secondary:
+                serial = spi(port=1, gpio_DC=5, gpio_RST=6)
+            else:
+                if config['headless']:
+                    serial = noop()
+                else:
+                    serial = spi(port=0)
+            return ssd1322(serial, mode="1", rotate=config['screenRotation'])
+
+class MockSnapshot:
+    """Mock implementation of snapshot for testing"""
+    def __init__(self, width, height, source, interval=1):
+        self.width = width
+        self.height = height
+        self.source = source
+        self.interval = interval
+        self.last_updated = 0
+
+    def compose(self, draw, x, y):
+        if time.time() - self.last_updated >= self.interval:
+            self.source(draw, self.width, self.height)
+            self.last_updated = time.time()
+
+def initialize_displays(config):
+    """Initialize displays based on configuration"""
+    # Set up displays
+    device = DisplayFactory.create_display(config)
+    device1 = None
+    
+    if config['dualScreen']:
+        device1 = DisplayFactory.create_display(config, is_secondary=True)
+    
+    # Set up appropriate canvas and viewport classes
+    if config.get("previewMode", False):
+        canvas_class = MockCanvas
+        viewport_class = MockViewport
+        snapshot_class = MockSnapshot
+    else:
+        canvas_class = canvas
+        viewport_class = viewport
+        snapshot_class = snapshot
+        
+    return device, device1, canvas_class, viewport_class, snapshot_class
 
 def makeFont(name, size):
     font_path = os.path.abspath(
@@ -258,22 +430,29 @@ def loadData(apiConfig, journeyConfig, config):
 def drawStartup(device, width, height):
     virtualViewport = viewport(device, width=width, height=height)
 
-    with canvas(device):
-        nameSize = int(fontBold.getlength("UK Train Departure Display"))
-        poweredSize = int(fontBold.getlength("Powered by"))
-        NRESize = int(fontBold.getlength("National Rail Enquiries"))
+    # Create a new image for drawing
+    image = Image.new('RGB', (width, height), 'black')
+    draw = ImageDraw.Draw(image)
 
-        rowOne = snapshot(width, 10, renderName((width - nameSize) / 2), interval=10)
-        rowThree = snapshot(width, 10, renderPoweredBy((width - poweredSize) / 2), interval=10)
-        rowFour = snapshot(width, 10, renderNRE((width - NRESize) / 2), interval=10)
+    nameSize = int(fontBold.getlength("UK Train Departure Display"))
+    poweredSize = int(fontBold.getlength("Powered by"))
+    NRESize = int(fontBold.getlength("National Rail Enquiries"))
 
-        if len(virtualViewport._hotspots) > 0:
-            for hotspot, xy in virtualViewport._hotspots:
-                virtualViewport.remove_hotspot(hotspot, xy)
+    rowOne = snapshot(width, 10, renderName((width - nameSize) / 2), interval=10)
+    rowThree = snapshot(width, 10, renderPoweredBy((width - poweredSize) / 2), interval=10)
+    rowFour = snapshot(width, 10, renderNRE((width - NRESize) / 2), interval=10)
 
-        virtualViewport.add_hotspot(rowOne, (0, 0))
-        virtualViewport.add_hotspot(rowThree, (0, 24))
-        virtualViewport.add_hotspot(rowFour, (0, 36))
+    if len(virtualViewport._hotspots) > 0:
+        for hotspot, xy in virtualViewport._hotspots:
+            virtualViewport.remove_hotspot(hotspot, xy)
+
+    virtualViewport.add_hotspot(rowOne, (0, 0))
+    virtualViewport.add_hotspot(rowThree, (0, 24))
+    virtualViewport.add_hotspot(rowFour, (0, 36))
+
+    # Draw directly to the device
+    device.image = image
+    device.update_display()
 
     return virtualViewport
 
@@ -473,22 +652,23 @@ def getIp():
     return IP
 
 def getVersionNumber():
-    version_file = open('VERSION', 'r')
+    version_path = os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            '..',
+            'VERSION'
+        )
+    )
+    version_file = open(version_path, 'r')
     return version_file.read()
 
 try:
     print('Starting Train Departure Display v' + getVersionNumber())
     config = loadConfig()
-    if config['headless']:
-        print('Headless mode, running main loop without serial comms')
-        serial = noop()
-    else:
-        serial = spi(port=0)
-    device = ssd1322(serial, mode="1", rotate=config['screenRotation'])
 
-    if config['dualScreen']:
-        serial1 = spi(port=1, gpio_DC=5, gpio_RST=6)
-        device1 = ssd1322(serial1, mode="1", rotate=config['screenRotation'])
+    # Initialize displays and required classes
+    device, device1, canvas_class, viewport_class, snapshot_class = initialize_displays(config)
+    
     font = makeFont("Dot Matrix Regular.ttf", 10)
     fontBold = makeFont("Dot Matrix Bold.ttf", 10)
     fontBoldTall = makeFont("Dot Matrix Bold Tall.ttf", 10)
@@ -529,7 +709,14 @@ try:
     if config['hoursPattern'].match(config['screenBlankHours']):
         blankHours = [int(x) for x in config['screenBlankHours'].split('-')]
 
-    while True:
+    running = True
+    while running:
+        # Check if we need to stop (for preview mode)
+        if config.get("previewMode", False):
+            running = device.running
+            if device1:
+                running = running and device1.running
+
         with regulator:
             if len(blankHours) == 2 and isRun(blankHours[0], blankHours[1]):
                 device.clear()

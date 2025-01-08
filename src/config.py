@@ -25,6 +25,10 @@ def loadConfig():
     if os.getenv("headless") == "True":
         data["headless"] = True
 
+    data["previewMode"] = not False
+    if os.getenv("previewMode") == "True":
+        data["previewMode"] = True
+
     data["debug"] = False
     if os.getenv("debug") == "True":
         data["debug"] = True
