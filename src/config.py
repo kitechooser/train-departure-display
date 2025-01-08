@@ -13,58 +13,63 @@ def parsePlatformData(platform):
 def loadConfig():
     data = {
         "journey": {},
-        "api": {}
+        "api": {},
+        "tfl": {},
+        "screen1": {},  # Screen-specific configs
+        "screen2": {}
     }
 
+    # Load base configuration
     data["targetFPS"] = int(os.getenv("targetFPS") or 70)
     data["refreshTime"] = int(os.getenv("refreshTime") or 180)
     data["fpsTime"] = int(os.getenv("fpsTime") or 180)
     data["screenRotation"] = int(os.getenv("screenRotation") or 2)
     data["screenBlankHours"] = os.getenv("screenBlankHours") or ""
-    data["headless"] = False
-    if os.getenv("headless") == "True":
-        data["headless"] = True
-
-    data["previewMode"] = not False
-    if os.getenv("previewMode") == "True":
-        data["previewMode"] = True
-
+    data["headless"] = os.getenv("headless") == "True"
+    data["previewMode"] = os.getenv("previewMode") == "True"
     data["debug"] = False
     if os.getenv("debug") == "True":
         data["debug"] = True
-    else:
-        if os.getenv("debug") and os.getenv("debug").isnumeric():
-            data["debug"] = int(os.getenv("debug"))
+    elif os.getenv("debug") and os.getenv("debug").isnumeric():
+        data["debug"] = int(os.getenv("debug"))
 
-    data["dualScreen"] = False
-    if os.getenv("dualScreen") == "True":
-        data["dualScreen"] = True
-    data["firstDepartureBold"] = True
-    if os.getenv("firstDepartureBold") == "False":
-        data["firstDepartureBold"] = False
+    data["dualScreen"] = os.getenv("dualScreen") == "True"
+    data["firstDepartureBold"] = os.getenv("firstDepartureBold") != "False"
     data["hoursPattern"] = re.compile("^((2[0-3]|[0-1]?[0-9])-(2[0-3]|[0-1]?[0-9]))$")
+    data["showDepartureNumbers"] = os.getenv("showDepartureNumbers") == "True"
 
-    data["journey"]["departureStation"] = os.getenv("departureStation") or "PAD"
+    # Screen 1 configuration (default/backwards compatible)
+    data["screen1"]["departureStation"] = os.getenv("departureStation") or "PAD"
+    data["screen1"]["destinationStation"] = os.getenv("destinationStation") or ""
+    data["screen1"]["platform"] = parsePlatformData(os.getenv("screen1Platform"))
+    data["screen1"]["mode"] = os.getenv("screen1Mode") or "rail"  # 'rail' or 'tfl'
+    data["screen1"]["outOfHoursName"] = os.getenv("outOfHoursName") or "London Paddington"
+    data["screen1"]["individualStationDepartureTime"] = os.getenv("individualStationDepartureTime") == "True"
+    data["screen1"]["timeOffset"] = os.getenv("timeOffset") or "0"
+    
+    # Screen 2 configuration
+    data["screen2"]["departureStation"] = os.getenv("screen2DepartureStation") or ""
+    data["screen2"]["destinationStation"] = os.getenv("screen2DestinationStation") or ""
+    data["screen2"]["platform"] = parsePlatformData(os.getenv("screen2Platform"))
+    data["screen2"]["mode"] = os.getenv("screen2Mode") or "rail"
+    data["screen2"]["outOfHoursName"] = os.getenv("outOfHoursName") or data["screen2"]["departureStation"]
+    data["screen2"]["individualStationDepartureTime"] = os.getenv("individualStationDepartureTime") == "True"
+    data["screen2"]["timeOffset"] = os.getenv("timeOffset") or "0"
 
-    data["journey"]["destinationStation"] = os.getenv("destinationStation") or ""
-    if data["journey"]["destinationStation"] == "null" or data["journey"]["destinationStation"] == "undefined":
-        data["journey"]["destinationStation"] = ""
-
-    data["journey"]["individualStationDepartureTime"] = False
-    if os.getenv("individualStationDepartureTime") == "True":
-        data["journey"]["individualStationDepartureTime"] = True
-
-    data["journey"]["outOfHoursName"] = os.getenv("outOfHoursName") or "London Paddington"
+    # Move screen1 config into journey for backwards compatibility
+    data["journey"] = data["screen1"]
     data["journey"]["stationAbbr"] = {"International": "Intl."}
-    data["journey"]['timeOffset'] = os.getenv("timeOffset") or "0"
-    data["journey"]["screen1Platform"] = parsePlatformData(os.getenv("screen1Platform"))
-    data["journey"]["screen2Platform"] = parsePlatformData(os.getenv("screen2Platform"))
 
+    # Load API configs
     data["api"]["apiKey"] = os.getenv("apiKey") or None
     data["api"]["operatingHours"] = os.getenv("operatingHours") or ""
-
-    data["showDepartureNumbers"] = False
-    if os.getenv("showDepartureNumbers") == "True":
-        data["showDepartureNumbers"] = True
+    
+    # Add TfL specific configuration
+    data["tfl"]["enabled"] = os.getenv("tflEnabled") == "True"
+    data["tfl"]["appId"] = os.getenv("tflAppId") or None
+    data["tfl"]["appKey"] = os.getenv("tflAppKey") or None
+    data["tfl"]["direction"] = os.getenv("tflDirection") or "inbound"
+    data["tfl"]["refreshTime"] = int(os.getenv("tflRefreshTime") or 90)
+    data["tfl"]["mode"] = os.getenv("tflMode") or "tube"
 
     return data

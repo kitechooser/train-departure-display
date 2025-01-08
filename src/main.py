@@ -400,31 +400,45 @@ def renderDots(draw, *_):
     draw.text((0, 0), text=text, font=fontBold, fill="yellow")
 
 
-def loadData(apiConfig, journeyConfig, config):
-    runHours = []
-    if config['hoursPattern'].match(apiConfig['operatingHours']):
-        runHours = [int(x) for x in apiConfig['operatingHours'].split('-')]
+from tfl import get_tfl_station, get_tfl_arrivals, convert_tfl_arrivals
 
-    if len(runHours) == 2 and isRun(runHours[0], runHours[1]) is False:
-        return False, False, journeyConfig['outOfHoursName']
+def loadData(apiConfig, screenConfig, config):
+    """Load departure data based on screen mode (rail or tfl)"""
+    if screenConfig["mode"] == "tfl" and config["tfl"]["enabled"]:
+        # Try TfL data
+        tfl_station = get_tfl_station(config, screenConfig)
+        if tfl_station:
+            arrivals = get_tfl_arrivals(config, tfl_station)
+            if arrivals:
+                converted_arrivals = convert_tfl_arrivals(arrivals, config["tfl"]["mode"])
+                if converted_arrivals:
+                    return converted_arrivals, converted_arrivals[0]["calling_at_list"], tfl_station.name
+        return False, False, screenConfig["outOfHoursName"]
+    else:
+        # Load National Rail data
+        runHours = []
+        if config['hoursPattern'].match(apiConfig['operatingHours']):
+            runHours = [int(x) for x in apiConfig['operatingHours'].split('-')]
 
-    # set rows to 10 (max allowed) to get as many departure as poss
-    # leaving as a variable so this can be updated if the API does
-    rows = "10"
+        if len(runHours) == 2 and isRun(runHours[0], runHours[1]) is False:
+            return False, False, screenConfig['outOfHoursName']
 
-    try:
-        departures, stationName = loadDeparturesForStation(
-            journeyConfig, apiConfig["apiKey"], rows)
+        # set rows to 10 (max allowed) to get as many departure as poss
+        rows = "10"
 
-        if departures is None:
-            return False, False, stationName
+        try:
+            departures, stationName = loadDeparturesForStation(
+                screenConfig, apiConfig["apiKey"], rows)
 
-        firstDepartureDestinations = departures[0]["calling_at_list"]
-        return departures, firstDepartureDestinations, stationName
-    except requests.RequestException as err:
-        print("Error: Failed to fetch data from OpenLDBWS")
-        print(err.__context__)
-        return False, False, journeyConfig['outOfHoursName']
+            if departures is None:
+                return False, False, stationName
+
+            firstDepartureDestinations = departures[0]["calling_at_list"]
+            return departures, firstDepartureDestinations, stationName
+        except requests.RequestException as err:
+            print("Error: Failed to fetch data from OpenLDBWS")
+            print(err.__context__)
+            return False, False, screenConfig['outOfHoursName']
 
 
 def drawStartup(device, width, height):
@@ -471,17 +485,22 @@ def drawDebugScreen(device, width, height, screen="1", showTime=False):
 
     debugLines["1A"] = "Display"
 
-    debugLines["1B"] = f"= {config['journey']['departureStation']}"
+    screen_config = config["screen1"] if screen == "1" else config["screen2"]
+    
+    debugLines["1B"] = f"= {screen_config['departureStation']}"
 
     # has a destination been set? add it in!
-    if(config["journey"]["destinationStation"]):
-        debugLines["1B"] += f"->{config['journey']['destinationStation']}"
+    if screen_config["destinationStation"]:
+        debugLines["1B"] += f"->{screen_config['destinationStation']}"
 
-    # what about a plaform?
-    if(config["journey"]["screen"+screen+"Platform"]):
-        debugLines["1B"] += f" (Plat{config['journey']['screen'+screen+'Platform']}) "
+    # what about a platform?
+    if screen_config["platform"]:
+        debugLines["1B"] += f" (Plat{screen_config['platform']}) "
     else:
         debugLines["1B"] += " (PlatAll) "
+        
+    # Add mode information
+    debugLines["1B"] += f" [{screen_config['mode'].upper()}]"
 
     # refresh time
     debugLines["1B"] += f"{config['refreshTime']}s "
@@ -735,24 +754,30 @@ try:
                         if config['dualScreen']:
                             virtual1 = drawDebugScreen(device1, width=widgetWidth, height=widgetHeight, showTime=True, screen="2")
                     else:
-                        data = loadData(config["api"], config["journey"], config)
+                        # Screen 1 update
+                        data = loadData(config["api"], config["screen1"], config)
                         if data[0] is False:
                             virtual = drawBlankSignage(
                                 device, width=widgetWidth, height=widgetHeight, departureStation=data[2])
-                            if config['dualScreen']:
-                                virtual1 = drawBlankSignage(
-                                    device1, width=widgetWidth, height=widgetHeight, departureStation=data[2])
                         else:
                             departureData = data[0]
                             nextStations = data[1]
                             station = data[2]
-                            screenData = platform_filter(departureData, config["journey"]["screen1Platform"], station)
+                            screenData = platform_filter(departureData, config["screen1"]["platform"], station)
                             virtual = drawSignage(device, width=widgetWidth, height=widgetHeight, data=screenData)
-                            # virtual = drawDebugScreen(device, width=widgetWidth, height=widgetHeight, showTime=True)
 
-                            if config['dualScreen']:
-                                screen1Data = platform_filter(departureData, config["journey"]["screen2Platform"], station)
-                                virtual1 = drawSignage(device1, width=widgetWidth, height=widgetHeight, data=screen1Data)
+                        # Screen 2 update (if enabled)
+                        if config['dualScreen']:
+                            data = loadData(config["api"], config["screen2"], config)
+                            if data[0] is False:
+                                virtual1 = drawBlankSignage(
+                                    device1, width=widgetWidth, height=widgetHeight, departureStation=data[2])
+                            else:
+                                departureData = data[0]
+                                nextStations = data[1]
+                                station = data[2]
+                                screenData = platform_filter(departureData, config["screen2"]["platform"], station)
+                                virtual1 = drawSignage(device1, width=widgetWidth, height=widgetHeight, data=screenData)
 
                     timeAtStart = time.time()
 
