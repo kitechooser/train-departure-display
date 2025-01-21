@@ -99,7 +99,7 @@ def loadConfig():
     announcements.setdefault("audio", {
         "driver": "auto",      # auto, nsss (macOS), espeak (Linux/Pi)
         "device": "default",   # audio device name/id
-        "macos_voice": "",     # specific voice for macOS
+        "macos_voice": "com.apple.voice.compact.en-GB.Daniel",     # specific voice for macOS
         "espeak_voice": "english-uk"  # specific voice for espeak (British English)
     })
     
