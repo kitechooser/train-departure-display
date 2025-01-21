@@ -7,7 +7,7 @@
   "headless": false,
   "previewMode": false,
   "debug": false,
-  "dualScreen": false,
+  "dualScreen": true,
   "firstDepartureBold": true,
   "showDepartureNumbers": true,
   "screen1": {

@@ -170,12 +170,12 @@ class DisplayFactory:
         else:
             # Hardware display initialization
             if is_secondary:
-                serial = spi(port=1, gpio_DC=5, gpio_RST=6)
+                serial = spi(port=1, device=0, gpio_DC=27, gpio_RST=31, bus_speed_hz=8000000)
             else:
                 if config['headless']:
                     serial = noop()
                 else:
-                    serial = spi(port=0)
+                    serial = spi(port=0, device=0, gpio_DC=24, gpio_RST=25, bus_speed_hz=8000000)
             return ssd1322(serial, mode="1", rotate=config['screenRotation'])
 
 class MockSnapshot:
