@@ -56,6 +56,10 @@ class TflArrival:
             return "1 min"
         else:
             return f"{math.ceil(self.time_to_station/60)} mins"
+            
+    def is_delayed(self):
+        """Check if service is significantly delayed"""
+        return False  # TfL API doesn't provide delay information
 
 def query_tfl(url, params):
     try:
@@ -114,6 +118,44 @@ def get_tfl_station(config, screen_config):
                 
     return tfl_station
 
+def get_intermediate_stops(config, line_id, from_id, to_name):
+    """Get intermediate stops between two stations on a line"""
+    url = f'https://api.tfl.gov.uk/Line/{line_id}/Route/Sequence/all'
+    params = {
+        'app_id': config["tfl"]["appId"],
+        'app_key': config["tfl"]["appKey"]
+    }
+    
+    response = query_tfl(url, params)
+    if not response or 'stopPointSequences' not in response:
+        return None
+        
+    # Find the sequence that contains our stations
+    for sequence in response['stopPointSequences']:
+        stops = sequence.get('stopPoint', [])
+        
+        # Find our starting station's index
+        start_idx = None
+        end_idx = None
+        for i, stop in enumerate(stops):
+            if stop.get('id') == from_id:
+                start_idx = i
+            # Match destination by name since we don't have its ID
+            elif to_name in stop.get('name', ''):
+                end_idx = i
+                
+        if start_idx is not None and end_idx is not None:
+            # Get intermediate stops
+            if start_idx < end_idx:
+                intermediate = stops[start_idx+1:end_idx]
+            else:
+                intermediate = stops[end_idx+1:start_idx][::-1]
+            
+            return [stop['name'].replace(' Underground Station', '').strip() 
+                   for stop in intermediate]
+    
+    return None
+
 def get_tfl_arrivals(config, station):
     if not station or not station.available_lines:
         return []
@@ -132,19 +174,45 @@ def get_tfl_arrivals(config, station):
     # Sort by arrival time
     arrivals = sorted(response, key=lambda k: k['timeToStation'])
     
-    return [TflArrival(arrival, config) for arrival in arrivals]
+    tfl_arrivals = []
+    for arrival in arrivals:
+        tfl_arrival = TflArrival(arrival, config)
+        # Get intermediate stops
+        if tfl_arrival.line and station.id:
+            tfl_arrival.stops = get_intermediate_stops(
+                config, 
+                arrival.get('lineId', ''), 
+                station.id, 
+                tfl_arrival.destination
+            )
+        tfl_arrivals.append(tfl_arrival)
+    
+    return tfl_arrivals
 
 def convert_tfl_arrivals(arrivals, mode):
     """Convert TfL arrivals to match National Rail format"""
+    print("\nConverting TfL arrivals:")
     converted_arrivals = []
     for arr in arrivals:
+        status = arr.status
+        # Format calling points if available
+        if hasattr(arr, 'stops') and arr.stops:
+            calling_at = f"This is a {arr.line} line service to {arr.destination}, calling at " + ", ".join(arr.stops)
+        else:
+            calling_at = f"This is a {arr.line} line service to {arr.destination}"
+            
         converted = {
             "platform": arr.platform,  # Use number for filtering
             "display_platform": arr.display_platform,  # Use direction for display
-            "aimed_departure_time": arr.status,
-            "expected_departure_time": arr.status,
+            "aimed_departure_time": status,
+            "expected_departure_time": "On time",  # Always on time since TfL API doesn't provide delay info
             "destination_name": arr.destination,
-            "calling_at_list": f"This is a {arr.line} line service to {arr.destination}. No intermediate stops available."
+            "calling_at_list": calling_at,
+            "is_tfl": True,  # Mark as TfL service
+            "line": arr.line,  # Add line info for announcements
+            "mode": "tfl"  # Explicitly mark as TfL mode
         }
+        print(f"Converted TfL arrival: {arr.line} line to {arr.destination} from {arr.display_platform} in {status}")
         converted_arrivals.append(converted)
+    print(f"Returning {len(converted_arrivals)} converted TfL arrivals")
     return converted_arrivals

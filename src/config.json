@@ -1,11 +1,11 @@
 {
   "targetFPS": 70,
-  "refreshTime": 180,
+  "refreshTime": 18,
   "fpsTime": 180,
   "screenRotation": 2,
   "screenBlankHours": "",
   "headless": false,
-  "previewMode": false,
+  "previewMode": true,
   "debug": false,
   "dualScreen": true,
   "firstDepartureBold": true,
@@ -40,5 +40,28 @@
     "refreshTime": 90,
     "mode": "tube",
     "platformStyle": "number"
+  },
+  "announcements": {
+    "enabled": true,
+    "muted": false,
+    "volume": 90,
+    "announcement_gap": 2.5,
+    "max_queue_size": 10,
+    "log_level": "INFO",
+    "operating_hours": "",
+    "audio": {
+      "driver": "nsss",
+      "device": "default",
+      "macos_voice": "com.apple.voice.compact.en-GB.Daniel",
+      "espeak_voice": "english-uk"
+    },
+    "announcement_types": {
+      "delays": true,
+      "platform_changes": true,
+      "cancellations": true,
+      "on_time": true,
+      "departures": true,
+      "next_train": true
+    }
   }
 }
