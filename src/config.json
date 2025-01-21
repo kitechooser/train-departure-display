@@ -5,9 +5,9 @@
   "screenRotation": 2,
   "screenBlankHours": "",
   "headless": false,
-  "previewMode": true,
+  "previewMode": false,
   "debug": false,
-  "dualScreen": true,
+  "dualScreen": false,
   "firstDepartureBold": true,
   "showDepartureNumbers": true,
   "screen1": {

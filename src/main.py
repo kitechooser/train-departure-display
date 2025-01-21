@@ -26,7 +26,7 @@ class MockDisplay:
         self.mode = mode
         self.rotate = rotate
         self.size = (width, height)  # Required by luma
-        self.image = Image.new('RGB', self.size, 'black')
+        self.image = Image.new('1', self.size, 0)  # 0 = black in mode "1"
         self.draw = ImageDraw.Draw(self.image)
         
         # Create tkinter window for display
@@ -93,7 +93,7 @@ class MockCanvas:
     """Mock implementation of Luma canvas context manager"""
     def __init__(self, device):
         self.device = device
-        self.image = Image.new('RGB', (device.width, device.height), 'black')
+        self.image = Image.new('1', (device.width, device.height), 0)  # 0 = black in mode "1"
         self.draw = ImageDraw.Draw(self.image)
         print("MockCanvas initialized")
 
@@ -121,8 +121,8 @@ class MockViewport:
 
     def refresh(self):
         print("MockViewport refresh: starting")
-        # Create a new image for drawing
-        image = Image.new('RGB', (self.width, self.height), 'black')
+        # Create a new image for drawing - use mode "1" for hardware displays
+        image = Image.new('1', (self.width, self.height), 0)  # 0 = black in mode "1"
         draw = ImageDraw.Draw(image)
         print("MockViewport refresh: created image and draw")
 
@@ -147,7 +147,7 @@ class MockViewport:
             self.device.display(image)
         elif not config['headless']:
             # Only try to update physical hardware displays
-            self.device.image = image
+            self.device.display(image)
 
 class DisplayFactory:
     """Factory for creating either hardware or preview displays"""
@@ -635,8 +635,8 @@ def loadData(apiConfig, screenConfig, config):
 def drawStartup(device, width, height):
     virtualViewport = viewport(device, width=width, height=height)
 
-    # Create a new image for drawing
-    image = Image.new('RGB', (width, height), 'black')
+    # Create a new image for drawing - use mode "1" for hardware displays
+    image = Image.new('1', (width, height), 0)  # 0 = black in mode "1"
     draw = ImageDraw.Draw(image)
 
     nameSize = int(fontBold.getlength("UK Train Departure Display"))
@@ -656,8 +656,10 @@ def drawStartup(device, width, height):
     virtualViewport.add_hotspot(rowFour, (0, 36))
 
     # Draw directly to the device
-    device.image = image
-    device.update_display()
+    if isinstance(device, MockDisplay):
+        device.update_display()
+    else:
+        device.display(image)
 
     return virtualViewport
 
