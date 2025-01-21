@@ -120,13 +120,34 @@ class MockViewport:
         self._hotspots.remove((source, xy))
 
     def refresh(self):
-        with MockCanvas(self.device) as draw:
-            for hotspot, (x, y) in self._hotspots:
-                if hasattr(hotspot, 'compose'):
-                    hotspot.compose(draw, x, y)
+        print("MockViewport refresh: starting")
+        # Create a new image for drawing
+        image = Image.new('RGB', (self.width, self.height), 'black')
+        draw = ImageDraw.Draw(image)
+        print("MockViewport refresh: created image and draw")
+
+        # Draw all hotspots
+        for hotspot, (x, y) in self._hotspots:
+            print(f"MockViewport refresh: drawing hotspot at ({x}, {y})")
+            if hasattr(hotspot, 'compose'):
+                print("MockViewport refresh: using compose")
+                hotspot.compose(draw, x, y)
+            else:
+                print("MockViewport refresh: using direct draw")
+                # Handle plain rendering functions
+                if callable(hotspot):
+                    drawFunc = hotspot()
+                    drawFunc(draw, width=self.width, height=self.height, x=x, y=y)
                 else:
-                    # Handle plain rendering functions
-                    hotspot(draw)
+                    hotspot(draw, width=self.width, height=self.height, x=x, y=y)
+
+        print("MockViewport refresh: updating display")
+        # Update the display
+        if isinstance(self.device, MockDisplay):
+            self.device.display(image)
+        elif not config['headless']:
+            # Only try to update physical hardware displays
+            self.device.image = image
 
 class DisplayFactory:
     """Factory for creating either hardware or preview displays"""
@@ -168,11 +189,28 @@ class MockSnapshot:
 
     def compose(self, draw, x, y):
         if time.time() - self.last_updated >= self.interval:
-            self.source(draw, self.width, self.height)
+            print(f"MockSnapshot compose: source={self.source.__name__}, x={x}, y={y}")
+            # Handle both direct function calls and function-returning functions
+            if callable(self.source):
+                # Check if it's a render function that returns a drawing function
+                try:
+                    drawFunc = self.source()
+                    print("MockSnapshot compose: calling drawFunc")
+                    drawFunc(draw, width=self.width, height=self.height, x=x, y=y)
+                except TypeError:
+                    # If it's a direct render function, call it with the expected args
+                    print("MockSnapshot compose: calling source directly")
+                    self.source(draw, self.width, self.height)
+            else:
+                # For non-callable sources
+                print("MockSnapshot compose: using source directly")
+                self.source(draw, self.width, self.height)
             self.last_updated = time.time()
 
 def initialize_displays(config):
     """Initialize displays based on configuration"""
+    preview_mode = config.get("previewMode", False)
+    
     # Set up displays
     device = DisplayFactory.create_display(config)
     device1 = None
@@ -180,11 +218,17 @@ def initialize_displays(config):
     if config['dualScreen']:
         device1 = DisplayFactory.create_display(config, is_secondary=True)
     
-    # Set up appropriate canvas and viewport classes
-    if config.get("previewMode", False):
+    # Always use mock classes in preview mode
+    if preview_mode:
         canvas_class = MockCanvas
         viewport_class = MockViewport
         snapshot_class = MockSnapshot
+        
+        # Wrap the hardware viewport and snapshot if needed
+        if not isinstance(device, MockDisplay):
+            device = MockDisplay(width=256, height=64, mode="1", rotate=config['screenRotation'])
+        if device1 and not isinstance(device1, MockDisplay):
+            device1 = MockDisplay(width=256, height=64, mode="1", rotate=config['screenRotation'], is_secondary=True)
     else:
         canvas_class = canvas
         viewport_class = viewport
@@ -203,25 +247,48 @@ def makeFont(name, size):
     return ImageFont.truetype(font_path, size, layout_engine=ImageFont.Layout.BASIC)
 
 
-def renderDestination(departure, font, pos):
-    departureTime = departure["aimed_departure_time"]
-    destinationName = departure["destination_name"]
-
-    def drawText(draw, *_):
+def renderDestination(departure, font, pos, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            if config["showDepartureNumbers"]:
+                train = f"{pos}  {departure['aimed_departure_time']}  {departure['destination_name']}"
+            else:
+                train = f"{departure['aimed_departure_time']}  {departure['destination_name']}"
+            _, _, bitmap = cachedBitmapText(train, font)
+            draw.bitmap((x, y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
         if config["showDepartureNumbers"]:
-            train = f"{pos}  {departureTime}  {destinationName}"
+            train = f"{pos}  {departure['aimed_departure_time']}  {departure['destination_name']}"
         else:
-            train = f"{departureTime}  {destinationName}"
+            train = f"{departure['aimed_departure_time']}  {departure['destination_name']}"
         _, _, bitmap = cachedBitmapText(train, font)
         draw.bitmap((0, 0), bitmap, fill="yellow")
 
-    return drawText
-
-
-def renderServiceStatus(departure):
-    def drawText(draw, width, *_):
+def renderServiceStatus(departure, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            train = ""
+            if departure["expected_departure_time"] == "On time":
+                train = "On time"
+            elif departure["expected_departure_time"] == "Cancelled":
+                train = "Cancelled"
+            elif departure["expected_departure_time"] == "Delayed":
+                train = "Delayed"
+            else:
+                if isinstance(departure["expected_departure_time"], str):
+                    train = 'Exp ' + departure["expected_departure_time"]
+                if departure["aimed_departure_time"] == departure["expected_departure_time"]:
+                    train = "On time"
+            w, _, bitmap = cachedBitmapText(train, font)
+            draw.bitmap((x + width - w, y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
         train = ""
-
         if departure["expected_departure_time"] == "On time":
             train = "On time"
         elif departure["expected_departure_time"] == "Cancelled":
@@ -231,17 +298,28 @@ def renderServiceStatus(departure):
         else:
             if isinstance(departure["expected_departure_time"], str):
                 train = 'Exp ' + departure["expected_departure_time"]
-
             if departure["aimed_departure_time"] == departure["expected_departure_time"]:
                 train = "On time"
-
         w, _, bitmap = cachedBitmapText(train, font)
         draw.bitmap((width - w, 0), bitmap, fill="yellow")
-    return drawText
 
-
-def renderPlatform(departure):
-    def drawText(draw, *_):
+def renderPlatform(departure, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            if "display_platform" in departure:
+                platform = departure["display_platform"]
+            elif "platform" in departure:
+                platform = "Plat " + departure["platform"]
+                if departure["platform"].lower() == "bus":
+                    platform = "BUS"
+            else:
+                return
+            _, _, bitmap = cachedBitmapText(platform, font)
+            draw.bitmap((x, y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
         if "display_platform" in departure:
             platform = departure["display_platform"]
         elif "platform" in departure:
@@ -252,17 +330,22 @@ def renderPlatform(departure):
             return
         _, _, bitmap = cachedBitmapText(platform, font)
         draw.bitmap((0, 0), bitmap, fill="yellow")
-    return drawText
 
-
-def renderCallingAt(draw, *_):
-    stations = "Calling at: "
-    _, _, bitmap = cachedBitmapText(stations, font)
-    draw.bitmap((0, 0), bitmap, fill="yellow")
-
+def renderCallingAt(draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            stations = "Calling at: "
+            _, _, bitmap = cachedBitmapText(stations, font)
+            draw.bitmap((x, y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
+        stations = "Calling at: "
+        _, _, bitmap = cachedBitmapText(stations, font)
+        draw.bitmap((0, 0), bitmap, fill="yellow")
 
 bitmapRenderCache = {}
-
 
 def cachedBitmapText(text, font):
     # cache the bitmap representation of the stations string
@@ -287,15 +370,45 @@ def cachedBitmapText(text, font):
         bitmapRenderCache[key] = {'bitmap': bitmap, 'txt_width': txt_width, 'txt_height': txt_height}
     return txt_width, txt_height, bitmap
 
-
 pixelsLeft = 1
 pixelsUp = 0
 hasElevated = 0
 pauseCount = 0
 
+def renderStations(stations, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            global stationRenderCount, pauseCount, pixelsLeft, pixelsUp, hasElevated
 
-def renderStations(stations):
-    def drawText(draw, *_):
+            if len(stations) == stationRenderCount - 5:
+                stationRenderCount = 0
+
+            txt_width, txt_height, bitmap = cachedBitmapText(stations, font)
+
+            if hasElevated:
+                # slide the bitmap left until it's fully out of view
+                draw.bitmap((x + pixelsLeft - 1, y), bitmap, fill="yellow")
+                if -pixelsLeft > txt_width and pauseCount < 8:
+                    pauseCount += 1
+                    pixelsLeft = 0
+                    hasElevated = 0
+                else:
+                    pauseCount = 0
+                    pixelsLeft = pixelsLeft - 1
+            else:
+                # slide the bitmap up from the bottom of its viewport until it's fully in view
+                draw.bitmap((x, y + txt_height - pixelsUp), bitmap, fill="yellow")
+                if pixelsUp == txt_height:
+                    pauseCount += 1
+                    if pauseCount > 20:
+                        hasElevated = 1
+                        pixelsUp = 0
+                else:
+                    pixelsUp = pixelsUp + 1
+        return drawText
+    else:
+        # Direct call with arguments
         global stationRenderCount, pauseCount, pixelsLeft, pixelsUp, hasElevated
 
         if len(stations) == stationRenderCount - 5:
@@ -324,22 +437,58 @@ def renderStations(stations):
             else:
                 pixelsUp = pixelsUp + 1
 
-    return drawText
 
+def renderTime(draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            rawTime = datetime.now().time()
+            hour, minute, second = str(rawTime).split('.')[0].split(':')
 
-def renderTime(draw, width, *_):
-    rawTime = datetime.now().time()
-    hour, minute, second = str(rawTime).split('.')[0].split(':')
+            w1, _, HMBitmap = cachedBitmapText("{}:{}".format(hour, minute), fontBoldLarge)
+            w2, _, _ = cachedBitmapText(':00', fontBoldTall)
+            _, _, SBitmap = cachedBitmapText(':{}'.format(second), fontBoldTall)
 
-    w1, _, HMBitmap = cachedBitmapText("{}:{}".format(hour, minute), fontBoldLarge)
-    w2, _, _ = cachedBitmapText(':00', fontBoldTall)
-    _, _, SBitmap = cachedBitmapText(':{}'.format(second), fontBoldTall)
+            draw.bitmap((x + (width - w1 - w2) / 2, y), HMBitmap, fill="yellow")
+            draw.bitmap((x + (width - w1 - w2) / 2 + w1, y + 5), SBitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
+        rawTime = datetime.now().time()
+        hour, minute, second = str(rawTime).split('.')[0].split(':')
 
-    draw.bitmap(((width - w1 - w2) / 2, 0), HMBitmap, fill="yellow")
-    draw.bitmap((((width - w1 - w2) / 2) + w1, 5), SBitmap, fill="yellow")
+        w1, _, HMBitmap = cachedBitmapText("{}:{}".format(hour, minute), fontBoldLarge)
+        w2, _, _ = cachedBitmapText(':00', fontBoldTall)
+        _, _, SBitmap = cachedBitmapText(':{}'.format(second), fontBoldTall)
 
-def renderDebugScreen(lines):
-    def drawDebug(draw, *_):
+        draw.bitmap(((width - w1 - w2) / 2, 0), HMBitmap, fill="yellow")
+        draw.bitmap(((width - w1 - w2) / 2 + w1, 5), SBitmap, fill="yellow")
+
+def renderDebugScreen(lines, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            # draw a box
+            draw.rectangle((x + 1, y + 1, x + 254, y + 45), outline="yellow", fill=None)
+
+            # coords for each line of text
+            coords = {
+                '1A': (x + 5, y + 5),
+                '1B': (x + 45, y + 5),
+                '2A': (x + 5, y + 18),
+                '2B': (x + 45, y + 18),
+                '3A': (x + 5, y + 31),
+                '3B': (x + 45, y + 31),
+                '3C': (x + 140, y + 31)
+            }
+
+            # loop through lines and check if cached
+            for key, text in lines.items():
+                w, _, bitmap = cachedBitmapText(text, font)
+                draw.bitmap(coords[key], bitmap, fill="yellow")        
+        return drawText
+    else:
+        # Direct call with arguments
         # draw a box
         draw.rectangle((1, 1, 254, 45), outline="yellow", fill=None)
 
@@ -357,53 +506,89 @@ def renderDebugScreen(lines):
         # loop through lines and check if cached
         for key, text in lines.items():
             w, _, bitmap = cachedBitmapText(text, font)
-            draw.bitmap(coords[key], bitmap, fill="yellow")        
+            draw.bitmap(coords[key], bitmap, fill="yellow")
 
-    return drawDebug
-
-def renderWelcomeTo(xOffset):
-    def drawText(draw, *_):
+def renderWelcomeTo(xOffset, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            text = "Welcome to"
+            _, _, bitmap = cachedBitmapText(text, fontBold)
+            draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
         text = "Welcome to"
-        draw.text((int(xOffset), 0), text=text, font=fontBold, fill="yellow")
+        _, _, bitmap = cachedBitmapText(text, fontBold)
+        draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
-    return drawText
-
-
-def renderPoweredBy(xOffset):
-    def drawText(draw, *_):
+def renderPoweredBy(xOffset, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            text = "Powered by"
+            _, _, bitmap = cachedBitmapText(text, fontBold)
+            draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
         text = "Powered by"
-        draw.text((int(xOffset), 0), text=text, font=fontBold, fill="yellow")
+        _, _, bitmap = cachedBitmapText(text, fontBold)
+        draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
-    return drawText
-
-
-def renderNRE(xOffset):
-    def drawText(draw, *_):
+def renderNRE(xOffset, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            text = "National Rail Enquiries"
+            _, _, bitmap = cachedBitmapText(text, fontBold)
+            draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
         text = "National Rail Enquiries"
-        draw.text((int(xOffset), 0), text=text, font=fontBold, fill="yellow")
+        _, _, bitmap = cachedBitmapText(text, fontBold)
+        draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
-    return drawText
-
-
-def renderName(xOffset):
-    def drawText(draw, *_):
+def renderName(xOffset, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            text = "UK Train Departure Display"
+            _, _, bitmap = cachedBitmapText(text, fontBold)
+            draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
         text = "UK Train Departure Display"
-        draw.text((int(xOffset), 0), text=text, font=fontBold, fill="yellow")
+        _, _, bitmap = cachedBitmapText(text, fontBold)
+        draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
-    return drawText
-
-
-def renderDepartureStation(departureStation, xOffset):
-    def draw(draw, *_):
+def renderDepartureStation(departureStation, xOffset, draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            text = departureStation
+            _, _, bitmap = cachedBitmapText(text, fontBold)
+            draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
         text = departureStation
-        draw.text((int(xOffset), 0), text=text, font=fontBold, fill="yellow")
+        _, _, bitmap = cachedBitmapText(text, fontBold)
+        draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
-    return draw
-
-
-def renderDots(draw, *_):
-    text = ".  .  ."
-    draw.text((0, 0), text=text, font=fontBold, fill="yellow")
+def renderDots(draw=None, width=None, height=None):
+    if draw is None:
+        # Return drawing function when called with no arguments
+        def drawText(draw, width=None, height=None, x=0, y=0):
+            text = ".  .  ."
+            draw.text((x, y), text=text, font=fontBold, fill="yellow")
+        return drawText
+    else:
+        # Direct call with arguments
+        text = ".  .  ."
+        draw.text((0, 0), text=text, font=fontBold, fill="yellow")
 
 
 from tfl import get_tfl_station, get_tfl_arrivals, convert_tfl_arrivals
