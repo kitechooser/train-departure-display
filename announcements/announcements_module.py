@@ -48,7 +48,8 @@ class AnnouncementConfig:
             "cancellations": True,
             "on_time": False,
             "departures": False,
-            "next_train": True  # Announce next train to arrive
+            "next_train": True,  # Announce next train to arrive
+            "arriving": True     # Announce trains arriving at platform
         }
         
         # Validate volume
