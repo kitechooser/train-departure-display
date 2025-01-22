@@ -7,7 +7,7 @@ from utilities import get_version_number, initialize_fonts
 from display_manager import create_display
 from train_manager import load_data, platform_filter
 from renderer import create_renderer
-from announcements.announcements_module import AnnouncementManager, AnnouncementConfig
+from src.announcements.announcements_module import AnnouncementManager, AnnouncementConfig
 
 def main():
     try:
