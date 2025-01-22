@@ -39,7 +39,8 @@
     "direction": "all",
     "refreshTime": 90,
     "mode": "tube",
-    "platformStyle": "number"
+    "platformStyle": "number",
+    "showPlatform": true
   },
   "announcements": {
     "enabled": true,

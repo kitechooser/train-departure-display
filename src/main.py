@@ -6,7 +6,7 @@ from config import loadConfig
 from utilities import get_version_number, initialize_fonts
 from display_manager import create_display
 from train_manager import load_data, platform_filter
-from renderer import Renderer
+from renderer import create_renderer
 from announcements.announcements_module import AnnouncementManager, AnnouncementConfig
 
 def main():
@@ -27,9 +27,12 @@ def main():
         )
         announcer = AnnouncementManager(announcement_config)
 
-        # Initialize fonts and renderer
+        # Initialize fonts and renderers
         font, fontBold, fontBoldTall, fontBoldLarge = initialize_fonts()
-        renderer = Renderer(font, fontBold, fontBoldTall, fontBoldLarge, config)
+        renderer1 = create_renderer(font, fontBold, fontBoldTall, fontBoldLarge, config, config["screen1"]["mode"])
+        renderer2 = None
+        if config['dualScreen']:
+            renderer2 = create_renderer(font, fontBold, fontBoldTall, fontBoldLarge, config, config["screen2"]["mode"])
 
         # Initialize display settings
         widgetWidth = 256
@@ -45,18 +48,18 @@ def main():
 
         if (config['debug'] > 1):
             # render screen and sleep for specified seconds
-            virtual = renderer.drawDebugScreen(device, width=widgetWidth, height=widgetHeight)
+            virtual = renderer1.drawDebugScreen(device, width=widgetWidth, height=widgetHeight)
             virtual.refresh()
             if config['dualScreen']:
-                virtual = renderer.drawDebugScreen(device, width=widgetWidth, height=widgetHeight, screen="2")
+                virtual = renderer2.drawDebugScreen(device1, width=widgetWidth, height=widgetHeight, screen="2")
                 virtual.refresh()
             time.sleep(config['debug'])
         else:
             # display NRE attribution while data loads
-            virtual = renderer.drawStartup(device, width=widgetWidth, height=widgetHeight)
+            virtual = renderer1.drawStartup(device, width=widgetWidth, height=widgetHeight)
             virtual.refresh()
             if config['dualScreen']:
-                virtual = renderer.drawStartup(device1, width=widgetWidth, height=widgetHeight)
+                virtual = renderer2.drawStartup(device1, width=widgetWidth, height=widgetHeight)
                 virtual.refresh()
             if config['headless'] is not True:
                 time.sleep(5)
@@ -96,14 +99,14 @@ def main():
                         # check if debug mode is enabled 
                         if config["debug"] == True:
                             print(config["debug"])
-                            virtual = renderer.drawDebugScreen(device, width=widgetWidth, height=widgetHeight, showTime=True)
+                            virtual = renderer1.drawDebugScreen(device, width=widgetWidth, height=widgetHeight, showTime=True)
                             if config['dualScreen']:
-                                virtual1 = renderer.drawDebugScreen(device1, width=widgetWidth, height=widgetHeight, showTime=True, screen="2")
+                                virtual1 = renderer2.drawDebugScreen(device1, width=widgetWidth, height=widgetHeight, showTime=True, screen="2")
                         else:
                             # Screen 1 update
                             data = load_data(config["api"], config["screen1"], config)
                             if data[0] is False:
-                                virtual = renderer.drawBlankSignage(
+                                virtual = renderer1.drawBlankSignage(
                                     device, width=widgetWidth, height=widgetHeight, departureStation=data[2])
                             else:
                                 departureData = data[0]
@@ -176,13 +179,13 @@ def main():
                                 else:
                                     print("Announcements are muted - skipping")
                                 
-                                virtual = renderer.drawSignage(device, width=widgetWidth, height=widgetHeight, data=screenData)
+                                virtual = renderer1.drawSignage(device, width=widgetWidth, height=widgetHeight, data=screenData)
 
                             # Screen 2 update (if enabled)
                             if config['dualScreen']:
                                 data = load_data(config["api"], config["screen2"], config)
                                 if data[0] is False:
-                                    virtual1 = renderer.drawBlankSignage(
+                                    virtual1 = renderer2.drawBlankSignage(
                                         device1, width=widgetWidth, height=widgetHeight, departureStation=data[2])
                                 else:
                                     departureData = data[0]
@@ -234,7 +237,7 @@ def main():
                                     else:
                                         print("Announcements are muted - skipping")
                                     
-                                    virtual1 = renderer.drawSignage(device1, width=widgetWidth, height=widgetHeight, data=screenData)
+                                    virtual1 = renderer2.drawSignage(device1, width=widgetWidth, height=widgetHeight, data=screenData)
 
                         timeAtStart = time.time()
 
