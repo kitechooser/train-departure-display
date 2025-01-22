@@ -34,7 +34,10 @@ class MockDisplay:
         
         # Create tkinter window for display
         self.root = tk.Toplevel() if is_secondary else tk.Tk()
-        self.root.title(f"Train Display Preview {'Secondary' if is_secondary else 'Primary'}")
+        # Get station name from config
+        config = loadConfig()
+        station_name = config['screen2' if is_secondary else 'screen1']['outOfHoursName']
+        self.root.title(f"Screen {2 if is_secondary else 1} - {station_name}")
         
         # Add padding to window size
         padding = 20

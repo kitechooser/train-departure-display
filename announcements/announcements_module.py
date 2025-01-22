@@ -32,7 +32,13 @@ class AnnouncementConfig:
             "driver": "auto",      # auto, nsss (macOS), espeak (Linux/Pi)
             "device": "default",   # audio device name/id
             "macos_voice": "",     # specific voice for macOS
-            "espeak_voice": "english-us"  # specific voice for espeak
+            "espeak_voice": "english-us",  # specific voice for espeak
+            "echo": {
+                "enabled": True,       # Enable/disable echo effect
+                "delay": 0.3,         # Delay between echoes in seconds
+                "decay": 0.5,         # Volume reduction for each echo (0-1)
+                "num_echoes": 3       # Number of echo repetitions
+            }
         }
         
         # Default announcement types if none provided

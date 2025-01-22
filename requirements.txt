@@ -3,3 +3,6 @@ timeloop
 requests
 xmltodict
 gTTS
+numpy
+soundfile
+sounddevice

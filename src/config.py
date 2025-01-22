@@ -100,7 +100,15 @@ def loadConfig():
         "driver": "auto",      # auto, nsss (macOS), espeak (Linux/Pi)
         "device": "default",   # audio device name/id
         "macos_voice": "com.apple.voice.compact.en-GB.Daniel",     # specific voice for macOS
-        "espeak_voice": "english-uk"  # specific voice for espeak (British English)
+        "espeak_voice": "english-uk",  # specific voice for espeak (British English)
+    })
+    
+    # Echo effect configuration
+    announcements.setdefault("echo", {
+        "enabled": True,       # Enable/disable echo effect
+        "delay": 0.3,         # Delay between echoes in seconds
+        "decay": 0.5,         # Volume reduction for each echo (0-1)
+        "num_echoes": 3       # Number of echo repetitions
     })
     
     # Announcement types defaults
