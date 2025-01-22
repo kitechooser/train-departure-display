@@ -39,31 +39,29 @@ class BaseRenderer:
             self.bitmapRenderCache[key] = {'bitmap': bitmap, 'txt_width': txt_width, 'txt_height': txt_height}
         return txt_width, txt_height, bitmap
 
-    def drawStartup(self, device, width, height):
-        virtualViewport = viewport(device, width=width, height=height)
+    def renderPoweredBy(self, xOffset, draw=None, width=None, height=None):
+        if draw is None:
+            def drawText(draw, width=None, height=None, x=0, y=0):
+                text = "Powered by"
+                _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
+                draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+            return drawText
+        else:
+            text = "Powered by"
+            _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
+            draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
-        # Create a new image for drawing - use mode "1" for hardware displays
-        image = Image.new('1', (width, height), 0)  # 0 = black in mode "1"
-        draw = ImageDraw.Draw(image)
-
-        nameSize = int(self.fontBold.getlength("UK Train Departure Display"))
-        poweredSize = int(self.fontBold.getlength("Powered by"))
-        NRESize = int(self.fontBold.getlength("National Rail Enquiries"))
-
-        rowOne = snapshot(width, 10, self.renderName((width - nameSize) / 2), interval=10)
-        rowThree = snapshot(width, 10, self.renderPoweredBy((width - poweredSize) / 2), interval=10)
-        rowFour = snapshot(width, 10, self.renderNRE((width - NRESize) / 2), interval=10)
-
-        if len(virtualViewport._hotspots) > 0:
-            for hotspot, xy in virtualViewport._hotspots:
-                virtualViewport.remove_hotspot(hotspot, xy)
-
-        virtualViewport.add_hotspot(rowOne, (0, 0))
-        virtualViewport.add_hotspot(rowThree, (0, 24))
-        virtualViewport.add_hotspot(rowFour, (0, 36))
-
-        device.display(image)
-        return virtualViewport
+    def renderName(self, xOffset, draw=None, width=None, height=None):
+        if draw is None:
+            def drawText(draw, width=None, height=None, x=0, y=0):
+                text = "UK Train Departure Display"
+                _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
+                draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+            return drawText
+        else:
+            text = "UK Train Departure Display"
+            _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
+            draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
     def drawBlankSignage(self, device, width, height, departureStation):
         welcomeSize = int(self.fontBold.getlength("Welcome to"))
@@ -191,41 +189,6 @@ class BaseRenderer:
             _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
             draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
-    def renderPoweredBy(self, xOffset, draw=None, width=None, height=None):
-        if draw is None:
-            def drawText(draw, width=None, height=None, x=0, y=0):
-                text = "Powered by"
-                _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
-                draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
-            return drawText
-        else:
-            text = "Powered by"
-            _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
-            draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
-
-    def renderNRE(self, xOffset, draw=None, width=None, height=None):
-        if draw is None:
-            def drawText(draw, width=None, height=None, x=0, y=0):
-                text = "National Rail Enquiries"
-                _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
-                draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
-            return drawText
-        else:
-            text = "National Rail Enquiries"
-            _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
-            draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
-
-    def renderName(self, xOffset, draw=None, width=None, height=None):
-        if draw is None:
-            def drawText(draw, width=None, height=None, x=0, y=0):
-                text = "UK Train Departure Display"
-                _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
-                draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
-            return drawText
-        else:
-            text = "UK Train Departure Display"
-            _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
-            draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
 
     def renderDepartureStation(self, departureStation, xOffset, draw=None, width=None, height=None):
         if draw is None:
@@ -272,6 +235,43 @@ class BaseRenderer:
         return virtualViewport
 
 class RailRenderer(BaseRenderer):
+    def drawStartup(self, device, width, height):
+        virtualViewport = viewport(device, width=width, height=height)
+
+        # Create a new image for drawing - use mode "1" for hardware displays
+        image = Image.new('1', (width, height), 0)  # 0 = black in mode "1"
+        draw = ImageDraw.Draw(image)
+
+        nameSize = int(self.fontBold.getlength("UK Train Departure Display"))
+        poweredSize = int(self.fontBold.getlength("Powered by"))
+        attributionSize = int(self.fontBold.getlength("National Rail Enquiries"))
+
+        rowOne = snapshot(width, 10, self.renderName((width - nameSize) / 2), interval=10)
+        rowThree = snapshot(width, 10, self.renderPoweredBy((width - poweredSize) / 2), interval=10)
+        rowFour = snapshot(width, 10, self.renderAttribution((width - attributionSize) / 2), interval=10)
+
+        if len(virtualViewport._hotspots) > 0:
+            for hotspot, xy in virtualViewport._hotspots:
+                virtualViewport.remove_hotspot(hotspot, xy)
+
+        virtualViewport.add_hotspot(rowOne, (0, 0))
+        virtualViewport.add_hotspot(rowThree, (0, 24))
+        virtualViewport.add_hotspot(rowFour, (0, 36))
+
+        device.display(image)
+        return virtualViewport
+
+    def renderAttribution(self, xOffset, draw=None, width=None, height=None):
+        if draw is None:
+            def drawText(draw, width=None, height=None, x=0, y=0):
+                text = "National Rail Enquiries"
+                _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
+                draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+            return drawText
+        else:
+            text = "National Rail Enquiries"
+            _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
+            draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
     def drawSignage(self, device, width, height, data):
         virtualViewport = viewport(device, width=width, height=height)
 
@@ -428,6 +428,43 @@ class RailRenderer(BaseRenderer):
             draw.bitmap((0, 0), bitmap, fill="yellow")
 
 class TflRenderer(BaseRenderer):
+    def drawStartup(self, device, width, height):
+        virtualViewport = viewport(device, width=width, height=height)
+
+        # Create a new image for drawing - use mode "1" for hardware displays
+        image = Image.new('1', (width, height), 0)  # 0 = black in mode "1"
+        draw = ImageDraw.Draw(image)
+
+        nameSize = int(self.fontBold.getlength("UK Train Departure Display"))
+        poweredSize = int(self.fontBold.getlength("Powered by"))
+        attributionSize = int(self.fontBold.getlength("Transport for London"))
+
+        rowOne = snapshot(width, 10, self.renderName((width - nameSize) / 2), interval=10)
+        rowThree = snapshot(width, 10, self.renderPoweredBy((width - poweredSize) / 2), interval=10)
+        rowFour = snapshot(width, 10, self.renderAttribution((width - attributionSize) / 2), interval=10)
+
+        if len(virtualViewport._hotspots) > 0:
+            for hotspot, xy in virtualViewport._hotspots:
+                virtualViewport.remove_hotspot(hotspot, xy)
+
+        virtualViewport.add_hotspot(rowOne, (0, 0))
+        virtualViewport.add_hotspot(rowThree, (0, 24))
+        virtualViewport.add_hotspot(rowFour, (0, 36))
+
+        device.display(image)
+        return virtualViewport
+
+    def renderAttribution(self, xOffset, draw=None, width=None, height=None):
+        if draw is None:
+            def drawText(draw, width=None, height=None, x=0, y=0):
+                text = "Transport for London"
+                _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
+                draw.bitmap((x + int(xOffset), y), bitmap, fill="yellow")
+            return drawText
+        else:
+            text = "Transport for London"
+            _, _, bitmap = self.cachedBitmapText(text, self.fontBold)
+            draw.bitmap((int(xOffset), 0), bitmap, fill="yellow")
     def drawSignage(self, device, width, height, data):
         virtualViewport = viewport(device, width=width, height=height)
 

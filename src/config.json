@@ -40,7 +40,7 @@
     "refreshTime": 90,
     "mode": "tube",
     "platformStyle": "number",
-    "showPlatform": true
+    "showPlatform": false
   },
   "announcements": {
     "enabled": true,
