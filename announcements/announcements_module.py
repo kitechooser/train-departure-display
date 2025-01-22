@@ -101,19 +101,43 @@ class AnnouncementManager:
     
     def _format_time(self, time_str: str) -> str:
         """Format time string for announcement"""
+        if time_str == "Delayed":
+            return "delayed"
+            
         try:
-            hours, minutes = map(int, time_str.split(':'))
-            time_parts = []
-            
-            if hours > 0:
-                time_parts.append(f"{hours} {'hour' if hours == 1 else 'hours'}")
-            if minutes > 0:
-                time_parts.append(f"{minutes} {'minute' if minutes == 1 else 'minutes'}")
-            
-            if not time_parts:
-                return "midnight"
-            
-            return " and ".join(time_parts)
+            if ':' in time_str:
+                hours, minutes = map(int, time_str.split(':'))
+                
+                # Convert hours to spoken format
+                if hours == 0:
+                    hours_spoken = "midnight"
+                elif hours == 12:
+                    hours_spoken = "twelve"
+                else:
+                    hours_map = {
+                        1: "one", 2: "two", 3: "three", 4: "four",
+                        5: "five", 6: "six", 7: "seven", 8: "eight",
+                        9: "nine", 10: "ten", 11: "eleven",
+                        13: "thirteen", 14: "fourteen", 15: "fifteen",
+                        16: "sixteen", 17: "seventeen", 18: "eighteen",
+                        19: "nineteen", 20: "twenty", 21: "twenty one",
+                        22: "twenty two", 23: "twenty three"
+                    }
+                    hours_spoken = hours_map.get(hours, str(hours))
+                
+                # Format minutes
+                if minutes == 0:
+                    if hours == 0:
+                        return "midnight"
+                    else:
+                        return f"{hours_spoken} hundred"
+                elif minutes < 10:
+                    return f"{hours_spoken} oh {minutes}"
+                else:
+                    return f"{hours_spoken} {minutes}"
+            else:
+                # For TfL announcements that use "X minutes" format
+                return time_str
         except Exception as e:
             self.logger.error(f"Failed to format time {time_str}: {str(e)}")
             return time_str
@@ -128,8 +152,11 @@ class AnnouncementManager:
                     f"Attention please. "
                     f"The {self._format_time(announcement['scheduled_time'])} service "
                     f"to {announcement['destination']} "
-                    f"is delayed until {self._format_time(announcement['expected_time'])}."
                 )
+                if announcement['expected_time'] == "Delayed":
+                    message += "is delayed."
+                else:
+                    message += f"is delayed until {self._format_time(announcement['expected_time'])}."
                 
             elif announcement["type"] == "platform_change":
                 message = (
@@ -324,27 +351,33 @@ class AnnouncementManager:
                     self.logger.error("Missing aimed_departure_time in TfL data")
                     return
                 
-                message = (
-                    f"The next {train_data.get('line', 'Underground')} line service "
-                    f"to {train_data['destination_name']} "
-                )
-                if train_data.get("display_platform"):
-                    message += f"from {train_data['display_platform']} "
-                message += f"will arrive in {train_data['aimed_departure_time']}"
+                # For TfL services, check if train is arriving (less than 30 seconds away)
+                if train_data['aimed_departure_time'] == 'Due':
+                    message = (
+                        f"The train arriving at platform {train_data.get('platform', '')} "
+                        f"is the {train_data.get('line', 'Underground')} line service "
+                        f"to {train_data['destination_name']}"
+                    )
+                else:
+                    message = (
+                        f"The next {train_data.get('line', 'Underground')} line service "
+                        f"to {train_data['destination_name']} "
+                    )
+                    if train_data.get("platform"):
+                        message += f"from platform {train_data.get('platform')} "
+                    message += f"will arrive in {train_data['aimed_departure_time']}"
                 
                 self.logger.info(f"Generated TfL announcement: {message}")
             else:
                 # National Rail services
+                platform_text = f" on platform {train_data['platform']}" if train_data.get("platform") else ""
                 message = (
-                    f"The next train to arrive will be the "
-                    f"{train_data['aimed_departure_time']} service "
+                    f"The next train{platform_text} is the "
+                    f"{self._format_time(train_data['aimed_departure_time'])} service "
                     f"to {train_data['destination_name']}"
                 )
-                if train_data.get("platform"):
-                    message += f" from platform {train_data['platform']}"
-                
                 if train_data["expected_departure_time"] != "On time":
-                    message += f", expected {train_data['expected_departure_time']}"
+                    message += f", expected at {self._format_time(train_data['expected_departure_time'])}"
             
             announcement = {
                 "type": "next_train",

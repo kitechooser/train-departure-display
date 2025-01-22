@@ -799,8 +799,8 @@ try:
                                         print(f"platform: {next_train.get('display_platform') or next_train.get('platform')}")
                                         print(f"time: {next_train.get('aimed_departure_time')}")
                                         
-                                        # Use different announcement intervals for TfL vs National Rail
-                                        min_interval = 30 if next_train.get("is_tfl") else 60
+                                        # Use configured announcement intervals for TfL vs National Rail
+                                        min_interval = config["announcements"]["repeat_interval"]["tfl"] if next_train.get("is_tfl") else config["announcements"]["repeat_interval"]["rail"]
                                         
                                         time_since_last = current_time - announcer.last_next_train_screen1
                                         print(f"Time since last screen1 announcement: {time_since_last:.1f}s (minimum interval: {min_interval}s)")
@@ -876,8 +876,8 @@ try:
                                             print(f"platform: {next_train.get('display_platform') or next_train.get('platform')}")
                                             print(f"time: {next_train.get('aimed_departure_time')}")
                                             
-                                            # Use different announcement intervals for TfL vs National Rail
-                                            min_interval = 30 if next_train.get("is_tfl") else 60
+                                            # Use configured announcement intervals for TfL vs National Rail
+                                            min_interval = config["announcements"]["repeat_interval"]["tfl"] if next_train.get("is_tfl") else config["announcements"]["repeat_interval"]["rail"]
                                             
                                             time_since_last = current_time - announcer.last_next_train_screen2
                                             print(f"Time since last screen2 announcement: {time_since_last:.1f}s (minimum interval: {min_interval}s)")

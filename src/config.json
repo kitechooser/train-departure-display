@@ -46,6 +46,10 @@
     "muted": false,
     "volume": 90,
     "announcement_gap": 2.5,
+    "repeat_interval": {
+      "rail": 60,
+      "tfl": 30
+    },
     "max_queue_size": 10,
     "log_level": "INFO",
     "operating_hours": "",

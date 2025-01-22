@@ -2,4 +2,4 @@ luma.oled
 timeloop
 requests
 xmltodict
-pyttsx3
+gTTS
