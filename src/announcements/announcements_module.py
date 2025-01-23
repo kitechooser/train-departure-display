@@ -41,7 +41,8 @@ class AnnouncementConfig:
             "on_time": False,
             "departures": False,
             "next_train": True,  # Announce next train to arrive
-            "arriving": True     # Announce trains arriving at platform
+            "arriving": True,    # Announce trains arriving at platform
+            "line_status": True  # Announce TfL line status updates
         }
         
         # Validate volume
@@ -393,6 +394,31 @@ class AnnouncementManager:
         except Exception as e:
             self.logger.error("Error creating next train announcement: %s", str(e))
     
+    def announce_line_status(self, status_text: str):
+        """Queue a line status announcement"""
+        if not self.config.enabled:
+            self.logger.debug("Announcements disabled, skipping line status announcement")
+            return
+        if not self.config.announcement_types["line_status"]:
+            self.logger.debug("Line status announcements disabled, skipping")
+            return
+            
+        try:
+            announcement = {
+                "type": "line_status",
+                "message": status_text,
+                "timestamp": time.time()
+            }
+            
+            if self.announcement_queue.full():
+                self.logger.warning("Announcement queue full - dropping announcement")
+                return
+                
+            self.announcement_queue.put(announcement)
+            
+        except Exception as e:
+            self.logger.error("Error creating line status announcement: %s", str(e))
+
     def cleanup(self):
         """Clean up resources"""
         self.running = False

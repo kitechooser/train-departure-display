@@ -40,7 +40,13 @@
     "refreshTime": 90,
     "mode": "tube",
     "platformStyle": "number",
-    "showPlatform": false
+    "showPlatform": false,
+    "status": {
+      "enabled": true,
+      "queryInterval": 120,
+      "displayDuration": 10,
+      "announcementInterval": 360
+    }
   },
   "announcements": {
     "enabled": true,
@@ -63,13 +69,14 @@
       }
     },
     "announcement_types": {
-      "delays": true,
-      "platform_changes": true,
-      "cancellations": true,
-      "on_time": true,
-      "departures": true,
-      "next_train": true,
-      "arriving": true
+      "delays": false,
+      "platform_changes": false,
+      "cancellations": false,
+      "on_time": false,
+      "departures": false,
+      "next_train": false,
+      "arriving": false,
+      "line_status": true
     }
   }
 }
