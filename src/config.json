@@ -55,10 +55,12 @@
     "log_level": "INFO",
     "operating_hours": "",
     "audio": {
-      "driver": "nsss",
-      "device": "default",
-      "macos_voice": "com.apple.voice.compact.en-GB.Daniel",
-      "espeak_voice": "english-uk"
+      "echo": {
+        "enabled": true,
+        "delay": 0.3,
+        "decay": 0.5,
+        "num_echoes": 3
+      }
     },
     "announcement_types": {
       "delays": true,

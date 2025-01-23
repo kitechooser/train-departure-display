@@ -97,8 +97,7 @@ class AudioAnnouncement:
             except:
                 pass
 
-def speak(text, rate=None, volume=0.9, driver=None, device=None, voice=None, 
-          echo_enabled=True, echo_delay=0.3, echo_decay=0.5, num_echoes=3):
+def speak(text, volume=0.9, echo_enabled=True, echo_delay=0.3, echo_decay=0.5, num_echoes=3):
     """Speak text using gTTS"""
     announcer = AudioAnnouncement(volume, echo_enabled, echo_delay, echo_decay, num_echoes)
     try:
@@ -109,11 +108,7 @@ def speak(text, rate=None, volume=0.9, driver=None, device=None, voice=None,
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Text-to-speech announcement')
     parser.add_argument('message', help='The message to speak')
-    parser.add_argument('--rate', type=int, default=150, help='Speech rate (words per minute)')
     parser.add_argument('--volume', type=float, default=0.9, help='Volume (0.0-1.0)')
-    parser.add_argument('--driver', default='auto', help='TTS driver (auto, nsss, espeak)')
-    parser.add_argument('--device', default='default', help='Audio device (Linux/Pi only)')
-    parser.add_argument('--voice', help='Voice ID to use')
     parser.add_argument('--echo-enabled', type=bool, default=True, help='Enable echo effect')
     parser.add_argument('--echo-delay', type=float, default=0.3, help='Delay between echoes in seconds')
     parser.add_argument('--echo-decay', type=float, default=0.5, help='Volume reduction for each echo (0-1)')
@@ -124,11 +119,7 @@ if __name__ == "__main__":
     try:
         speak(
             args.message,
-            rate=args.rate,
             volume=args.volume,
-            driver=args.driver,
-            device=args.device,
-            voice=args.voice,
             echo_enabled=args.echo_enabled,
             echo_delay=args.echo_delay,
             echo_decay=args.echo_decay,

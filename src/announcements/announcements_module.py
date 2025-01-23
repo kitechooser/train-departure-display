@@ -11,28 +11,20 @@ class AnnouncementConfig:
     def __init__(self,
                 enabled: bool = True,
                 volume: int = 90,  # 0-100
-                rate: int = 150,   # Words per minute
-                voice: Optional[str] = None,
                 announcement_gap: float = 2.0,  # seconds between announcements
                 max_queue_size: int = 10,
                 log_level: str = "INFO",
                 announcement_types: Optional[Dict[str, bool]] = None,
-                audio_config: Optional[Dict[str, str]] = None):
+                audio_config: Optional[Dict[str, Any]] = None):
         
         self.enabled = enabled
         self.volume = volume
-        self.rate = rate
-        self.voice = voice
         self.announcement_gap = announcement_gap
         self.max_queue_size = max_queue_size
         self.log_level = log_level
         
         # Audio configuration
         self.audio_config = audio_config or {
-            "driver": "auto",      # auto, nsss (macOS), espeak (Linux/Pi)
-            "device": "default",   # audio device name/id
-            "macos_voice": "",     # specific voice for macOS
-            "espeak_voice": "english-us",  # specific voice for espeak
             "echo": {
                 "enabled": True,       # Enable/disable echo effect
                 "delay": 0.3,         # Delay between echoes in seconds
@@ -201,17 +193,17 @@ class AnnouncementManager:
                         cmd = [
                             'python3', script_path,
                             message,
-                            '--rate', str(self.config.rate),
-                            '--volume', str(self.config.volume / 100.0),
-                            '--driver', self.config.audio_config["driver"],
-                            '--device', self.config.audio_config["device"]
+                            '--volume', str(self.config.volume / 100.0)
                         ]
                         
-                        # Add voice parameter based on driver
-                        if self.config.audio_config["driver"] == "nsss" and self.config.audio_config["macos_voice"]:
-                            cmd.extend(['--voice', self.config.audio_config["macos_voice"]])
-                        elif self.config.audio_config["driver"] == "espeak" and self.config.audio_config["espeak_voice"]:
-                            cmd.extend(['--voice', self.config.audio_config["espeak_voice"]])
+                        # Add echo parameters
+                        if self.config.audio_config["echo"]["enabled"]:
+                            cmd.extend([
+                                '--echo-enabled', 'true',
+                                '--echo-delay', str(self.config.audio_config["echo"]["delay"]),
+                                '--echo-decay', str(self.config.audio_config["echo"]["decay"]),
+                                '--num-echoes', str(self.config.audio_config["echo"]["num_echoes"])
+                            ])
                         
                         self.logger.debug(f"Running speech command: {' '.join(cmd)}")
                         subprocess.run(cmd, check=True)
