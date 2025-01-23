@@ -43,8 +43,7 @@
     "showPlatform": false,
     "status": {
       "enabled": true,
-      "queryInterval": 120,
-      "displayDuration": 10,
+      "queryInterval": 180,
       "announcementInterval": 360
     }
   },
@@ -63,19 +62,19 @@
     "audio": {
       "echo": {
         "enabled": true,
-        "delay": 0.3,
-        "decay": 0.5,
-        "num_echoes": 3
+        "delay": 0.09,
+        "decay": 0.6,
+        "num_echoes": 5
       }
     },
     "announcement_types": {
-      "delays": false,
+      "delays": true,
       "platform_changes": false,
-      "cancellations": false,
+      "cancellations": true,
       "on_time": false,
-      "departures": false,
-      "next_train": false,
-      "arriving": false,
+      "departures": true,
+      "next_train": true,
+      "arriving": true,
       "line_status": true
     }
   }

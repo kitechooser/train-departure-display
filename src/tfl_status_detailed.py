@@ -37,8 +37,8 @@ def get_detailed_line_status(line_name):
             
             # Return the line name and detailed status with extra space for scrolling
             status_text = f"{name} Line Status:\n" + "\n".join(detailed_status)
-            # Add extra spaces after the text to ensure it scrolls completely off screen
-            return status_text + " " * 50
+            # No padding needed - text is long enough
+            return status_text
         else:
             return f"No status found for line: {line_name}"
     except requests.exceptions.RequestException as e:

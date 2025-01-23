@@ -216,13 +216,19 @@ class AnnouncementManager:
         except Exception as e:
             self.logger.error("Failed to speak announcement: %s", str(e))
     
+    def _should_announce(self, announcement_type: str) -> bool:
+        """Check if an announcement type should be processed"""
+        if not self.config.enabled:
+            self.logger.debug("Announcements disabled globally")
+            return False
+        if not self.config.announcement_types.get(announcement_type, False):
+            self.logger.debug(f"{announcement_type} announcements disabled")
+            return False
+        return True
+
     def announce_delay(self, train_data: Dict[str, Any]):
         """Queue a delay announcement"""
-        if not self.config.enabled:
-            self.logger.debug("Announcements disabled, skipping delay announcement")
-            return
-        if not self.config.announcement_types["delays"]:
-            self.logger.debug("Delay announcements disabled, skipping")
+        if not self._should_announce("delays"):
             return
         
         try:
@@ -247,11 +253,7 @@ class AnnouncementManager:
     def announce_platform_change(self, train_data: Dict[str, Any], 
                                new_platform: str):
         """Queue a platform change announcement"""
-        if not self.config.enabled:
-            self.logger.debug("Announcements disabled, skipping platform change announcement")
-            return
-        if not self.config.announcement_types["platform_changes"]:
-            self.logger.debug("Platform change announcements disabled, skipping")
+        if not self._should_announce("platform_changes"):
             return
             
         try:
@@ -276,11 +278,7 @@ class AnnouncementManager:
     
     def announce_cancellation(self, train_data: Dict[str, Any]):
         """Queue a cancellation announcement"""
-        if not self.config.enabled:
-            self.logger.debug("Announcements disabled, skipping cancellation announcement")
-            return
-        if not self.config.announcement_types["cancellations"]:
-            self.logger.debug("Cancellation announcements disabled, skipping")
+        if not self._should_announce("cancellations"):
             return
             
         try:
@@ -303,11 +301,7 @@ class AnnouncementManager:
     
     def announce_departure(self, train_data: Dict[str, Any]):
         """Queue a departure announcement"""
-        if not self.config.enabled:
-            self.logger.debug("Announcements disabled, skipping departure announcement")
-            return
-        if not self.config.announcement_types["departures"]:
-            self.logger.debug("Departure announcements disabled, skipping")
+        if not self._should_announce("departures"):
             return
             
         try:
@@ -330,11 +324,7 @@ class AnnouncementManager:
             
     def announce_next_train(self, train_data: Dict[str, Any]):
         """Queue a next train announcement"""
-        if not self.config.enabled:
-            self.logger.debug("Announcements disabled, skipping next train announcement")
-            return
-        if not self.config.announcement_types["next_train"]:
-            self.logger.debug("Next train announcements disabled, skipping")
+        if not self._should_announce("next_train"):
             return
             
         try:
@@ -396,17 +386,16 @@ class AnnouncementManager:
     
     def announce_line_status(self, status_text: str):
         """Queue a line status announcement"""
-        if not self.config.enabled:
-            self.logger.debug("Announcements disabled, skipping line status announcement")
-            return
-        if not self.config.announcement_types["line_status"]:
-            self.logger.debug("Line status announcements disabled, skipping")
+        if not self._should_announce("line_status"):
             return
             
         try:
+            # Format the message for better speech flow
+            message = "Attention please. " + status_text
+            
             announcement = {
-                "type": "line_status",
-                "message": status_text,
+                "type": "next_train",  # Use next_train type for consistent formatting
+                "message": message,
                 "timestamp": time.time()
             }
             

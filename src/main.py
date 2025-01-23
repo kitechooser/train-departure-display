@@ -29,10 +29,10 @@ def main():
 
         # Initialize fonts and renderers
         font, fontBold, fontBoldTall, fontBoldLarge = initialize_fonts()
-        renderer1 = create_renderer(font, fontBold, fontBoldTall, fontBoldLarge, config, config["screen1"]["mode"])
+        renderer1 = create_renderer(font, fontBold, fontBoldTall, fontBoldLarge, config, config["screen1"]["mode"], announcer)
         renderer2 = None
         if config['dualScreen']:
-            renderer2 = create_renderer(font, fontBold, fontBoldTall, fontBoldLarge, config, config["screen2"]["mode"])
+            renderer2 = create_renderer(font, fontBold, fontBoldTall, fontBoldLarge, config, config["screen2"]["mode"], announcer)
 
         # Initialize display settings
         widgetWidth = 256
@@ -117,63 +117,43 @@ def main():
                                 screenData = platform_filter(departureData, config["screen1"]["platform"], station)
                                 platformDepartures = screenData[0] if screenData[0] else []
                                 
-                                # Check for announcements only for the filtered departures
-                                if not config["announcements"]["muted"]:
-                                    print("\nChecking announcements for screen1 (not muted)")
-                                    print(f"Screen mode: {config['screen1']['mode']}")
-                                    
+                                # Check if announcements are enabled and not muted
+                                if (config["announcements"]["enabled"] and 
+                                    not config["announcements"]["muted"]):
                                     # Check operating hours
                                     announce_hours = []
                                     if config['hoursPattern'].match(config['announcements']['operating_hours']):
                                         announce_hours = [int(x) for x in config['announcements']['operating_hours'].split('-')]
-                                        print(f"Announcement hours: {announce_hours}")
                                     
                                     # Only announce if within operating hours (or if no hours specified)
                                     if not announce_hours or isRun(announce_hours[0], announce_hours[1]):
-                                        print(f"Processing announcements for platform {config['screen1']['platform'] or 'all'} departures:")
                                         
-                                        # Announce next train if we have departures and enough time has passed
-                                        if platformDepartures:
+                                        # Announce next train if enabled and we have departures
+                                        if (platformDepartures and 
+                                            config["announcements"]["announcement_types"]["next_train"]):
                                             current_time = time.time()
                                             next_train = platformDepartures[0]
-                                            
-                                            print(f"\nNext train data (screen1):")
-                                            print(f"is_tfl: {next_train.get('is_tfl')}")
-                                            print(f"destination: {next_train.get('destination_name')}")
-                                            print(f"platform: {next_train.get('display_platform') or next_train.get('platform')}")
-                                            print(f"time: {next_train.get('aimed_departure_time')}")
                                             
                                             # Use configured announcement intervals for TfL vs National Rail
                                             min_interval = config["announcements"]["repeat_interval"]["tfl"] if next_train.get("is_tfl") else config["announcements"]["repeat_interval"]["rail"]
                                             
                                             time_since_last = current_time - announcer.last_next_train_screen1
-                                            print(f"Time since last screen1 announcement: {time_since_last:.1f}s (minimum interval: {min_interval}s)")
                                             
                                             if time_since_last >= min_interval:
-                                                print(f"Announcing next {'TfL' if next_train.get('is_tfl') else 'National Rail'} service")
                                                 announcer.announce_next_train(next_train)
                                                 announcer.last_next_train_screen1 = current_time
-                                            else:
-                                                print(f"Skipping announcement - too soon (need to wait {min_interval - time_since_last:.1f}s more)")
                                         
-                                        # Process other announcements for non-TfL services
+                                        # Process other announcements for non-TfL services if enabled
                                         for departure in platformDepartures:
-                                            # Skip TfL services for delay/cancellation announcements since TfL API doesn't provide this info
-                                            if departure.get("is_tfl"):
-                                                print(f"Skipping TfL service to {departure.get('destination_name')} - No delay information available")
-                                                continue
-                                                
-                                            print(f"Checking departure: {departure.get('destination_name')} - Status: {departure.get('expected_departure_time')} - Platform: {departure.get('platform', 'None')}")
-                                            if departure["expected_departure_time"] == "Cancelled":
-                                                print("Found cancelled service - announcing")
-                                                announcer.announce_cancellation(departure)
-                                            elif departure["expected_departure_time"] == "Delayed":
-                                                print("Found delayed service - announcing")
-                                                announcer.announce_delay(departure)
-                                            elif departure["expected_departure_time"] != "On time" and \
-                                                departure["expected_departure_time"] != departure["aimed_departure_time"]:
-                                                print("Found service with different expected time - announcing delay")
-                                                announcer.announce_delay(departure)
+                                            # Skip TfL services for delay/cancellation announcements
+                                            if not departure.get("is_tfl"):
+                                                if departure["expected_departure_time"] == "Cancelled":
+                                                    announcer.announce_cancellation(departure)
+                                                elif departure["expected_departure_time"] == "Delayed":
+                                                    announcer.announce_delay(departure)
+                                                elif departure["expected_departure_time"] != "On time" and \
+                                                    departure["expected_departure_time"] != departure["aimed_departure_time"]:
+                                                    announcer.announce_delay(departure)
                                     else:
                                         print("Outside announcement hours - skipping announcements")
                                 else:
@@ -194,44 +174,31 @@ def main():
                                     screenData = platform_filter(departureData, config["screen2"]["platform"], station)
                                     platformDepartures = screenData[0] if screenData[0] else []
                                     
-                                    # Process announcements for screen2 (TfL)
-                                    if not config["announcements"]["muted"]:
-                                        print("\nChecking announcements for screen2 (not muted)")
-                                        print(f"Screen mode: {config['screen2']['mode']}")
-                                        
+                                    # Check if announcements are enabled and not muted
+                                    if (config["announcements"]["enabled"] and 
+                                        not config["announcements"]["muted"]):
                                         # Check operating hours
                                         announce_hours = []
                                         if config['hoursPattern'].match(config['announcements']['operating_hours']):
                                             announce_hours = [int(x) for x in config['announcements']['operating_hours'].split('-')]
-                                            print(f"Announcement hours: {announce_hours}")
                                         
                                         # Only announce if within operating hours (or if no hours specified)
                                         if not announce_hours or isRun(announce_hours[0], announce_hours[1]):
-                                            print(f"Processing announcements for platform {config['screen2']['platform'] or 'all'} departures:")
                                             
-                                            # Announce next train if we have departures and enough time has passed
-                                            if platformDepartures:
+                                            # Announce next train if enabled and we have departures
+                                            if (platformDepartures and 
+                                                config["announcements"]["announcement_types"]["next_train"]):
                                                 current_time = time.time()
                                                 next_train = platformDepartures[0]
-                                                
-                                                print(f"\nNext train data (screen2):")
-                                                print(f"is_tfl: {next_train.get('is_tfl')}")
-                                                print(f"destination: {next_train.get('destination_name')}")
-                                                print(f"platform: {next_train.get('display_platform') or next_train.get('platform')}")
-                                                print(f"time: {next_train.get('aimed_departure_time')}")
                                                 
                                                 # Use configured announcement intervals for TfL vs National Rail
                                                 min_interval = config["announcements"]["repeat_interval"]["tfl"] if next_train.get("is_tfl") else config["announcements"]["repeat_interval"]["rail"]
                                                 
                                                 time_since_last = current_time - announcer.last_next_train_screen2
-                                                print(f"Time since last screen2 announcement: {time_since_last:.1f}s (minimum interval: {min_interval}s)")
                                                 
                                                 if time_since_last >= min_interval:
-                                                    print(f"Announcing next {'TfL' if next_train.get('is_tfl') else 'National Rail'} service")
                                                     announcer.announce_next_train(next_train)
                                                     announcer.last_next_train_screen2 = current_time
-                                                else:
-                                                    print(f"Skipping announcement - too soon (need to wait {min_interval - time_since_last:.1f}s more)")
                                         else:
                                             print("Outside announcement hours - skipping announcements")
                                     else:
