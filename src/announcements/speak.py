@@ -11,7 +11,7 @@ import io
 import tempfile
 
 class AudioAnnouncement:
-    def __init__(self, volume=0.9, echo_enabled=True, echo_delay=0.3, echo_decay=0.5, num_echoes=3):
+    def __init__(self, volume=0.9, echo_enabled=True, echo_delay=0.2, echo_decay=0.4, num_echoes=3):
         pygame.mixer.init()
         pygame.mixer.music.set_volume(volume)
         self.temp_file = 'announcement.mp3'
