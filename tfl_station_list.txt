@@ -1,0 +1,500 @@
+Abbey Wood    ->    910GABWD
+Abbey Wood Crossrail    ->    910GABWD
+Acton Central    ->    910GACTNCTL    
+Acton Main Line    ->    910GACTONML    
+Acton Town    ->    940GZZLUACT    
+Albany Park    ->    910GALBNYPK    
+Aldgate    ->    940GZZLUALD    
+Aldgate East    ->    940GZZLUADE    
+Alexandra Palace    ->    910GALEXNDP    
+All Saints    ->    940GZZDLALL    
+Alperton    ->    940GZZLUALP    
+Anerley    ->    910GANERLEY    
+Archway    ->    940GZZLUACY    
+Arnos Grove    ->    940GZZLUASG    
+Arsenal    ->    940GZZLUASL    
+Baker Street    ->    940GZZLUBST    
+Balham    ->    910GBALHAM    
+Bank    ->    940GZZLUBNK    
+Banstead    ->    910GBANSTED    
+Barbican    ->    940GZZLUBBN    
+Barking    ->    910GBARKING    
+Barking Underground    ->    910GBARKING    
+Barkingside    ->    940GZZLUBKE    
+Barnes    ->    910GBARNES    
+Barnes Bridge    ->    910GBNSBDGE    
+Barons Court    ->    940GZZLUBSC    
+Bat & Ball    ->    910GBATABAL    
+Battersea Park    ->    910GQTRDBAT    
+Bayswater    ->    940GZZLUBWT    
+Beckenham Hill    ->    910GBCKNHMH    
+Beckenham Junction    ->    910GBCKNHMJ    
+Beckton    ->    940GZZDLBEC    
+Beckton Park    ->    940GZZDLBPK    
+Becontree    ->    940GZZLUBEC    
+Bellingham    ->    910GBELNGHM    
+Belmont    ->    910GBELM    
+Belsize Park    ->    940GZZLUBZP    
+Belvedere    ->    910GBELVEDR    
+Bermondsey    ->    940GZZLUBMY    
+Bethnal Green    ->    910GBTHNLGR    
+Bexley    ->    910GBEXLEY    
+Bickley    ->    910GBICKLEY    
+Birkbeck    ->    910GBIRKBCK    
+Blackfriars    ->    910GBLFR    
+Blackheath    ->    910GBLKHTH    
+Blackhorse Road    ->    910GBLCHSRD    
+Blackwall    ->    940GZZDLBLA    
+Bond Street    ->    940GZZLUBND    
+Borough    ->    940GZZLUBOR    
+Boston Manor    ->    940GZZLUBOS    
+Bounds Green    ->    910GBOWESPK    
+Bow Church    ->    940GZZDLBOW    
+Bow Road    ->    940GZZLUBWR    
+Bowes Park    ->    910GBOWESPK    
+Brent Cross    ->    940GZZLUBTX    
+Brentford    ->    910GBNTFORD    
+Brimsdown    ->    910GBRIMSDN    
+Brixton    ->    910GBRIXTON    
+Brockley    ->    910GBROCKLY    
+Bromley North    ->    910GBROMLYN    
+Bromley South    ->    910GBROMLYS    
+Bromley-By-Bow    ->    940GZZLUBBB    
+Brondesbury    ->    910GBRBY    
+Brondesbury Park    ->    910GBRBYPK    
+Bruce Grove    ->    910GBRUCGRV    
+Burnt Oak    ->    940GZZLUBTK    
+Bush Hill Park    ->    910GBHILLPK    
+Caledonian Road    ->    940GZZLUCAR    
+Caledonian Road & Barnsbury    ->    910GCLDNNRB    
+Cambridge Heath    ->    910GCAMHTH    
+Camden Road    ->    910GCMDNRD    
+Camden Town    ->    940GZZLUCTN    
+Canada Water    ->    910GCNDAW    
+Canary Wharf    ->    940GZZLUCYF    
+Canary Wharf Crossrail    ->    940GZZLUCYF    
+Canning Town    ->    940GZZLUCGT    
+Cannon Street    ->    940GZZLUCST    
+Canonbury    ->    910GCNNB    
+Canons Park    ->    940GZZLUCPK    
+Carshalton    ->    910GCRSHLTN    
+Carshalton Beeches    ->    910GCRSHLTB    
+Castle Bar Park    ->    910GCBARPAR    
+Catford    ->    910GCATFBDG    
+Catford Bridge    ->    910GCATFORD    
+Chadwell Heath    ->    910GCHDWLHT    
+Chalk Farm    ->    940GZZLUCFM    
+Chancery Lane    ->    940GZZLUCHL    
+Charing Cross    ->    910GCHRX    
+Charlton    ->    910GCRLN    
+Cheam    ->    910GCHEAM    
+Chelsfield    ->    910GCHLSFLD    
+Chessington North    ->    910GCHSSN    
+Chessington South    ->    910GCHSSS    
+Chingford    ->    910GCHINGFD    
+Chipstead    ->    910GCHSD    
+Chislehurst    ->    910GCHSLHRS    
+Chiswick    ->    910GCHISWCK    
+Chiswick Park    ->    940GZZLUCWP    
+City Thameslink    ->    910GCTMSLNK    
+Clapham Common    ->    940GZZLUCPC    
+Clapham High Street    ->    910GCLPHHS    
+Clapham Junction    ->    910GCLPHMJC    
+Clapham North    ->    910GCLPHHS    
+Clapham South    ->    940GZZLUCPS    
+Clapton    ->    910GCLAPTON    
+Clock House    ->    910GCLOCKHS    
+Cockfosters    ->    940GZZLUCKS    
+Colindale    ->    940GZZLUCND    
+Colliers Wood    ->    940GZZLUCSD    
+Coulsdon South    ->    910GCOLSDNS    
+Coulsdon Town    ->    910GCOLSTWN    
+Covent Garden    ->    940GZZLUCGN    
+Crayford    ->    910GCRFD    
+Crews Hill    ->    910GCRHL    
+Cricklewood    ->    910GCRKLWD    
+Crofton Park    ->    910GCFPK    
+Crossharbour    ->    940GZZDLCLA    
+Crouch Hill    ->    910GCROUCHH    
+Crystal Palace    ->    910GCRYSTLP    
+Custom House    ->    940GZZDLCUS    
+Custom House CROSSRAIL    ->    940GZZDLCUS    
+Cutty Sark    ->    940GZZDLCUT    
+Cyprus    ->    940GZZDLCYP    
+Dagenham Dock    ->    910GDGNHMDC    
+Dagenham East    ->    940GZZLUDGE    
+Dagenham Heathway    ->    940GZZLUDGY    
+Dalston Junction    ->    910GDALS    
+Dalston Kingsland    ->    910GDALS    
+Dartford    ->    910GDARTFD    
+Denham    ->    910GDENHAM    
+Denham Golf Club    ->    910GDENHMGC    
+Denmark Hill    ->    910GDENMRKH    
+Deptford    ->    910GDEPTFD    
+Deptford Bridge    ->    940GZZDLDEP    
+Devons Road    ->    940GZZDLDEV    
+Dollis Hill    ->    940GZZLUDOH    
+Drayton Green    ->    910GDRAYGRN    
+Drayton Park    ->    910GDRYP    
+Ealing Broadway    ->    910GEALINGB    
+Ealing Common    ->    940GZZLUECM    
+Earls Court    ->    940GZZLUECT    
+Earlsfield    ->    910GERLFLD    
+East Acton    ->    940GZZLUEAN    
+East Croydon    ->    910GECROYDN    
+East Dulwich    ->    910GEDULWCH    
+East Finchley    ->    940GZZLUEFY    
+East Ham    ->    940GZZLUEHM    
+East India    ->    940GZZDLEIN    
+East Putney    ->    940GZZLUEPY    
+Eastcote    ->    940GZZLUEAE    
+Eden Park    ->    910GEDPK    
+Edgware    ->    940GZZLUEGW    
+Edgware Road (Bakerloo)    ->    940GZZLUERB    
+Edgware Road (Circle)    ->    940GZZLUERC    
+Edmonton Green    ->    910GEDMNGRN    
+Elephant & Castle    ->    910GELPHNAC    
+Elephant & Castle (Underground)    ->    910GELPHNAC    
+Elm Park    ->    940GZZLUEPK    
+Elmers End    ->    910GELMERSE    
+Elmstead Woods    ->    910GELMW    
+Eltham    ->    910GELTHAM    
+Elverson Road    ->    940GZZDLELV    
+Embankment    ->    910GCHRX    
+Enfield Chase    ->    910GENFC    
+Enfield Lock    ->    910GENFLDLK    
+Enfield Town    ->    910GENFLDTN    
+Erith    ->    910GERITH    
+Essex Road    ->    910GESSEXRD    
+Euston    ->    910GEUSTON    
+Euston Square    ->    940GZZLUESQ    
+Fairlop    ->    940GZZLUFLP    
+Falconwood    ->    910GFALCNWD    
+Farringdon    ->    910GFRNDNLT    
+Farringdon Crossrail    ->    940GZZLUFCN    
+Feltham    ->    910GFELTHAM    
+Fenchurch Street    ->    910GFENCHRS    
+Finchley Central    ->    940GZZLUFYC    
+Finchley Road    ->    940GZZLUFYR    
+Finchley Road & Frognal    ->    910GFNCHLYR    
+Finsbury Park    ->    910GFNPK    
+Forest Gate    ->    910GFRSTGT    
+Forest Hill    ->    910GFORESTH    
+Fulham Broadway    ->    940GZZLUFBY    
+Fulwell    ->    910GFULWELL    
+Gallions Reach    ->    940GZZDLGAL    
+Gants Hill    ->    940GZZLUGTH    
+Gidea Park    ->    910GGIDEAPK    
+Gipsy Hill    ->    910GGIPSYH    
+Gloucester Road    ->    940GZZLUGTR    
+Golders Green    ->    940GZZLUGGN    
+Goldhawk Road    ->    940GZZLUGHK    
+Goodge Street    ->    940GZZLUGDG    
+Goodmayes    ->    910GGODMAYS    
+Gordon Hill    ->    910GGORDONH    
+Gospel Oak    ->    910GGOSPLOK    
+Grange Park    ->    910GGRPK    
+Great Portland Street    ->    940GZZLUGPS    
+Green Park    ->    940GZZLUGPK    
+Greenford    ->    910GGFORD    
+Greenwich    ->    910GGNWH    
+Grove Park    ->    910GGRVPK    
+Gunnersbury    ->    910GGNRSBRY    
+Hackbridge    ->    910GHKBG    
+Hackney Central    ->    910GHACKNYC    
+Hackney Downs    ->    910GHACKNYC    
+Hackney Wick    ->    910GHACKNYW    
+Hadley Wood    ->    910GHADLYWD    
+Haggerston    ->    910GHAGGERS    
+Hainault    ->    940GZZLUHLT    
+Hammersmith    ->    940GZZLUHSD    
+Hammersmith (District and Piccadilly)    ->    940GZZLUHSC    
+Hampstead    ->    940GZZLUHTD    
+Hampstead Heath    ->    910GHMPSTDH    
+Hampton (London)    ->    910GHAMPTON    
+Hampton Wick    ->    910GHAMWICK    
+Hanger Lane    ->    940GZZLUHGR    
+Hanwell    ->    910GHANWELL    
+Harlesden    ->    910GHARLSDN    
+Harold Wood    ->    910GHRLDWOD    
+Harringay    ->    910GHRGY    
+Harringay Green Lanes    ->    910GHRGYGL    
+Harrow & Wealdstone    ->    910GHROW    
+Harrow-on-the-Hill    ->    910GHAROOTH    
+Hatch End    ->    910GHTCHEND    
+Haydons Road    ->    910GHYDNSRD    
+Hayes & Harlington    ->    910GHAYESAH    
+Hayes (Kent)    ->    910GHAYS    
+Headstone Lane    ->    910GHEDSTNL    
+Heathrow Airport Terminal 5    ->    910GHTRWTM5    
+Hendon    ->    910GHDON    
+Hendon Central    ->    940GZZLUHCL    
+Herne Hill    ->    910GHERNEH    
+Heron Quays    ->    940GZZDLHEQ    
+High Barnet    ->    940GZZLUHBT    
+High Street Kensington    ->    940GZZLUHSK    
+Highams Park    ->    910GHGHMSPK    
+Highbury & Islington    ->    910GHGHI    
+Highgate    ->    940GZZLUHGT    
+Hillingdon    ->    940GZZLUHGD    
+Hither Green    ->    910GHTHRGRN    
+Holborn    ->    940GZZLUHBN    
+Holland Park    ->    940GZZLUHPK    
+Holloway Road    ->    940GZZLUHWY    
+Homerton    ->    910GHOMRTON    
+Honor Oak Park    ->    910GHONROPK    
+Hornchurch    ->    940GZZLUHCH    
+Hornsey    ->    910GHRNSY    
+Hounslow    ->    910GHOUNSLW    
+Hounslow Central    ->    940GZZLUHWC    
+Hounslow East    ->    940GZZLUHWE    
+Hounslow West    ->    940GZZLUHWT    
+Hoxton    ->    910GHOXTON    
+Hyde Park Corner    ->    940GZZLUHPC    
+Ickenham    ->    940GZZLUICK    
+Ilford    ->    910GILFORD    
+Imperial Wharf    ->    910GCSEAH    
+Island Gardens    ->    940GZZDLISL    
+Isleworth    ->    910GISLEWTH    
+Kenley    ->    910GKNLY    
+Kennington    ->    940GZZLUKNG    
+Kensal Green    ->    910GKENSLG    
+Kensal Rise    ->    910GKENR    
+Kensington Olympia    ->    910GKENOLYM    
+Kent House    ->    910GKENTHOS    
+Kentish Town    ->    910GKNTSHTN    
+Kentish Town West    ->    910GKNTSHTW    
+Kenton    ->    910GKTON    
+Kew Bridge    ->    910GKEWBDGE    
+Kew Gardens    ->    910GKEWGRDN    
+Kidbrooke    ->    910GKIDBROK    
+Kilburn    ->    910GBRBY    
+Kilburn High Road    ->    910GKLBRNHR    
+Kilburn Park    ->    910GKLBRNHR    
+Kings Cross    ->    910GKNGX    
+Kingsbury    ->    940GZZLUKBY    
+Kingston    ->    910GKGSTON    
+Knightsbridge    ->    940GZZLUKNB    
+Knockholt    ->    910GKNCKHLT    
+Ladbroke Grove    ->    940GZZLULAD    
+Ladywell    ->    910GLDYW    
+Lambeth North    ->    940GZZLULBN    
+Lancaster Gate    ->    940GZZLULGT    
+Latimer Road    ->    940GZZLULRD    
+Lea Bridge    ->    910GLEABDGE    
+Lee (London)    ->    910GLEEE    
+Leicester Square    ->    940GZZLULSQ    
+Lewisham    ->    910GLEWISHM    
+Leyton    ->    940GZZLULYN    
+Leyton Midland Road    ->    910GLEYTNMR    
+Leytonstone    ->    940GZZLULYS    
+Leytonstone High Road    ->    910GLYTNSHR    
+Limehouse    ->    910GLIMHSE    
+Liverpool Street    ->    910GLIVST    
+Liverpool Street Crossrail    ->    910GLIVST    
+London Bridge    ->    910GLNDNBDC    
+London Fields    ->    910GLONFLDS    
+Loughborough Junction    ->    910GLBGHJN    
+Lower Sydenham    ->    910GLSYDNHM    
+Maida Vale    ->    940GZZLUMVL    
+Malden Manor    ->    910GMALDENM    
+Manor House    ->    940GZZLUMRH    
+Manor Park    ->    910GMANRPK    
+Mansion House    ->    940GZZLUMSH    
+Marble Arch    ->    940GZZLUMBA    
+Maryland    ->    910GMRYLAND    
+Marylebone    ->    910GMARYLBN    
+Maze Hill    ->    910GMAZEH    
+Merdian Water    ->    940GZZLUAGL    
+Mile End    ->    940GZZLUMED    
+Mill Hill Broadway    ->    910GMLHB    
+Mill Hill East    ->    940GZZLUMHL    
+Mitcham Eastfields    ->    910GESTFLDS    
+Mitcham Junction    ->    910GMITCHMJ    
+Monument    ->    940GZZLUBNK    
+Moor Park    ->    940GZZLUMPK    
+Moorgate    ->    910GMRGT    
+Morden    ->    940GZZLUMDN    
+Morden South    ->    910GMORDENS    
+Mornington Crescent    ->    940GZZLUMTC    
+Mortlake    ->    910GMRTLKE    
+Motspur Park    ->    910GMOTSPRP    
+Mottingham    ->    910GMOTNGHM    
+Mudchute    ->    940GZZDLMUD    
+Neasden    ->    940GZZLUNDN    
+New Barnet    ->    910GNBARNET    
+New Beckenham    ->    910GNBCKNHM    
+New Cross    ->    910GNWCRELL    
+New Cross Gate    ->    910GNEWXGEL    
+New Eltham    ->    910GNWELTHM    
+New Malden    ->    910GNEWMLDN    
+New Southgate    ->    910GNEWSGAT    
+Newbury Park    ->    910GILFENBP    
+Norbiton    ->    910GNRBITON    
+Norbury    ->    910GNORBURY    
+North Acton    ->    940GZZLUNAN    
+North Dulwich    ->    910GNDULWCH    
+North Ealing    ->    940GZZLUNEN    
+North Greenwich    ->    940GZZLUNGW    
+North Harrow    ->    940GZZLUNHA    
+North Sheen    ->    910GNSHEEN    
+North Wembley    ->    910GNWEMBLY    
+Northfields    ->    940GZZLUNFD    
+Northolt    ->    940GZZLUNHT    
+Northolt Park    ->    910GNTHOLTP    
+Northumberland Park    ->    910GNMBRLPK    
+Northwick Park    ->    940GZZLUNKP    
+Northwood    ->    940GZZLUNOW    
+Northwood Hills    ->    940GZZLUNWH    
+Norwood Junction    ->    910GNORWDJ    
+Notting Hill Gate    ->    940GZZLUNHG    
+Nunhead    ->    910GNUNHEAD    
+Oakleigh Park    ->    910GOKLGHPK    
+Oakwood    ->    940GZZLUOAK    
+Old Street    ->    910GOLDST    
+Orpington    ->    910GORPNGTN    
+Osterley    ->    940GZZLUOSY    
+Otford    ->    910GOTFORD    
+Oval    ->    940GZZLUOVL    
+Oxford Circus    ->    940GZZLUOXC    
+Paddington    ->    910GPADTON    
+Paddington CROSSRAIL    ->    940GZZLUPAC    
+Palmers Green    ->    910GPALMRSG    
+Park Royal    ->    940GZZLUPKR    
+Parsons Green    ->    940GZZLUPSG    
+Peckham Rye    ->    910GPCKHMRY    
+Penge East    ->    910GPNGEE    
+Penge West    ->    910GPENEW    
+Perivale    ->    940GZZLUPVL    
+Petts Wood    ->    910GPETSWD    
+Piccadilly Circus    ->    940GZZLUPCC    
+Pimlico    ->    940GZZLUPCO    
+Pinner    ->    940GZZLUPNR    
+Plaistow    ->    940GZZLUPLW    
+Plumstead    ->    910GPLMS    
+Ponders End    ->    910GPNDRSEN    
+Poplar    ->    940GZZDLPOP    
+Preston Road    ->    940GZZLUPRD    
+Prince Regent    ->    940GZZDLPRE    
+Pudding Mill Lane    ->    940GZZDLPUD    
+Purley    ->    910GPURLEY    
+Purley Oaks    ->    910GPURLEYO    
+Putney    ->    910GPUTNEY    
+Putney Bridge    ->    940GZZLUPYB    
+Queens Park    ->    910GQPRK    
+Queens Road (Peckham)    ->    910GPCKHMQD    
+Queensbury    ->    940GZZLUQBY    
+Queenstown Road (Battersea)    ->    910GQTRDBAT    
+Queensway    ->    940GZZLUQWY    
+Rainham (Essex)    ->    910GRNHAME    
+Ravensbourne    ->    910GRBRN    
+Ravenscourt Park    ->    940GZZLURVP    
+Rayners Lane    ->    940GZZLURYL    
+Raynes Park    ->    910GRAYNSPK    
+Rectory Road    ->    910GRCTRYRD    
+Reedham (Surrey)    ->    910GREEDHMS    
+Regents Park    ->    940GZZLURGP    
+Richmond    ->    910GRICHMND    
+Riddlesdown    ->    910GRDLSDWN    
+Romford    ->    910GROMFORD    
+Rotherhithe    ->    910GCNDAW    
+Royal Albert    ->    940GZZDLRAL    
+Royal Oak    ->    940GZZLURYO    
+Royal Victoria    ->    940GZZDLRVC    
+Ruislip    ->    940GZZLURSP    
+Ruislip Gardens    ->    940GZZLURSG    
+Ruislip Manor    ->    940GZZLURSM    
+Russell Square    ->    940GZZLURSQ    
+Sanderstead    ->    910GSDSD    
+Selhurst    ->    910GSELHRST    
+Seven Kings    ->    910GSVNKNGS    
+Seven Sisters    ->    940GZZLUSVS    
+Shadwell    ->    910GSHADWEL    
+Shepherds Bush    ->    910GSHPDSB    
+Shepherds Bush Market    ->    940GZZLUSBM    
+Shoreditch High Street    ->    910GSHRDHST    
+Shoreham (Kent)    ->    910GSHRMKT    
+Shortlands    ->    910GSHRTLND    
+Sidcup    ->    910GSIDCUP    
+Silver Street    ->    910GSIVRST    
+Slade Green    ->    910GSLADEGN    
+Sloane Square    ->    940GZZLUSSQ    
+Snaresbrook    ->    940GZZLUSNB    
+South Acton    ->    910GSACTON    
+South Bermondsey    ->    910GSBRMNDS    
+South Croydon    ->    910GSCROYDN    
+South Ealing    ->    940GZZLUSEA    
+South Greenford    ->    910GSGFORD    
+South Hampstead    ->    910GSHMPSTD    
+South Harrow    ->    940GZZLUSHH    
+South Kensington    ->    940GZZLUSKS    
+South Kenton    ->    910GSKENTON    
+South Merton    ->    910GSMERTON    
+South Quay    ->    940GZZDLSOQ    
+South Ruislip    ->    910GSRUISLP    
+South Tottenham    ->    910GSTOTNHM    
+South Wimbledon    ->    940GZZLUSWN    
+South Woodford    ->    940GZZLUSWF    
+Southall    ->    910GSTHALL    
+Southbury    ->    910GSBURY    
+Southfields    ->    940GZZLUSFS    
+Southgate    ->    940GZZLUSGT    
+Southwark    ->    910GWLOE    
+St Helier (Surrey)    ->    910GSHLIER    
+St James Street    ->    910GSTJMSST    
+St Jamess Park    ->    940GZZLUSJP    
+St Johns (London)    ->    910GSTJOHNS    
+St Johns Wood    ->    940GZZLUSJW    
+St Margarets (London)    ->    910GSTMGTS    
+St Mary Cray    ->    910GSTMRYC    
+St Pancras International    ->    910GSTPADOM    
+St Pauls    ->    940GZZLUSPU    
+Stamford Brook    ->    940GZZLUSFB    
+Stamford Hill    ->    910GSTMFDHL    
+Stanmore    ->    940GZZLUSTM    
+Stepney Green    ->    940GZZLUSGN    
+Stockwell    ->    940GZZLUSKW    
+Stoke Newington    ->    910GSTKNWNG    
+Stonebridge Park    ->    910GSTNBGPK    
+Stratford    ->    910GSTFD    
+Stratford International    ->    910GSTFODOM    
+Strawberry Hill    ->    910GSTRWBYH    
+Streatham (Greater London)    ->    910GSTRETHM    
+Streatham Common    ->    910GSTRHCOM    
+Streatham Hill    ->    910GSTRHILL    
+Sudbury & Harrow Road    ->    910GSDBRYHR    
+Sudbury Hill    ->    910GSDBRYHH    
+Sudbury Hill Harrow    ->    910GSDBRYHH    
+Sudbury Town    ->    940GZZLUSUT    
+Sundridge Park    ->    910GSNDP    
+Surbiton    ->    910GSURBITN    
+Surrey Quays    ->    910GSURREYQ    
+Swiss Cottage    ->    940GZZLUSWC    
+Sydenham    ->    910GSYDENHM    
+Sydenham Hill    ->    910GSYDNHMH    
+Syon Lane    ->    910GSYONLA    
+Teddington    ->    910GTEDNGTN    
+Temple    ->    940GZZLUTMP    
+Tooting    ->    910GTOOTING    
+Tooting Bec    ->    940GZZLUTBC    
+Tooting Broadway    ->    940GZZLUTBY    
+Tottenham Court Road    ->    940GZZLUTCR    
+Tottenham Hale    ->    910GTTNHMHL    
+Totteridge & Whetstone    ->    940GZZLUTAW    
+Tower Gateway    ->    940GZZDLTWG    
+Tower Hill    ->    910GFENCHRS    
+Tufnell Park    ->    940GZZLUTFP    
+Tulse Hill    ->    910GTULSEH    
+Turkey Street    ->    910GTURKYST    
+Turnham Green    ->    940GZZLUTNG    
+Turnpike Lane    ->    940GZZLUTPN    
+Twickenham    ->    910GTWCKNHM    
+Upminster    ->    910GUPMNSTR    
+Upminster Bridge    ->    940GZZLUUPB    
+Upney    ->    940GZZLUUPY    
+Upper Holloway    ->    910GUPRHLWY    
+Upton Park    ->    940GZZLUUPK    
+Uxbridge    ->    940GZZLUUXB    
+Vauxhall    ->    910GVAUXHLM    
+Victoria    ->    910GVICTRIC    
+Waddon    ->    910GWADDON

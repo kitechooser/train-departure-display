@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: train-departure-display
+Version: 0.1.0
+Requires-Dist: requests>=2.25.1
+Requires-Dist: pillow>=8.0.0
+Requires-Dist: luma.core>=2.3.1
+Requires-Dist: luma.oled>=3.8.1
+Provides-Extra: test
+Requires-Dist: pytest>=7.4.3; extra == "test"
+Requires-Dist: pytest-cov>=4.1.0; extra == "test"
+Requires-Dist: responses>=0.24.1; extra == "test"
+Requires-Dist: mock>=5.1.0; extra == "test"

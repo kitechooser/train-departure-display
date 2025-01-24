@@ -49,6 +49,14 @@
       "alternatingRowInterval": 7
     }
   },
+  "migration": {
+    "phase1_enabled": true,
+    "phase2_enabled": true,
+    "use_new_api_client": false,
+    "use_new_tfl_client": true,
+    "use_new_rail_client": false,
+    "use_event_system": true
+  },
   "announcements": {
     "enabled": true,
     "muted": false,

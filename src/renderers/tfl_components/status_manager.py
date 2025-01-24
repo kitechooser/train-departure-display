@@ -42,8 +42,6 @@ class StatusManager:
                 new_status = get_detailed_line_status(line_name)
                 logger.info(f"Checking status update - Current: {self.current_line_status}, New: {new_status}, Last shown: {self.last_shown_status}, Showing: {self.showing_status}")
                 
-                logger.info(f"Status check - New: {new_status}, Current: {self.current_line_status}, Last shown: {self.last_shown_status}")
-                
                 # Always update current status
                 self.current_line_status = new_status
                 
@@ -51,6 +49,7 @@ class StatusManager:
                 if new_status != self.last_shown_status:
                     logger.info("Status changed, resetting last shown status")
                     self.last_shown_status = None
+                    self.last_shown_time = 0  # Reset last shown time
                 
                 self.last_status_query = current_time
                 
@@ -90,37 +89,52 @@ class StatusManager:
             return False
             
         current_time = time.time()
+        reshow_interval = self.config["tfl"]["status"]["reshowInterval"]
         
-        # First check if reshow interval has passed, regardless of current showing state
+        # Only show status if we have enough departures
+        if len(current_departures) <= 2:
+            self.showing_status = False
+            return False
+            
+        # Check if we should force a reshow based on interval
         if (self.last_shown_time > 0 and 
-            current_time - self.last_shown_time >= self.config["tfl"]["status"]["reshowInterval"]):
-            logger.info(f"Reshow interval passed ({current_time - self.last_shown_time}s), resetting last shown status")
+            current_time - self.last_shown_time >= reshow_interval):
+            logger.info(f"Reshow interval passed ({current_time - self.last_shown_time}s >= {reshow_interval}s), resetting last shown status")
             self.last_shown_status = None
-            # If currently showing, let it finish naturally
+            self.last_shown_time = 0
+            # If not currently showing and we have space, force immediate reshow
             if not self.showing_status:
-                # Force immediate reshow if we have space
-                if len(current_departures) > 2:
-                    logger.info("Forcing immediate reshow of status")
-                    self.showing_status = False  # Ensure we're ready to show
-                    
-        # If we're not currently showing status, check if we should start
-        if not self.showing_status:
-            # Show if we have a third departure and status needs showing
-            if len(current_departures) > 2 and self.last_shown_status is None:
+                logger.info("Forcing immediate reshow of status")
+                self.showing_status = True
+                self.statusElevated = False
+                self.statusPixelsUp = 0
+                self.statusPixelsLeft = 0
+                
                 # Calculate text width and set display duration
                 status_text = self.current_line_status.replace("\n", " ")
                 text_width, _, _ = cached_bitmap_text(status_text, self.font)
-                self.status_display_start = time.time()
+                self.status_display_start = current_time
+                self.status_duration = self.calculate_scroll_duration(text_width)
+                logger.info(f"Starting status display, duration: {self.status_duration}s")
+                return True
+                    
+        # If we're not currently showing status, check if we should start
+        if not self.showing_status:
+            # Show if status needs showing
+            if self.last_shown_status is None:
+                # Calculate text width and set display duration
+                status_text = self.current_line_status.replace("\n", " ")
+                text_width, _, _ = cached_bitmap_text(status_text, self.font)
+                self.status_display_start = current_time
                 self.status_duration = self.calculate_scroll_duration(text_width)
                 logger.info(f"Starting status display, duration: {self.status_duration}s")
                 self.showing_status = True
                 self.statusElevated = False
                 self.statusPixelsUp = 0
-                self.statusPixelsLeft = 0  # Start from left edge
+                self.statusPixelsLeft = 0
                 return True
         # If we are showing status, check if we should continue
         else:
-            current_time = time.time()
             if current_time - self.status_display_start < self.status_duration:
                 return True
             else:
@@ -128,13 +142,13 @@ class StatusManager:
                 logger.info(f"Status display cycle complete - Current: {self.current_line_status}, Last shown: {self.last_shown_status}")
                 self.showing_status = False
                 self.statusPauseCount = 0
-                self.statusPixelsLeft = 0  # Reset to left edge
+                self.statusPixelsLeft = 0
                 self.statusElevated = False
                 self.statusPixelsUp = 0
                 if self.current_line_status:  # Only update last shown if we have a status
                     logger.info(f"Marking status as shown - Current: {self.current_line_status}")
                     self.last_shown_status = self.current_line_status
-                    self.last_shown_time = time.time()  # Track when we showed it
+                    self.last_shown_time = current_time  # Track when we showed it
                     logger.info(f"Status state after marking shown - Current: {self.current_line_status}, Last shown: {self.last_shown_status}")
                 logger.info("Returning to departure 3")
                 return False
