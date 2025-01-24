@@ -14,6 +14,7 @@ class StatusManager:
         self.current_line_status = None
         self.status_display_start = 0
         self.last_shown_status = None  # Track last shown status
+        self.last_shown_time = 0  # Track when status was last shown
         
         # Status animation states
         self.showing_status = False
@@ -40,19 +41,17 @@ class StatusManager:
             if line_name:
                 new_status = get_detailed_line_status(line_name)
                 logger.info(f"Checking status update - Current: {self.current_line_status}, New: {new_status}, Last shown: {self.last_shown_status}, Showing: {self.showing_status}")
-                # Check if we have a new status that hasn't been shown yet
+                
+                logger.info(f"Status check - New: {new_status}, Current: {self.current_line_status}, Last shown: {self.last_shown_status}")
+                
+                # Always update current status
+                self.current_line_status = new_status
+                
+                # If status has changed, reset last shown to force display
                 if new_status != self.last_shown_status:
-                    logger.info(f"Status check - New: {new_status}, Current: {self.current_line_status}, Last shown: {self.last_shown_status}, Showing: {self.showing_status}")
-                    if not self.showing_status:
-                        if new_status != self.current_line_status:
-                            logger.info("New status detected, updating current status")
-                            self.current_line_status = new_status
-                        else:
-                            logger.info("Status already set as current")
-                    else:
-                        logger.info("Status display in progress, deferring update")
-                else:
-                    logger.info(f"Status already shown - New: {new_status}, Last shown: {self.last_shown_status}")
+                    logger.info("Status changed, resetting last shown status")
+                    self.last_shown_status = None
+                
                 self.last_status_query = current_time
                 
                 # Only process announcements if they are enabled in config and we have a status
@@ -90,9 +89,24 @@ class StatusManager:
             self.showing_status = False
             return False
             
-        # If we're not showing status, check if we should start
-        if not self.showing_status and self.current_line_status != self.last_shown_status:  # Only show if status changed
-            if len(current_departures) > 2:  # Only show status if we have a third departure to replace
+        current_time = time.time()
+        
+        # First check if reshow interval has passed, regardless of current showing state
+        if (self.last_shown_time > 0 and 
+            current_time - self.last_shown_time >= self.config["tfl"]["status"]["reshowInterval"]):
+            logger.info(f"Reshow interval passed ({current_time - self.last_shown_time}s), resetting last shown status")
+            self.last_shown_status = None
+            # If currently showing, let it finish naturally
+            if not self.showing_status:
+                # Force immediate reshow if we have space
+                if len(current_departures) > 2:
+                    logger.info("Forcing immediate reshow of status")
+                    self.showing_status = False  # Ensure we're ready to show
+                    
+        # If we're not currently showing status, check if we should start
+        if not self.showing_status:
+            # Show if we have a third departure and status needs showing
+            if len(current_departures) > 2 and self.last_shown_status is None:
                 # Calculate text width and set display duration
                 status_text = self.current_line_status.replace("\n", " ")
                 text_width, _, _ = cached_bitmap_text(status_text, self.font)
@@ -118,10 +132,10 @@ class StatusManager:
                 self.statusElevated = False
                 self.statusPixelsUp = 0
                 if self.current_line_status:  # Only update last shown if we have a status
-                    logger.info(f"Marking status as shown and resetting - Current: {self.current_line_status}")
+                    logger.info(f"Marking status as shown - Current: {self.current_line_status}")
                     self.last_shown_status = self.current_line_status
-                    self.current_line_status = None  # Reset current status to prevent re-showing
-                    logger.info(f"Status state after reset - Current: {self.current_line_status}, Last shown: {self.last_shown_status}")
+                    self.last_shown_time = time.time()  # Track when we showed it
+                    logger.info(f"Status state after marking shown - Current: {self.current_line_status}, Last shown: {self.last_shown_status}")
                 logger.info("Returning to departure 3")
                 return False
                 

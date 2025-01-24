@@ -44,7 +44,9 @@
     "status": {
       "enabled": true,
       "queryInterval": 180,
-      "announcementInterval": 360
+      "announcementInterval": 360,
+      "reshowInterval": 60,
+      "alternatingRowInterval": 7
     }
   },
   "announcements": {

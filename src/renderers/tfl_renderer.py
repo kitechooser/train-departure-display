@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw
 from luma.core.virtual import viewport, snapshot
 from .base_renderer import BaseRenderer
-from .tfl_components import StatusManager, ViewportManager, RowRenderer
+from .tfl_components import StatusManager, ViewportManager, RowRenderer, AlternatingRowRenderer
 import time
 import logging
 
@@ -16,6 +16,7 @@ class TflRenderer(BaseRenderer):
         self.status_manager = StatusManager(config, font)
         self.viewport_manager = ViewportManager(config, font, fontBold)
         self.row_renderer = RowRenderer(config, font, fontBold)
+        self.alternating_renderer = AlternatingRowRenderer(config, font, fontBold)
 
     def drawSignage(self, device, width, height, data):
         # Create viewport
@@ -62,9 +63,49 @@ class TflRenderer(BaseRenderer):
         if len(departures) > 2 and not self.should_show_status():
             rows['row_four']['components'] = self._create_departure_row(departures[2], self.font, '3rd', dimensions, width)
         elif self.should_show_status():
+            # Show status in row four
             rows['row_four']['components'] = [
                 {'type': 'full_width', 'snapshot': self.viewport_manager.create_snapshot(width, 10, self.renderLineStatus, 0.02)}
             ]
+            
+            # When showing status, use alternating renderer for row three
+            if len(departures) > 2:
+                # Extract dimensions
+                w, pw, tw, spacing, total_spacing = (
+                    dimensions['status_width'],
+                    dimensions['platform_width'],
+                    dimensions['time_width'],
+                    dimensions['spacing'],
+                    dimensions['total_spacing']
+                )
+                
+                # Create snapshot with alternating renderer
+                rows['row_three']['components'] = [
+                    {'type': 'destination', 'snapshot': self.viewport_manager.create_snapshot(
+                        width - w - pw - tw - total_spacing, 10,
+                        lambda draw, w=None, h=None: self.alternating_renderer.render_departure_row(departures, self.font, dimensions, width, draw, w, h, self.cachedBitmapText),
+                        0.02  # Fast refresh for smooth animation
+                    )},
+                    {'type': 'time', 'snapshot': self.viewport_manager.create_snapshot(
+                        tw, 10,
+                        lambda draw, w=None, h=None: self.renderTimeToArrival(departures[self.alternating_renderer.current_departure_index], draw, w, h),
+                        0.02
+                    )},
+                    {'type': 'status', 'snapshot': self.viewport_manager.create_snapshot(
+                        w, 10,
+                        lambda draw, w=None, h=None: self.renderServiceStatus(departures[self.alternating_renderer.current_departure_index], draw, w, h),
+                        0.02
+                    )}
+                ]
+                if self.config["tfl"]["showPlatform"]:
+                    rows['row_three']['components'].append({
+                        'type': 'platform',
+                        'snapshot': self.viewport_manager.create_snapshot(
+                            pw, 10,
+                            lambda draw, w=None, h=None: self.renderPlatform(departures[self.alternating_renderer.current_departure_index], draw, w, h),
+                            0.02
+                        )
+                    })
 
         # Time row
         rows['row_time']['components'] = [
