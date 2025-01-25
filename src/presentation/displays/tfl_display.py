@@ -1,197 +1,73 @@
-from typing import Dict, Any, List, Optional
-from PIL import Image, ImageDraw
-import time
+from typing import List, Optional, Dict, Any
+from PIL import Image, ImageDraw, ImageFont
 from .base_display import BaseDisplay, DisplayConfig
-from ..renderers.components.text import TextComponent, TextStyle
-from ..renderers.components.scroll import ScrollComponent
+from src.infrastructure.event_bus import EventBus
+from src.domain.models.station import TflStation
+from src.domain.models.service import Service
+from src.presentation.renderers.components.text import TextComponent, TextStyle
+from src.presentation.renderers.components.scroll import ScrollComponent
+from src.presentation.renderers.layouts.grid import GridLayout
 
 class TflDisplay(BaseDisplay):
-    """TfL-specific display implementation"""
+    """TfL Underground display implementation"""
     
-    def __init__(self, config: DisplayConfig):
-        super().__init__(config)
+    def __init__(self, width: int, height: int, event_bus: Optional[EventBus] = None):
+        """Initialize the TfL display
         
-        # Create components for each row
-        self._setup_row_components()
+        Args:
+            width: Display width in pixels
+            height: Display height in pixels
+            event_bus: Optional event bus for event handling
+        """
+        super().__init__(width, height, event_bus)
+        self.config = DisplayConfig(width=width, height=height)
+        self.station: Optional[TflStation] = None
+        self.services: List[Service] = []
         
-        # State
-        self.current_departures: List[Dict[str, Any]] = []
-        self.current_calling_points: Optional[str] = None
-        self.current_station: str = ""
-        self.alternating_index = 0
-        self.last_alternation = 0
-        self.alternation_interval = 7  # seconds
+    def render(self) -> Image.Image:
+        """Render the display content
         
-    def _setup_row_components(self) -> None:
-        """Set up the components for each row"""
-        # Row 1 (First departure)
-        self.rows[0].add_component(
-            TextComponent("", self.bold_style),  # Position (1st)
-            width=30,
-            padding=(2, 0, 2, 0)
-        )
-        self.rows[0].add_component(
-            TextComponent("", self.bold_style),  # Destination
-            padding=(2, 0, 2, 0)
-        )
-        self.rows[0].add_component(
-            TextComponent("", self.bold_style),  # Time
-            width=50,
-            padding=(2, 0, 2, 0),
-            align_v="center"
-        )
-        self.rows[0].add_component(
-            TextComponent("", self.bold_style),  # Status
-            width=60,
-            padding=(2, 0, 2, 0),
-            align_v="center"
-        )
+        Returns:
+            PIL Image containing the rendered display
+        """
+        # Create base image
+        image = Image.new('1', (self.width, self.height))
+        draw = ImageDraw.Draw(image)
         
-        # Row 2 (Calling points)
-        self.rows[1].add_component(
-            TextComponent("Calling at:", self.text_style),
-            width=70,
-            padding=(2, 0, 2, 0)
-        )
-        self.calling_points_scroll = ScrollComponent(
-            TextComponent("", self.text_style),
-            self.config.width - 70,
-            12
-        )
-        self.rows[1].add_component(
-            self.calling_points_scroll,
-            padding=(0, 0, 2, 0)
-        )
+        # Create layout grid
+        grid = GridLayout(self.width, self.height, rows=3, cols=1)
         
-        # Row 3 (Second departure)
-        self.rows[2].add_component(
-            TextComponent("", self.text_style),  # Position (2nd)
-            width=30,
-            padding=(2, 0, 2, 0)
-        )
-        self.rows[2].add_component(
-            TextComponent("", self.text_style),  # Destination
-            padding=(2, 0, 2, 0)
-        )
-        self.rows[2].add_component(
-            TextComponent("", self.text_style),  # Time
-            width=50,
-            padding=(2, 0, 2, 0),
-            align_v="center"
-        )
-        self.rows[2].add_component(
-            TextComponent("", self.text_style),  # Status
-            width=60,
-            padding=(2, 0, 2, 0),
-            align_v="center"
-        )
-        
-        # Row 4 (Third departure or status)
-        self.rows[3].add_component(
-            TextComponent("", self.text_style),  # Position (3rd)
-            width=30,
-            padding=(2, 0, 2, 0)
-        )
-        self.rows[3].add_component(
-            TextComponent("", self.text_style),  # Destination
-            padding=(2, 0, 2, 0)
-        )
-        self.rows[3].add_component(
-            TextComponent("", self.text_style),  # Time
-            width=50,
-            padding=(2, 0, 2, 0),
-            align_v="center"
-        )
-        self.rows[3].add_component(
-            TextComponent("", self.text_style),  # Status
-            width=60,
-            padding=(2, 0, 2, 0),
-            align_v="center"
-        )
-        
-        # Row 5 (Time)
-        self.rows[4].add_component(
-            TextComponent("", self.bold_tall_style),  # Current time
-            padding=(2, 0, 2, 0),
-            align_v="center"
-        )
-        
-    def update(self) -> None:
-        """Update display state"""
-        super().update()
-        
-        # Update calling points scroll
-        self.calling_points_scroll.update()
-        
-        # Update alternating departures
-        current_time = time.time()
-        if current_time - self.last_alternation >= self.alternation_interval:
-            self.alternating_index = (self.alternating_index + 1) % len(self.current_departures)
-            self.last_alternation = current_time
+        # Add header if station is set
+        if self.station:
+            font = ImageFont.truetype("src/fonts/Dot Matrix Bold.ttf", 24)
+            style = TextStyle(font=font)
+            header = TextComponent(self.station.name, style)
+            grid.add_component(header, row=0, col=0, padding=(5, 5, 5, 5))
             
-    def set_departures(self, departures: List[Dict[str, Any]], 
-                      calling_points: Optional[str],
-                      station: str) -> None:
-        """Set the current departures to display"""
-        self.current_departures = departures
-        self.current_calling_points = calling_points
-        self.current_station = station
-        
-        if not departures:
-            self._show_no_departures()
-            return
-            
-        # Update first departure row
-        first = departures[0]
-        self.rows[0].items[0].component.set_text("1st")
-        self.rows[0].items[1].component.set_text(first["destination_name"])
-        self.rows[0].items[2].component.set_text(first["aimed_departure_time"])
-        self.rows[0].items[3].component.set_text(first["expected_departure_time"])
-        
-        # Update calling points
-        if calling_points:
-            self.calling_points_scroll.set_text(calling_points)
-            self.calling_points_scroll.start_scroll()
-            
-        # Update second departure row if available
-        if len(departures) > 1:
-            second = departures[1]
-            self.rows[2].items[0].component.set_text("2nd")
-            self.rows[2].items[1].component.set_text(second["destination_name"])
-            self.rows[2].items[2].component.set_text(second["aimed_departure_time"])
-            self.rows[2].items[3].component.set_text(second["expected_departure_time"])
-            
-        # Update third departure row if available and not showing status
-        if len(departures) > 2 and not self.status.is_showing:
-            third = departures[2]
-            self.rows[3].items[0].component.set_text("3rd")
-            self.rows[3].items[1].component.set_text(third["destination_name"])
-            self.rows[3].items[2].component.set_text(third["aimed_departure_time"])
-            self.rows[3].items[3].component.set_text(third["expected_departure_time"])
-            
-    def _show_no_departures(self) -> None:
-        """Show the no departures message"""
-        message = f"No trains from {self.current_station}"
-        text_width = int(self.text_style.font.getlength(message))
-        x = (self.config.width - text_width) // 2
-        
-        # Clear rows
-        for row in self.rows[:-1]:  # Keep time row
-            for item in row.items:
-                item.component.set_text("")
+        # Add services if available
+        if self.services:
+            font = ImageFont.truetype("src/fonts/Dot Matrix Regular.ttf", 16)
+            style = TextStyle(font=font)
+            for i, service in enumerate(self.services[:2]):  # Show up to 2 services
+                text = f"{service.destination} - {service.status}"
+                text_component = TextComponent(text, style)
+                component = ScrollComponent(text_component, self.width - 10, 20)  # -10 for padding
+                component.set_scroll_speed(2)
+                grid.add_component(component, row=i+1, col=0, padding=(5, 2, 5, 2))
                 
-        # Show message in first row
-        self.rows[0].items[0].component.set_text(message)
+        # Render the grid
+        draw.bitmap((0, 0), grid.render(), fill=1)
+        return image
         
-    def set_time(self, time_str: str) -> None:
-        """Set the current time display"""
-        self.rows[4].items[0].component.set_text(time_str)
+    def handle_event(self, event: Dict[str, Any]) -> None:
+        """Handle incoming events
         
-    def show_status(self, status: str, duration: float) -> None:
-        """Show a status message"""
-        self.status.show_status(status, duration)
-        
-    def set_config(self, config: Dict[str, Any]) -> None:
-        """Update display configuration"""
-        if "alternation_interval" in config:
-            self.alternation_interval = config["alternation_interval"]
+        Args:
+            event: Event data dictionary containing type and payload
+        """
+        if event['type'] == 'display_update':
+            self.station = event['data'].get('station')
+            self.services = event['data'].get('services', [])
+        elif event['type'] == 'display_clear':
+            self.station = None
+            self.services = []
