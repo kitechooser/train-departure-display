@@ -1,6 +1,8 @@
-from typing import Optional, Tuple, Any
+from typing import Optional, Tuple, Any, Dict
 from PIL import Image, ImageDraw, ImageFont
 from dataclasses import dataclass
+from .base_component import BaseComponent
+from src.infrastructure.event_bus import EventBus
 
 @dataclass
 class TextStyle:
@@ -10,10 +12,11 @@ class TextStyle:
     align: str = "left"  # left, center, right
     padding: Tuple[int, int, int, int] = (0, 0, 0, 0)  # left, top, right, bottom
 
-class TextComponent:
+class TextComponent(BaseComponent):
     """Component for rendering text"""
     
-    def __init__(self, text: str, style: TextStyle):
+    def __init__(self, text: str, style: TextStyle, event_bus: Optional[EventBus] = None):
+        super().__init__(event_bus)
         self.text = text
         self.style = style
         self._cached_size: Optional[Tuple[int, int]] = None
@@ -118,9 +121,19 @@ class TextComponent:
             self.text = text
             self._cached_size = None  # Invalidate size cache
             self._cached_bitmap = None  # Invalidate bitmap cache
+            self._needs_refresh = True
             
     def set_style(self, style: TextStyle) -> None:
         """Update the text style"""
         self.style = style
         self._cached_size = None  # Invalidate size cache
         self._cached_bitmap = None  # Invalidate bitmap cache
+        self._needs_refresh = True
+            
+    def handle_event(self, event: Dict[str, Any]) -> None:
+        """Handle incoming events"""
+        super().handle_event(event)
+        if event['type'] == 'component_update' and 'text' in event['data']:
+            self.set_text(event['data']['text'])
+        elif event['type'] == 'component_update' and 'style' in event['data']:
+            self.set_style(event['data']['style'])

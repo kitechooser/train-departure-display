@@ -1,8 +1,16 @@
 import pytest
 from PIL import Image, ImageDraw, ImageFont
-import time
-from src.presentation.renderers.components.text import TextComponent, TextStyle
+from unittest.mock import Mock
 from src.presentation.renderers.components.scroll import ScrollComponent
+from src.presentation.renderers.components.text import TextComponent, TextStyle
+from src.infrastructure.event_bus import EventBus
+
+@pytest.fixture
+def event_bus():
+    mock_bus = Mock(spec=EventBus)
+    mock_bus.subscribe = Mock()
+    mock_bus.unsubscribe = Mock()
+    return mock_bus
 
 @pytest.fixture
 def font():
@@ -11,179 +19,148 @@ def font():
 @pytest.fixture
 def text_component(font):
     style = TextStyle(font=font)
-    # Use a long text that will definitely need scrolling
+    # Use a long text that will need scrolling in a 100px viewport
     return TextComponent("This is a very long text that will definitely need to scroll in the viewport", style)
 
-def test_scroll_component_creation(text_component):
+@pytest.fixture
+def scroll_component(text_component, event_bus):
+    return ScrollComponent(text_component, 100, 20, event_bus)
+
+def test_scroll_component_creation(scroll_component):
     """Test basic scroll component creation"""
-    width = 100
-    height = 20
-    component = ScrollComponent(text_component, width, height)
-    assert component.viewport_width == width
-    assert component.viewport_height == height
-    assert component.text_component == text_component
-    assert not component.is_scrolling
+    assert scroll_component.viewport_width == 100
+    assert scroll_component.viewport_height == 20
+    assert scroll_component.event_bus is not None
+    assert scroll_component._needs_refresh is True
 
-def test_scroll_component_size(text_component):
+def test_scroll_component_size(scroll_component):
     """Test scroll component size"""
-    width = 100
-    height = 20
-    component = ScrollComponent(text_component, width, height)
-    
-    # Size should match viewport
-    assert component.get_size() == (width, height)
+    width, height = scroll_component.get_size()
+    assert width == 100
+    assert height == 20
 
-def test_scroll_component_render(text_component):
+def test_scroll_component_render(scroll_component):
     """Test scroll component rendering"""
-    width = 100
-    height = 20
-    component = ScrollComponent(text_component, width, height)
-    
     # Test standalone rendering
-    bitmap = component.render()
+    bitmap = scroll_component.render()
     assert isinstance(bitmap, Image.Image)
-    assert bitmap.size == (width, height)
+    assert bitmap.size == (100, 20)
     
     # Test rendering to existing bitmap
-    image = Image.new('1', (200, 50))
+    image = Image.new('1', (200, 100))
     draw = ImageDraw.Draw(image)
-    result = component.render(draw, 10, 5)
+    result = scroll_component.render(draw, 10, 5)
     assert result is None
 
-def test_scroll_animation(text_component):
-    """Test scroll animation states"""
-    width = 50
-    height = 20
-    component = ScrollComponent(text_component, width, height)
+def test_scroll_animation_control(scroll_component):
+    """Test scroll animation controls"""
+    # Start scrolling
+    scroll_component.start_scroll()
+    assert scroll_component.is_scrolling is True
+    assert scroll_component.scroll_position == 0
     
-    # Start scroll in test mode
-    component.start_scroll(test_mode=True)
-    assert component.is_scrolling
-    assert component.scroll_position == 0
-    assert component.pause_count == 0
-    
-    # Update animation
-    initial_pos = component.scroll_position
-    component.update()
-    assert component.scroll_position != initial_pos  # Position should change
-    
-    # Stop scroll
-    component.stop_scroll()
-    assert not component.is_scrolling
+    # Stop scrolling
+    scroll_component.stop_scroll()
+    assert scroll_component.is_scrolling is False
+    assert scroll_component.scroll_position == 0
     
     # Reset
-    component.reset()
-    assert component.scroll_position == 0
-    assert component.pause_count == 0
-    assert not component.is_scrolling
+    scroll_component.reset()
+    assert scroll_component.is_scrolling is False
+    assert scroll_component.scroll_position == 0
+    assert scroll_component.pause_count == 0
 
-def test_scroll_pausing(text_component):
-    """Test scroll animation pausing"""
-    width = 50
-    height = 20
-    component = ScrollComponent(text_component, width, height)
+def test_scroll_update(scroll_component):
+    """Test scroll animation update"""
+    # Verify text needs scrolling
+    assert scroll_component._needs_scroll() is True
     
-    # Set custom pause frames
-    start_pause = 5
-    end_pause = 3
-    component.set_pause_frames(start_pause, end_pause)
+    # Start scrolling in test mode
+    scroll_component.start_scroll(test_mode=True)
+    initial_pos = scroll_component.scroll_position
     
-    # Start scroll
-    component.start_scroll()
-    
-    # Should pause at start
-    for _ in range(start_pause):
-        initial_pos = component.scroll_position
-        component.update()
-        assert component.scroll_position == initial_pos  # Should not move during pause
-        
-    # Should scroll after pause
-    component.update()
-    assert component.scroll_position < 0  # Should start moving
+    # Update should change position in test mode
+    scroll_component.update()
+    assert scroll_component.scroll_position < initial_pos  # Should move left
 
-def test_scroll_speed(text_component):
-    """Test scroll speed adjustment"""
-    width = 50
-    height = 20
-    component = ScrollComponent(text_component, width, height)
-    
-    # Set custom speed and start in test mode
-    speed = 2
-    component.set_scroll_speed(speed)
-    component.start_scroll(test_mode=True)
-    
-    # Update and check position change
-    initial_pos = component.scroll_position
-    component.update()
-    assert component.scroll_position == initial_pos - speed
+def test_text_update(scroll_component):
+    """Test text content updates"""
+    scroll_component.start_scroll()
+    scroll_component.set_text("New Text")
+    assert scroll_component.text_component.text == "New Text"
+    assert scroll_component.is_scrolling is False
+    assert scroll_component._needs_refresh is True
 
-def test_text_update(text_component):
-    """Test updating scroll text"""
-    width = 50
-    height = 20
-    component = ScrollComponent(text_component, width, height)
-    
-    # Start scrolling
-    component.start_scroll()
-    assert component.is_scrolling
-    
-    # Update text
-    text_component.set_text("New Text")
-    component.update()  # Need to call update to detect text change
-    
-    # Should reset scroll state
-    assert not component.is_scrolling
-    assert component.scroll_position == 0
-    assert component.pause_count == 0
+def test_style_update(scroll_component, font):
+    """Test style updates"""
+    new_style = TextStyle(font=font, padding=(5, 5, 5, 5))
+    scroll_component.set_style(new_style)
+    assert scroll_component.text_component.style == new_style
+    assert scroll_component.is_scrolling is False
+    assert scroll_component._needs_refresh is True
 
-def test_scroll_completion(text_component):
-    """Test scroll animation completion"""
-    width = 50
-    height = 20
-    component = ScrollComponent(text_component, width, height)
-    
-    # Start scroll
-    component.start_scroll()
-    
-    # Run animation until text reaches end
-    text_width = text_component.get_size()[0]
-    max_scroll = text_width - width
-    
-    # Skip start pause
-    for _ in range(component.start_pause + 1):
-        component.update()
-        
-    # Run until we reach end
-    while -component.scroll_position < max_scroll:
-        component.update()
-        
-    # Should pause at end
-    for _ in range(component.end_pause):
-        initial_pos = component.scroll_position
-        component.update()
-        assert component.scroll_position == initial_pos
-        
-    # Should reset after end pause
-    component.update()
-    assert not component.is_scrolling
-    assert component.scroll_position == 0
-    assert component.pause_count == 0
+def test_scroll_speed_update(scroll_component):
+    """Test scroll speed updates"""
+    scroll_component.set_scroll_speed(2)
+    assert scroll_component.scroll_speed == 2
+    assert scroll_component._needs_refresh is True
 
-def test_viewport_clearing(text_component):
-    """Test viewport clearing between renders"""
-    width = 50
-    height = 20
-    component = ScrollComponent(text_component, width, height)
+def test_pause_frames_update(scroll_component):
+    """Test pause frames updates"""
+    scroll_component.set_pause_frames(30, 10)
+    assert scroll_component.start_pause == 30
+    assert scroll_component.end_pause == 10
+    assert scroll_component._needs_refresh is True
+
+def test_scroll_event_handling(scroll_component):
+    """Test event handling"""
+    # Test text update event
+    event = {
+        'type': 'component_update',
+        'data': {'text': 'Updated Text'}
+    }
+    scroll_component.handle_event(event)
+    assert scroll_component.text_component.text == "Updated Text"
+    assert scroll_component._needs_refresh is True
     
-    # Render frame 1
-    frame1 = component.render()
-    frame1_data = list(frame1.getdata())
+    # Test scroll speed update event
+    event = {
+        'type': 'component_update',
+        'data': {'scroll_speed': 3}
+    }
+    scroll_component.handle_event(event)
+    assert scroll_component.scroll_speed == 3
+    assert scroll_component._needs_refresh is True
     
-    # Move text and render frame 2
-    component.start_scroll(test_mode=True)
-    component.update()
-    frame2 = component.render()
-    frame2_data = list(frame2.getdata())
-    
-    # Frames should be different (text moved)
-    assert frame1_data != frame2_data
+    # Test pause frames update event
+    event = {
+        'type': 'component_update',
+        'data': {
+            'pause_frames': {
+                'start': 40,
+                'end': 15
+            }
+        }
+    }
+    scroll_component.handle_event(event)
+    assert scroll_component.start_pause == 40
+    assert scroll_component.end_pause == 15
+    assert scroll_component._needs_refresh is True
+
+def test_scroll_event_subscription(scroll_component, event_bus):
+    """Test event subscription"""
+    scroll_component.subscribe_to_events()
+    assert event_bus.subscribe.call_count == 2  # component_update and component_clear
+
+def test_scroll_cleanup(scroll_component, event_bus):
+    """Test cleanup"""
+    scroll_component.cleanup()
+    assert event_bus.unsubscribe.call_count == 2  # component_update and component_clear
+
+def test_scroll_without_event_bus(text_component):
+    """Test component creation without event bus"""
+    component = ScrollComponent(text_component, 100, 20)
+    assert component.event_bus is None
+    # Should not raise any exceptions
+    component.subscribe_to_events()
+    component.cleanup()

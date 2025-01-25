@@ -1,12 +1,15 @@
-from typing import Optional, Tuple, Any
+from typing import Optional, Tuple, Any, Dict
 from PIL import Image, ImageDraw
 import time
 from .text import TextComponent, TextStyle
+from .base_component import BaseComponent
+from src.infrastructure.event_bus import EventBus
 
-class ScrollComponent:
+class ScrollComponent(BaseComponent):
     """Component for scrolling text animations"""
     
-    def __init__(self, text_component: TextComponent, viewport_width: int, viewport_height: int):
+    def __init__(self, text_component: TextComponent, viewport_width: int, viewport_height: int, event_bus: Optional[EventBus] = None):
+        super().__init__(event_bus)
         self.text_component = text_component
         self.viewport_width = viewport_width
         self.viewport_height = viewport_height
@@ -150,17 +153,37 @@ class ScrollComponent:
             self.text_component.set_text(text)
             self.stop_scroll()
             self._last_text = text
+            self._needs_refresh = True
         
     def set_style(self, style: TextStyle) -> None:
         """Update the text style"""
         self.text_component.set_style(style)
         self.stop_scroll()
+        self._needs_refresh = True
         
     def set_scroll_speed(self, speed: int) -> None:
         """Set the scroll speed in pixels per frame"""
         self.scroll_speed = speed
+        self._needs_refresh = True
         
     def set_pause_frames(self, start: int, end: int) -> None:
         """Set the number of frames to pause at start and end"""
         self.start_pause = start
         self.end_pause = end
+        self._needs_refresh = True
+        
+    def handle_event(self, event: Dict[str, Any]) -> None:
+        """Handle incoming events"""
+        super().handle_event(event)
+        if event['type'] == 'component_update':
+            if 'text' in event['data']:
+                self.set_text(event['data']['text'])
+            if 'style' in event['data']:
+                self.set_style(event['data']['style'])
+            if 'scroll_speed' in event['data']:
+                self.set_scroll_speed(event['data']['scroll_speed'])
+            if 'pause_frames' in event['data']:
+                self.set_pause_frames(
+                    event['data']['pause_frames']['start'],
+                    event['data']['pause_frames']['end']
+                )
