@@ -1,0 +1,1482 @@
+2025-01-27 17:55:16,400 - __main__ - INFO - Logging to file: logs/train_display_20250127_175516.log
+2025-01-27 17:55:16,400 - src.infrastructure.config_manager - INFO - Configuration loaded successfully
+2025-01-27 17:55:16,401 - src.infrastructure.event_bus - INFO - Event bus started in async mode
+2025-01-27 17:55:16,401 - src.announcements.announcements_module - INFO - Announcement Manager initialized with config: {'enabled': True, 'volume': 90, 'announcement_gap': 2.0, 'max_queue_size': 10, 'log_level': 'INFO', 'audio_config': {'echo': {'enabled': True, 'delay': 0.3, 'decay': 0.5, 'num_echoes': 3}}, 'announcement_types': {'delays': True, 'platform_changes': True, 'cancellations': True, 'on_time': False, 'departures': False, 'next_train': True, 'arriving': True, 'line_status': True}}
+2025-01-27 17:55:16,401 - src.infrastructure.event_bus - DEBUG - Added handler for announcement_request
+2025-01-27 17:55:16,401 - src.infrastructure.event_bus - DEBUG - Added handler for announcement_cancel
+2025-01-27 17:55:16,401 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-27 17:55:16,401 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-27 17:55:16,401 - src.infrastructure.event_bus - DEBUG - Added handler for status_update
+2025-01-27 17:55:16,401 - src.infrastructure.event_bus - DEBUG - Added handler for status_request
+2025-01-27 17:55:16,412 - src.presentation.displays.base_display - INFO - Initializing display rail (256x64)
+2025-01-27 17:55:16,412 - src.presentation.displays.base_display - INFO - Subscribing display rail to events
+2025-01-27 17:55:16,412 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-27 17:55:16,412 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-27 17:55:16,412 - src.presentation.renderers.components.text - DEBUG - TextComponent initialized with text: 
+2025-01-27 17:55:16,412 - src.presentation.displays.rail_display - INFO - Rail display initialized
+2025-01-27 17:55:16,412 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-27 17:55:16,412 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-27 17:55:16,412 - src.presentation.displays.rail_display - INFO - Drawing error message: Waiting for data...
+2025-01-27 17:55:16,412 - src.presentation.renderers.components.text - DEBUG - Setting text style: align=center, color=1, padding=(0, 0, 0, 0)
+2025-01-27 17:55:16,412 - src.presentation.renderers.components.text - DEBUG - Setting text to: Waiting for data...
+2025-01-27 17:55:16,412 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:16,412 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,413 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,413 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,414 - src.presentation.renderers.components.text - DEBUG - Text size calculated: (83, 8) for text: Waiting for data...
+2025-01-27 17:55:16,414 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (0, 0)
+2025-01-27 17:55:16,415 - src.presentation.renderers.components.text - DEBUG - Created bitmap with size: (83, 8)
+2025-01-27 17:55:16,415 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,415 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,416 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,416 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,416 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,416 - src.presentation.displays.base_display - WARNING - No device set for display rail
+2025-01-27 17:55:16,574 - src.display_manager - INFO - MockDisplay initialized Primary (256x64)
+2025-01-27 17:55:16,574 - src.services.display_service - INFO - Registering display: rail
+2025-01-27 17:55:16,574 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:16,574 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,575 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,575 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,575 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,575 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,575 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,576 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,576 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,576 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:16,576 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,576 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,588 - src.presentation.displays.base_display - INFO - Initializing display tfl_secondary (256x64)
+2025-01-27 17:55:16,588 - src.presentation.displays.base_display - INFO - Subscribing display tfl_secondary to events
+2025-01-27 17:55:16,588 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-27 17:55:16,588 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-27 17:55:16,588 - src.presentation.renderers.components.text - DEBUG - TextComponent initialized with text: 
+2025-01-27 17:55:16,588 - src.presentation.displays.tfl_display - INFO - TfL display initialized
+2025-01-27 17:55:16,588 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-27 17:55:16,588 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-27 17:55:16,588 - src.presentation.displays.tfl_display - INFO - Drawing error message: Waiting for data...
+2025-01-27 17:55:16,588 - src.presentation.renderers.components.text - DEBUG - Setting text style: align=center, color=1, padding=(0, 0, 0, 0)
+2025-01-27 17:55:16,588 - src.presentation.renderers.components.text - DEBUG - Setting text to: Waiting for data...
+2025-01-27 17:55:16,588 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:16,588 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,589 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,589 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,589 - src.presentation.renderers.components.text - DEBUG - Text size calculated: (83, 8) for text: Waiting for data...
+2025-01-27 17:55:16,589 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (0, 0)
+2025-01-27 17:55:16,591 - src.presentation.renderers.components.text - DEBUG - Created bitmap with size: (83, 8)
+2025-01-27 17:55:16,591 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,591 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,591 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,591 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,591 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,591 - src.presentation.displays.base_display - WARNING - No device set for display tfl_secondary
+2025-01-27 17:55:16,625 - src.display_manager - INFO - MockDisplay initialized Secondary (256x64)
+2025-01-27 17:55:16,625 - src.services.display_service - INFO - Registering display: tfl_secondary
+2025-01-27 17:55:16,625 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:16,625 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,626 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,626 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,626 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,626 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,626 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,626 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,626 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,626 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:16,626 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,626 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,636 - src.infrastructure.event_bus - DEBUG - Added handler for service_update
+2025-01-27 17:55:16,636 - src.infrastructure.event_bus - DEBUG - Added handler for service_error
+2025-01-27 17:55:16,636 - __main__ - INFO - Starting train departure display...
+2025-01-27 17:55:16,636 - src.services.display_service - INFO - Updating display rail with content: {'error': 'Waiting for data...'}
+2025-01-27 17:55:16,636 - src.presentation.displays.rail_display - INFO - Updating display content: {'error': 'Waiting for data...'}
+2025-01-27 17:55:16,636 - src.presentation.displays.rail_display - INFO - Clearing display content
+2025-01-27 17:55:16,636 - src.presentation.renderers.components.text - DEBUG - Setting text to: 
+2025-01-27 17:55:16,636 - src.presentation.displays.rail_display - INFO - Drawing error message: Waiting for data...
+2025-01-27 17:55:16,637 - src.presentation.renderers.components.text - DEBUG - Setting text style: align=center, color=1, padding=(0, 0, 0, 0)
+2025-01-27 17:55:16,637 - src.presentation.renderers.components.text - DEBUG - Setting text to: Waiting for data...
+2025-01-27 17:55:16,637 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:16,637 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,637 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,637 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,638 - src.presentation.renderers.components.text - DEBUG - Text size calculated: (83, 8) for text: Waiting for data...
+2025-01-27 17:55:16,638 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (0, 0)
+2025-01-27 17:55:16,639 - src.presentation.renderers.components.text - DEBUG - Created bitmap with size: (83, 8)
+2025-01-27 17:55:16,639 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,639 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,640 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,640 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,640 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,640 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:16,640 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,640 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,653 - src.services.display_service - INFO - Rendering display rail
+2025-01-27 17:55:16,653 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:16,653 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,654 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,654 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,654 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,654 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,654 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,654 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,654 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,654 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:16,654 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,654 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,670 - src.infrastructure.event_bus - DEBUG - Queued event display_updated
+2025-01-27 17:55:16,670 - src.infrastructure.event_bus - DEBUG - Processing event display_updated
+2025-01-27 17:55:16,670 - src.services.display_service - INFO - Updating display tfl_secondary with content: {'error': 'Waiting for data...'}
+2025-01-27 17:55:16,670 - src.presentation.displays.tfl_display - INFO - Updating display content: {'error': 'Waiting for data...'}
+2025-01-27 17:55:16,670 - src.presentation.displays.tfl_display - INFO - Clearing display content
+2025-01-27 17:55:16,670 - src.presentation.renderers.components.text - DEBUG - Setting text to: 
+2025-01-27 17:55:16,670 - src.presentation.displays.tfl_display - INFO - Drawing error message: Waiting for data...
+2025-01-27 17:55:16,670 - src.presentation.renderers.components.text - DEBUG - Setting text style: align=center, color=1, padding=(0, 0, 0, 0)
+2025-01-27 17:55:16,670 - src.presentation.renderers.components.text - DEBUG - Setting text to: Waiting for data...
+2025-01-27 17:55:16,670 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:16,670 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,671 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,671 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,671 - src.presentation.renderers.components.text - DEBUG - Text size calculated: (83, 8) for text: Waiting for data...
+2025-01-27 17:55:16,671 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (0, 0)
+2025-01-27 17:55:16,673 - src.presentation.renderers.components.text - DEBUG - Created bitmap with size: (83, 8)
+2025-01-27 17:55:16,673 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,673 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,673 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,673 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,673 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,673 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:16,673 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,673 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,686 - src.services.display_service - INFO - Rendering display tfl_secondary
+2025-01-27 17:55:16,686 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:16,686 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,687 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,687 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,687 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,687 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,687 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,687 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,687 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,687 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:16,687 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,687 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,703 - src.infrastructure.event_bus - DEBUG - Queued event display_updated
+2025-01-27 17:55:16,703 - src.infrastructure.event_bus - DEBUG - Processing event display_updated
+2025-01-27 17:55:16,703 - src.infrastructure.event_bus - DEBUG - Queued event service_error
+2025-01-27 17:55:16,703 - src.infrastructure.event_bus - DEBUG - Processing event service_error
+2025-01-27 17:55:16,703 - src.infrastructure.event_bus - DEBUG - Added handler for timer_tick
+2025-01-27 17:55:16,706 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): lite.realtime.nationalrail.co.uk:443
+2025-01-27 17:55:16,804 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:16,804 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:16,804 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,805 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,805 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,805 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,805 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,806 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,806 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,806 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,806 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:16,806 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,806 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,820 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:16,820 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,820 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,820 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,820 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,820 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,821 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,821 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,821 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,821 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:16,821 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,821 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,904 - urllib3.connectionpool - DEBUG - https://lite.realtime.nationalrail.co.uk:443 "POST /OpenLDBWS/ldb11.asmx HTTP/11" 500 470
+2025-01-27 17:55:16,905 - src.api.rail_client - DEBUG - Response status: 500
+2025-01-27 17:55:16,905 - src.api.rail_client - DEBUG - Response headers: {'Date': 'Mon, 27 Jan 2025 17:55:16 GMT', 'Content-Type': 'text/xml; charset=utf-8', 'Content-Length': '470', 'Connection': 'keep-alive', 'Cache-Control': 'private', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Server': '172.22.22.92'}
+2025-01-27 17:55:16,905 - src.api.rail_client - DEBUG - Response text: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><soap:Fault><faultcode>soap:Client</faultcode><faultstring>Server did not recognize the value of HTTP Header SOAPAction: http://thalesgroup.com/RTTI/2021-11-01/ldb/GetDepBoardWithDetails.</faultstring><detail /></soap:Fault></soap:Body></soap:Envelope>
+2025-01-27 17:55:16,905 - src.api.rail_client - ERROR - SOAP fault received: Server did not recognize the value of HTTP Header SOAPAction: http://thalesgroup.com/RTTI/2021-11-01/ldb/GetDepBoardWithDetails.
+2025-01-27 17:55:16,937 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:16,937 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:16,937 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,938 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,938 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,938 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,938 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,939 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,939 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,939 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,939 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:16,939 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,939 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:16,941 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:16,941 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,942 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,942 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,942 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:16,942 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:16,942 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:16,942 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:16,942 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:16,943 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:16,943 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:16,943 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,054 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:17,054 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:17,054 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,058 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,058 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,058 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,058 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,060 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,060 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,060 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,060 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:17,060 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,060 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,062 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:17,062 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,062 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,062 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,062 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,062 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,063 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,063 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,063 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,063 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:17,063 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,063 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,171 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:17,171 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:17,171 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,174 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,174 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,174 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,174 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,176 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,176 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,176 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,176 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:17,176 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,176 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,180 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:17,180 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,182 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,182 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,182 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,182 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,183 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,183 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,183 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,183 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:17,183 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,184 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,289 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:17,289 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:17,290 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,292 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,293 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,293 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,293 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,294 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,295 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,295 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,295 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:17,295 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,295 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,299 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:17,299 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,301 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,301 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,301 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,301 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,302 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,302 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,302 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,302 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:17,302 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,302 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,406 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:17,406 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:17,406 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,410 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,410 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,410 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,410 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,412 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,412 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,412 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,412 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:17,412 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,412 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,416 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:17,417 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,418 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,418 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,419 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,419 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,420 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,420 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,420 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,420 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:17,420 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,421 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,525 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:17,525 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:17,526 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,529 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,529 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,529 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,529 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,531 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,531 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,531 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,531 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:17,531 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,531 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,535 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:17,536 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,537 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,537 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,537 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,538 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,539 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,539 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,539 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,539 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:17,539 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,539 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,643 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:17,643 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:17,643 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,646 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,646 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,646 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,646 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,648 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,648 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,648 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,648 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:17,648 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,648 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,652 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:17,653 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,654 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,654 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,654 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,654 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,656 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,656 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,656 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,656 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:17,656 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,656 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,771 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:17,771 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:17,771 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,774 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,774 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,774 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,775 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,776 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,776 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,777 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,777 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:17,777 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,777 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,781 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:17,781 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,783 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,783 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,783 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,783 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,784 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,784 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,784 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,784 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:17,785 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,785 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,787 - src.infrastructure.event_bus - DEBUG - Queued event timer_tick
+2025-01-27 17:55:17,787 - src.infrastructure.event_bus - DEBUG - Processing event timer_tick
+2025-01-27 17:55:17,888 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:17,889 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:17,889 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,892 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,892 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,892 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,892 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,895 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,895 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,895 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,895 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:17,895 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,895 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:17,899 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:17,899 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,901 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,901 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,901 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:17,901 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:17,903 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:17,903 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:17,903 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:17,903 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:17,903 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:17,903 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,007 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,007 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,008 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,011 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,011 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,011 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,011 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,013 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,013 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,013 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,013 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,013 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,013 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,018 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,018 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,020 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,020 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,020 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,020 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,021 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,022 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,022 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,022 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,022 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,022 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,126 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,127 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,127 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,130 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,130 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,130 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,130 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,132 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,133 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,133 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,133 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,133 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,133 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,137 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,137 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,139 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,139 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,140 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,140 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,141 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,141 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,141 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,141 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,141 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,142 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,254 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,254 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,254 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,257 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,257 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,257 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,257 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,259 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,259 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,259 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,259 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,259 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,260 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,264 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,264 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,265 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,266 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,266 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,266 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,267 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,267 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,267 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,267 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,267 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,267 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,372 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,372 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,372 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,376 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,376 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,376 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,376 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,378 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,378 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,378 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,378 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,378 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,378 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,382 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,382 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,384 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,384 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,384 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,384 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,385 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,386 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,386 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,386 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,386 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,386 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,490 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,490 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,491 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,493 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,493 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,494 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,494 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,495 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,495 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,495 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,496 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,496 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,496 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,500 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,500 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,502 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,502 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,502 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,502 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,504 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,504 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,504 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,504 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,504 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,504 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,609 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,609 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,609 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,612 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,612 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,612 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,612 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,614 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,614 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,614 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,614 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,614 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,614 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,619 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,619 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,620 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,621 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,621 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,621 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,622 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,622 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,622 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,622 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,622 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,622 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,726 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,727 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,727 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,730 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,730 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,730 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,730 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,732 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,732 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,732 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,732 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,732 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,732 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,737 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,737 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,739 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,739 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,739 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,739 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,741 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,741 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,741 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,741 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,741 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,741 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,854 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,854 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,854 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,857 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,857 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,857 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,858 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,859 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,860 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,860 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,860 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,860 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,860 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,864 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,864 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,866 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,866 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,866 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,866 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,868 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,868 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,868 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,868 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,868 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,868 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,871 - src.infrastructure.event_bus - DEBUG - Queued event timer_tick
+2025-01-27 17:55:18,871 - src.infrastructure.event_bus - DEBUG - Processing event timer_tick
+2025-01-27 17:55:18,972 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:18,972 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:18,972 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,976 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,976 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,976 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,976 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,978 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,978 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,978 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,978 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:18,978 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,978 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:18,982 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:18,982 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,983 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,983 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,984 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:18,984 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:18,985 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:18,985 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:18,985 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:18,985 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:18,985 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:18,985 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,087 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:19,088 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:19,088 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,091 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,091 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,091 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,091 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,093 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,093 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,093 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,093 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:19,093 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,093 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,095 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:19,096 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,097 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,097 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,097 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,097 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,098 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,098 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,098 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,098 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:19,098 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,099 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,204 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:19,204 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:19,205 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,208 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,208 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,208 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,208 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,210 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,210 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,210 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,210 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:19,210 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,210 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,214 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:19,214 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,216 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,216 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,216 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,216 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,217 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,217 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,217 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,218 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:19,218 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,218 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,322 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:19,322 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:19,322 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,326 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,326 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,326 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,326 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,328 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,328 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,328 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,328 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:19,328 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,328 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,332 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:19,332 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,333 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,334 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,334 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,334 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,335 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,335 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,335 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,335 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:19,335 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,335 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,438 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:19,438 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:19,438 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,441 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,441 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,441 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,441 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,443 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,443 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,443 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,443 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:19,443 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,444 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,448 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:19,448 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,450 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,450 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,450 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,450 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,451 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,451 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,451 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,451 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:19,451 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,451 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,556 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:19,556 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:19,556 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,560 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,560 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,560 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,560 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,563 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,563 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,563 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,563 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:19,563 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,563 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,567 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:19,567 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,569 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,569 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,569 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,569 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,571 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,571 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,571 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,571 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:19,571 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,571 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,676 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:19,676 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:19,676 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,679 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,679 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,679 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,679 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,681 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,681 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,681 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,681 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:19,681 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,681 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,686 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:19,686 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,687 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,687 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,687 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,687 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,689 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,689 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,689 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,689 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:19,689 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,689 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,792 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:19,792 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:19,792 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,795 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,795 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,796 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,796 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,798 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,798 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,798 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,798 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:19,798 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,798 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,803 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:19,803 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,805 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,805 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,805 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,805 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,807 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,807 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,807 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,807 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:19,807 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,807 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,921 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:19,921 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:19,921 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,925 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,925 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,925 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,925 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,926 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,926 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,926 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,926 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:19,926 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,927 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,928 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:19,928 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,929 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,929 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,929 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:19,929 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:19,930 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:19,930 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:19,930 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:19,930 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:19,930 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:19,930 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:19,936 - src.infrastructure.event_bus - DEBUG - Queued event timer_tick
+2025-01-27 17:55:19,936 - src.infrastructure.event_bus - DEBUG - Processing event timer_tick
+2025-01-27 17:55:20,037 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,038 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,038 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,041 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,041 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,041 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,041 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,043 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,043 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,043 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,043 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,043 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,043 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,047 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:20,047 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,049 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,049 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,049 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,049 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,051 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,051 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,051 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,051 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:20,051 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,051 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,156 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,156 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,156 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,159 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,159 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,159 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,159 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,161 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,161 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,162 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,162 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,162 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,162 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,166 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:20,166 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,168 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,168 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,168 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,168 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,169 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,169 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,169 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,169 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:20,169 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,170 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,274 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,274 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,274 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,278 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,278 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,278 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,278 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,280 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,280 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,280 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,280 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,280 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,280 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,285 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:20,285 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,286 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,286 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,286 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,286 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,288 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,288 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,288 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,288 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:20,288 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,288 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,393 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,393 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,393 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,396 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,396 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,396 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,396 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,398 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,398 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,398 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,398 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,398 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,399 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,403 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:20,403 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,405 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,405 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,405 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,405 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,406 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,406 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,407 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,407 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:20,407 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,407 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,521 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,521 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,521 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,524 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,524 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,524 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,524 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,526 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,526 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,526 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,526 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,526 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,526 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,531 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:20,531 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,532 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,532 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,532 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,532 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,534 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,534 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,534 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,534 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:20,534 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,534 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,639 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,639 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,639 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,642 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,642 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,642 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,643 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,644 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,644 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,644 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,644 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,644 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,645 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,649 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:20,649 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,650 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,650 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,650 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,650 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,652 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,652 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,652 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,652 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:20,652 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,652 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,756 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,756 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,756 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,759 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,760 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,760 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,760 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,761 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,761 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,761 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,761 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,761 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,762 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,766 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:20,766 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,767 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,767 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,767 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,767 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,768 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,768 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,768 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,768 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:20,768 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,768 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,871 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,871 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,871 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,875 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,875 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,875 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,875 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,877 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,877 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,877 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,878 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,878 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,878 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,882 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:20,882 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,884 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,884 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,884 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,884 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,885 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,885 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,885 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,885 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:20,885 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,885 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:20,990 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:20,990 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:20,990 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,993 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,993 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,993 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:20,993 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:20,995 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:20,995 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:20,995 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:20,995 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:20,995 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:20,995 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,002 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,002 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,004 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,004 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,004 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,004 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,005 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,005 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,005 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,005 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,005 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,005 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,007 - src.infrastructure.event_bus - DEBUG - Queued event timer_tick
+2025-01-27 17:55:21,007 - src.infrastructure.event_bus - DEBUG - Processing event timer_tick
+2025-01-27 17:55:21,108 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:21,108 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:21,108 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,111 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,112 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,112 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,112 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,114 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,114 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,114 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,114 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:21,114 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,114 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,118 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,118 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,120 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,120 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,120 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,120 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,121 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,121 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,122 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,122 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,122 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,122 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,226 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:21,226 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:21,226 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,229 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,229 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,229 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,229 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,231 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,231 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,231 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,231 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:21,231 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,232 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,236 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,236 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,238 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,238 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,238 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,238 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,240 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,240 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,240 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,240 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,240 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,241 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,354 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:21,354 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:21,354 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,357 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,357 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,357 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,358 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,359 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,359 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,359 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,359 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:21,360 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,360 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,391 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,391 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,392 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,392 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,392 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,392 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,393 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,393 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,393 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,393 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,393 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,393 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,504 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:21,504 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:21,504 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,506 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,506 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,506 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,506 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,508 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,508 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,508 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,508 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:21,508 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,508 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,513 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,513 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,515 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,515 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,515 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,515 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,516 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,516 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,516 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,516 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,516 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,516 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,621 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:21,621 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:21,621 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,624 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,625 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,625 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,625 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,627 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,627 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,627 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,627 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:21,627 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,627 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,631 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,632 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,633 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,633 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,633 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,633 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,635 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,635 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,635 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,635 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,635 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,635 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,739 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:21,740 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:21,740 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,743 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,744 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,744 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,744 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,746 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,746 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,746 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,746 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:21,746 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,746 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,750 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,750 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,752 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,752 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,752 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,752 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,753 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,753 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,753 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,753 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,753 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,754 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,858 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:21,858 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:21,858 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,861 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,861 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,861 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,861 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,863 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,863 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,863 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,863 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:21,863 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,864 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,868 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,868 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,869 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,870 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,870 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,870 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,871 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,871 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,871 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,871 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,871 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,872 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,976 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:21,976 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:21,976 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,979 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,979 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,979 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,979 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,981 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,982 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,982 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,982 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:21,982 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,982 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:21,986 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:21,987 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,988 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,988 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,988 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:21,988 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:21,990 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:21,990 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:21,990 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:21,990 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:21,990 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:21,990 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,104 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:22,104 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:22,104 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,106 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,106 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,106 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,106 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,108 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,108 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,108 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,108 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:22,108 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,108 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,112 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:22,112 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,113 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,113 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,113 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,113 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,113 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,113 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,113 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,113 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:22,113 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,114 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,120 - src.infrastructure.event_bus - DEBUG - Queued event timer_tick
+2025-01-27 17:55:22,120 - src.infrastructure.event_bus - DEBUG - Processing event timer_tick
+2025-01-27 17:55:22,221 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:22,221 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:22,221 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,221 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,221 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,221 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,221 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,222 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,222 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,222 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,222 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:22,222 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,222 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,225 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:22,225 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,227 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,227 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,227 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,227 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,228 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,228 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,228 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,228 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:22,228 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,228 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,338 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:22,338 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:22,339 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,341 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,341 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,341 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,341 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,342 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,342 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,342 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,343 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:22,343 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,343 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,347 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:22,347 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,349 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,349 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,349 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,349 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,351 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,351 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,351 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,351 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:22,351 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,351 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,460 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:22,460 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:22,460 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,463 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,463 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,463 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,463 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,465 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,465 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,465 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,465 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:22,465 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,466 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,470 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:22,470 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,472 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,472 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,472 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,472 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,473 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,473 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,473 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,474 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:22,474 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,474 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,587 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:22,588 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:22,588 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,591 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,591 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,591 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,592 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,594 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,594 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,594 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,594 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:22,594 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,594 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,597 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:22,597 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,598 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,598 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,598 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,598 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,598 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,598 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,598 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,598 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:22,598 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,598 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,704 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:22,704 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:22,704 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,705 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,705 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,705 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,705 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,706 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,706 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,706 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,706 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:22,706 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,706 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,720 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:22,720 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,720 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,720 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,720 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,720 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,721 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,721 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,721 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,721 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:22,721 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,721 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,837 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:22,837 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:22,837 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,839 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,839 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,839 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,839 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,841 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,841 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,841 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,841 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:22,841 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,841 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,844 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:22,844 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,846 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,846 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,846 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,846 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,847 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,847 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,847 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,847 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:22,847 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,848 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,954 - src.services.display_service - DEBUG - Updating all displays
+2025-01-27 17:55:22,954 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-27 17:55:22,954 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,958 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,958 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,958 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,958 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,960 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,960 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,960 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,960 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-27 17:55:22,960 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,960 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-27 17:55:22,964 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-27 17:55:22,964 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,966 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,966 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,966 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-27 17:55:22,966 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-27 17:55:22,968 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-27 17:55:22,968 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-27 17:55:22,968 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-27 17:55:22,968 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-27 17:55:22,968 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-27 17:55:22,968 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)

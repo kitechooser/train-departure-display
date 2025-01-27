@@ -1,7 +1,8 @@
 from typing import Optional, List, Dict, Any
 import logging
 from .base_client import BaseAPIClient, APIError
-from src.domain.models import TflStation, TflService
+from src.domain.models.station import TflStation
+from src.domain.models.service import TflService
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +54,10 @@ class TflClient(BaseAPIClient):
             )
             
             services = TflService.from_api_response(response, config)
+            
+            # Filter services by platform if specified
+            if 'platform' in config:
+                services = [s for s in services if s.platform == config['platform']]
             
             # Get intermediate stops for each service
             for service in services:
@@ -109,3 +114,56 @@ class TflClient(BaseAPIClient):
         except APIError as e:
             logger.error(f"Failed to get intermediate stops for line {line_id}: {str(e)}")
             return None
+            
+    def get_stations(self, stations: List[Dict[str, str]]) -> List[Dict[str, Any]]:
+        """Get station information for specified stations
+        
+        Args:
+            stations: List of station configurations with name and platform
+            
+        Returns:
+            List of station dictionaries with status information
+        """
+        try:
+            result = []
+            for station_config in stations:
+                station_name = station_config.get('name')
+                platform = station_config.get('platform')
+                
+                # Get station status
+                url = f"{self.base_url}/StopPoint/Search/{station_name}"
+                response = self._make_request(url)
+                if response and 'matches' in response:
+                    for match in response['matches']:
+                        if match.get('name') == station_name:
+                            station = {
+                                'name': station_name,
+                                'platform': platform,
+                                'status': {
+                                    'description': 'Good Service',  # Default status
+                                    'severity': 10  # Normal severity
+                                }
+                            }
+                            
+                            # Get line status
+                            for line in match.get('lines', []):
+                                line_id = line.get('id')
+                                if line_id:
+                                    url = f"{self.base_url}/Line/{line_id}/Status"
+                                    status_response = self._make_request(url)
+                                    if status_response:
+                                        status = status_response[0].get('lineStatuses', [{}])[0]
+                                        station['status'] = {
+                                            'description': status.get('statusSeverityDescription', 'Good Service'),
+                                            'severity': status.get('statusSeverity', 10)
+                                        }
+                                        break  # Use first line's status
+                                        
+                            result.append(station)
+                            break  # Use first matching station
+                            
+            return result
+            
+        except APIError as e:
+            logger.error(f"Failed to get station information: {str(e)}")
+            return []

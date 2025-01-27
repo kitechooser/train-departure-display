@@ -134,10 +134,13 @@ class ScrollComponent(BaseComponent):
             fill=0  # Black background
         )
         
-        # Draw text at current scroll position
-        render_x = x + self.scroll_position
-        render_y = y + (self.viewport_height - self.text_component.get_size()[1]) // 2
-        self.text_component.render(self.viewport_draw, render_x, render_y)
+        # Get text image first
+        text_image = self.text_component.render()
+        if text_image:
+            # Calculate vertical position
+            render_y = (self.viewport_height - text_image.height) // 2
+            # Paste text image at current scroll position
+            self.viewport.paste(text_image, (x + self.scroll_position, render_y))
         
         if draw is None:
             return self.viewport

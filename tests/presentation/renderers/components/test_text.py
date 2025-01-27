@@ -52,11 +52,22 @@ def test_text_component_render(style, event_bus):
     assert isinstance(bitmap, Image.Image)
     assert bitmap.size == (width, height)
     
+    # Verify text is rendered in white (1)
+    pixels = list(bitmap.getdata())
+    assert 1 in pixels  # Should contain white pixels for text
+    
+    # Test background is black
+    pixels = list(bitmap.getdata())
+    assert 0 in pixels  # Should contain black pixels for background
+    
     # Test rendering to existing bitmap
     image = Image.new('1', (100, 20))
     draw = ImageDraw.Draw(image)
     result = component.render(draw, 10, 5)
     assert result is None  # Should return None when drawing to existing bitmap
+    # Verify text was drawn in white
+    image_pixels = list(image.getdata())
+    assert 1 in image_pixels  # Should contain white pixels for text
 
 def test_text_alignment(font, event_bus):
     """Test text alignment options"""

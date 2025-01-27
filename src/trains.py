@@ -1,6 +1,7 @@
 import requests
 import re
 import xmltodict
+import logging
 
 
 def removeBrackets(originalName):
@@ -73,11 +74,31 @@ def ArrivalOrder(ServicesIN):
 
 def ProcessDepartures(journeyConfig, APIOut):
     show_individual_departure_time = journeyConfig["individualStationDepartureTime"]
-    APIElements = xmltodict.parse(APIOut)
     Services = []
-
-    # get departure station name
-    departureStationName = APIElements['soap:Envelope']['soap:Body']['GetDepBoardWithDetailsResponse']['GetStationBoardResult']['lt4:locationName']
+    
+    try:
+        APIElements = xmltodict.parse(APIOut)
+        
+        # Check for SOAP fault and log details
+        soap_body = APIElements.get('soap:Envelope', {}).get('soap:Body', {})
+        if 'soap:Fault' in soap_body:
+            fault = soap_body['soap:Fault']
+            fault_string = fault.get('faultstring', 'Unknown SOAP fault')
+            logger = logging.getLogger(__name__)
+            logger.error(f"SOAP fault received: {fault_string}")
+            return None, None
+            
+        # Get departure station name and board result
+        board_response = APIElements['soap:Envelope']['soap:Body']['GetDepBoardWithDetailsResponse']
+        board_result = board_response['GetStationBoardResult']
+        departureStationName = board_result['lt4:locationName']
+        
+        logger = logging.getLogger(__name__)
+        logger.debug(f"Processing departures for station: {departureStationName}")
+    except Exception as e:
+        logger = logging.getLogger(__name__)
+        logger.error(f"Error parsing API response: {str(e)}")
+        return None, None
 
     # if there are only train services from this station
     if 'lt7:trainServices' in APIElements['soap:Envelope']['soap:Body']['GetDepBoardWithDetailsResponse']['GetStationBoardResult']:
@@ -217,14 +238,14 @@ def loadDeparturesForStation(journeyConfig, apiKey, rows):
             <typ4:AccessToken><typ4:TokenValue>""" + apiKey + """</typ4:TokenValue></typ4:AccessToken>
         </x:Header>
         <x:Body>
-            <ldb:GetDepBoardWithDetailsRequest>
-                <ldb:numRows>""" + rows + """</ldb:numRows>
-                <ldb:crs>""" + journeyConfig["departureStation"] + """</ldb:crs>
-                <ldb:timeOffset>""" + journeyConfig["timeOffset"] + """</ldb:timeOffset>
-                <ldb:filterCrs>""" + journeyConfig["destinationStation"] + """</ldb:filterCrs>
-                <ldb:filterType>to</ldb:filterType>
-                <ldb:timeWindow>120</ldb:timeWindow>
-            </ldb:GetDepBoardWithDetailsRequest>
+        <ldb:GetDepBoardWithDetailsRequest>
+            <ldb:numRows>""" + rows + """</ldb:numRows>
+            <ldb:crs>""" + journeyConfig["departureStation"] + """</ldb:crs>
+            <ldb:timeOffset>""" + journeyConfig["timeOffset"] + """</ldb:timeOffset>
+            <ldb:filterCrs>""" + journeyConfig["destinationStation"] + """</ldb:filterCrs>
+            <ldb:filterType>to</ldb:filterType>
+            <ldb:timeWindow>120</ldb:timeWindow>
+        </ldb:GetDepBoardWithDetailsRequest>
         </x:Body>
     </x:Envelope>"""
 

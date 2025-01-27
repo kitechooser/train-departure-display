@@ -8,39 +8,33 @@ from enum import Enum, auto
 
 logger = logging.getLogger(__name__)
 
-class EventType(Enum):
-    """Event types for the system"""
-    DEPARTURE_UPDATED = auto()
-    STATUS_CHANGED = auto()
-    DISPLAY_REFRESH = auto()
-    ANNOUNCEMENT_NEEDED = auto()
-    ERROR_OCCURRED = auto()
-
 @dataclass
 class Event:
     """Event data structure"""
-    type: EventType
-    data: Any
+    type: str
+    data: Dict[str, Any]
     timestamp: float = 0.0
 
     def __post_init__(self):
         if not self.timestamp:
             self.timestamp = time.time()
+        if self.data is None:
+            self.data = {}
 
 class EventHandler:
     """Event handler wrapper"""
-    def __init__(self, callback: Callable[[Event], None], filter_type: Optional[EventType] = None):
+    def __init__(self, callback: Callable[[Dict[str, Any]], None], filter_type: Optional[str] = None):
         self.callback = callback
         self.filter_type = filter_type
 
-    def can_handle(self, event: Event) -> bool:
+    def can_handle(self, event_type: str) -> bool:
         """Check if handler can process this event type"""
-        return self.filter_type is None or event.type == self.filter_type
+        return self.filter_type is None or event_type == self.filter_type
 
-    def handle(self, event: Event) -> None:
+    def handle(self, data: Dict[str, Any]) -> None:
         """Process the event"""
         try:
-            self.callback(event)
+            self.callback(data)
         except Exception as e:
             logger.error(f"Error in event handler: {str(e)}", exc_info=True)
             raise  # Re-raise to let event bus handle it
@@ -58,13 +52,18 @@ class EventBus:
         if async_mode:
             self.start()
 
-    def subscribe(self, callback: Callable[[Event], None], event_type: Optional[EventType] = None) -> None:
+    def subscribe(self, event_type: str, callback: Callable[[Dict[str, Any]], None]) -> None:
         """Subscribe to events"""
         handler = EventHandler(callback, event_type)
         self.handlers.append(handler)
         logger.debug(f"Added handler for {event_type if event_type else 'all events'}")
 
-    def publish(self, event_type: EventType, data: Any = None) -> None:
+    def unsubscribe(self, event_type: str, callback: Callable[[Dict[str, Any]], None]) -> None:
+        """Unsubscribe from events"""
+        self.handlers = [h for h in self.handlers if not (h.callback == callback and h.filter_type == event_type)]
+        logger.debug(f"Removed handler for {event_type}")
+
+    def emit(self, event_type: str, data: Dict[str, Any] = None) -> None:
         """Publish an event"""
         event = Event(event_type, data)
         
@@ -79,25 +78,25 @@ class EventBus:
         logger.debug(f"Processing event {event.type}")
         
         # Process error handlers first if this is an error event
-        if event.type == EventType.ERROR_OCCURRED:
+        if event.type == 'error':
             for handler in self.handlers:
-                if handler.filter_type == EventType.ERROR_OCCURRED:
+                if handler.filter_type == 'error':
                     try:
-                        handler.handle(event)
+                        handler.handle(event.data)
                     except Exception as e:
                         logger.error(f"Error in error handler: {str(e)}", exc_info=True)
             return
             
         # Process regular handlers
         for handler in self.handlers:
-            if handler.can_handle(event):
+            if handler.can_handle(event.type):
                 try:
-                    handler.handle(event)
+                    handler.handle(event.data)
                 except Exception as e:
                     logger.error(f"Error processing event {event.type}: {str(e)}", exc_info=True)
                     # Create and process error event
                     error_event = Event(
-                        EventType.ERROR_OCCURRED,
+                        'error',
                         {
                             'error': str(e),
                             'event_type': event.type,

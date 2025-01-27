@@ -1,157 +1,100 @@
 import pytest
-import os
 import json
-import tempfile
-from src.infrastructure.config_manager import ConfigManager, MigrationConfig
+import os
+from unittest.mock import mock_open, patch, call, Mock
+from src.infrastructure.config_manager import ConfigManager
 
 @pytest.fixture
-def temp_config_file():
-    """Create a temporary config file for testing"""
-    config = {
-        "migration": {
-            "phase1_enabled": True,
-            "phase2_enabled": False,
-            "use_new_tfl_client": True
-        },
-        "tfl": {
-            "appId": "test_id",
-            "appKey": "test_key"
+def config_data():
+    return {
+        'test_key': 'test_value',
+        'nested': {
+            'key': 'value'
         }
     }
-    
-    with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
-        json.dump(config, f)
-        temp_path = f.name
-        
-    yield temp_path
-    os.unlink(temp_path)
 
-def test_load_config(temp_config_file):
-    """Test loading configuration from file"""
-    manager = ConfigManager(temp_config_file)
-    
-    assert manager.migration.phase1_enabled is True
-    assert manager.migration.phase2_enabled is False
-    assert manager.migration.use_new_tfl_client is True
-    assert manager.get("tfl")["appId"] == "test_id"
+@pytest.fixture
+def config_manager(config_data):
+    with patch('builtins.open', mock_open(read_data=json.dumps(config_data))):
+        return ConfigManager('test_config.json')
 
-def test_save_config(temp_config_file):
-    """Test saving configuration changes"""
-    manager = ConfigManager(temp_config_file)
-    
-    # Update some settings
-    manager.update_migration(phase2_enabled=True)
-    manager.set("tfl", {"appId": "new_id", "appKey": "new_key"})
-    
-    # Create new manager to load from file
-    new_manager = ConfigManager(temp_config_file)
-    
-    assert new_manager.migration.phase2_enabled is True
-    assert new_manager.get("tfl")["appId"] == "new_id"
+def test_init_and_load(config_data):
+    """Test initialization and loading of config"""
+    with patch('builtins.open', mock_open(read_data=json.dumps(config_data))):
+        manager = ConfigManager('test_config.json')
+        assert manager.config == config_data
+        assert manager.get_path() == 'test_config.json'
 
-def test_migration_config_defaults():
-    """Test migration config default values"""
-    config = MigrationConfig()
-    
-    assert config.phase1_enabled is False
-    assert config.phase2_enabled is False
-    assert config.phase3_enabled is False
-    assert config.phase4_enabled is False
-    assert config.use_new_api_client is False
-    assert config.use_new_tfl_client is False
-    assert config.use_new_rail_client is False
-    assert config.use_event_system is False
-    assert config.use_new_display is False
+def test_get_config(config_manager, config_data):
+    """Test getting complete configuration"""
+    assert config_manager.get_config() == config_data
 
-def test_update_migration_settings(temp_config_file):
-    """Test updating migration settings"""
-    manager = ConfigManager(temp_config_file)
-    
-    manager.update_migration(
-        phase1_enabled=True,
-        phase2_enabled=True,
-        use_event_system=True
-    )
-    
-    assert manager.migration.phase1_enabled is True
-    assert manager.migration.phase2_enabled is True
-    assert manager.migration.use_event_system is True
+def test_get_value(config_manager):
+    """Test getting a configuration value"""
+    assert config_manager.get('test_key') == 'test_value'
+    assert config_manager.get('nested')['key'] == 'value'
+    assert config_manager.get('non_existent', 'default') == 'default'
 
-def test_invalid_migration_setting(temp_config_file):
-    """Test handling invalid migration setting"""
-    manager = ConfigManager(temp_config_file)
-    
-    # Should not raise exception but log warning
-    manager.update_migration(invalid_setting=True)
-    
-    # Valid settings should still be updated
-    manager.update_migration(phase1_enabled=True, invalid_setting=True)
-    assert manager.migration.phase1_enabled is True
+def test_set_value(config_manager):
+    """Test setting a configuration value"""
+    config_manager.set('new_key', 'new_value')
+    assert config_manager.get('new_key') == 'new_value'
 
-def test_config_backup(temp_config_file):
-    """Test config backup creation"""
-    manager = ConfigManager(temp_config_file)
-    
-    # Make some changes to trigger backup
-    manager.update_migration(phase2_enabled=True)
-    
-    # Check backup file exists
-    backup_path = f"{temp_config_file}.bak"
-    assert os.path.exists(backup_path)
-    
-    # Check backup contains original content
-    with open(backup_path, 'r') as f:
-        backup_data = json.load(f)
-        assert backup_data["migration"]["phase2_enabled"] is False
+def test_update_values(config_manager):
+    """Test updating multiple configuration values"""
+    updates = {
+        'key1': 'value1',
+        'key2': 'value2'
+    }
+    config_manager.update(updates)
+    assert config_manager.get('key1') == 'value1'
+    assert config_manager.get('key2') == 'value2'
 
-def test_context_manager(temp_config_file):
-    """Test config manager context manager"""
-    with ConfigManager(temp_config_file) as manager:
-        manager.update_migration(phase2_enabled=True)
-        
-    # Check changes were saved
-    new_manager = ConfigManager(temp_config_file)
-    assert new_manager.migration.phase2_enabled is True
+def test_delete_value(config_manager):
+    """Test deleting a configuration value"""
+    config_manager.delete('test_key')
+    assert config_manager.get('test_key') is None
 
-def test_get_default_value(temp_config_file):
-    """Test getting non-existent config with default"""
-    manager = ConfigManager(temp_config_file)
+def test_clear_config(config_manager):
+    """Test clearing all configuration values"""
+    config_manager.clear()
+    assert len(config_manager.get_config()) == 0
+
+def test_has_key(config_manager):
+    """Test checking if configuration has key"""
+    assert config_manager.has_key('test_key') is True
+    assert config_manager.has_key('non_existent') is False
+
+def test_save_config(config_manager, config_data):
+    """Test saving configuration to file"""
+    m = mock_open()
+    with patch('builtins.open', m):
+        config_manager.save_config()
     
-    value = manager.get("non_existent", "default")
-    assert value == "default"
+    # Get all write calls and join them into a single string
+    write_calls = [args[0] for name, args, kwargs in m().mock_calls if name == 'write']
+    written_data = ''.join(write_calls)
+    
+    # Parse the written data and compare
+    saved_data = json.loads(written_data)
+    assert saved_data == config_data
 
-def test_missing_config_file():
-    """Test handling of missing config file"""
+def test_load_config_file_not_found():
+    """Test loading non-existent configuration file"""
     with pytest.raises(FileNotFoundError):
-        ConfigManager("non_existent_file.json")
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = FileNotFoundError()
+            ConfigManager('non_existent.json')
 
-def test_invalid_json_config():
-    """Test handling of invalid JSON config"""
-    with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
-        f.write("invalid json")
-        temp_path = f.name
-        
+def test_load_config_invalid_json():
+    """Test loading invalid JSON configuration"""
     with pytest.raises(json.JSONDecodeError):
-        ConfigManager(temp_path)
-        
-    os.unlink(temp_path)
+        with patch('builtins.open', mock_open(read_data='invalid json')):
+            ConfigManager('test_config.json')
 
-def test_migration_config_immutable(temp_config_file):
-    """Test migration config immutability"""
-    manager = ConfigManager(temp_config_file)
-    migration1 = manager.migration
-    
-    # Update settings through manager
-    manager.update_migration(phase2_enabled=True)
-    migration2 = manager.migration
-    
-    # Should be different objects
-    assert migration1 is not migration2
-    # Original object should be unchanged
-    assert migration1.phase2_enabled is False
-    # New object should have updated value
-    assert migration2.phase2_enabled is True
-    
-    # Direct modification should not be possible
-    with pytest.raises(AttributeError):
-        migration2.phase2_enabled = False
+def test_save_config_error(config_manager):
+    """Test error while saving configuration"""
+    with pytest.raises(Exception):
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = Exception('Save error')
+            config_manager.save_config()

@@ -1,0 +1,1262 @@
+2025-01-26 18:39:11,512 - __main__ - INFO - Logging to file: logs/train_display_20250126_183911.log
+2025-01-26 18:39:11,512 - src.infrastructure.config_manager - INFO - Configuration loaded successfully
+2025-01-26 18:39:11,512 - src.infrastructure.event_bus - INFO - Event bus started in async mode
+2025-01-26 18:39:11,513 - src.announcements.announcements_module - INFO - Announcement Manager initialized with config: {'enabled': True, 'volume': 90, 'announcement_gap': 2.0, 'max_queue_size': 10, 'log_level': 'INFO', 'audio_config': {'echo': {'enabled': True, 'delay': 0.3, 'decay': 0.5, 'num_echoes': 3}}, 'announcement_types': {'delays': True, 'platform_changes': True, 'cancellations': True, 'on_time': False, 'departures': False, 'next_train': True, 'arriving': True, 'line_status': True}}
+2025-01-26 18:39:11,513 - src.infrastructure.event_bus - DEBUG - Added handler for announcement_request
+2025-01-26 18:39:11,513 - src.infrastructure.event_bus - DEBUG - Added handler for announcement_cancel
+2025-01-26 18:39:11,513 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-26 18:39:11,513 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-26 18:39:11,513 - src.infrastructure.event_bus - DEBUG - Added handler for status_update
+2025-01-26 18:39:11,513 - src.infrastructure.event_bus - DEBUG - Added handler for status_request
+2025-01-26 18:39:11,533 - src.presentation.displays.base_display - INFO - Initializing display rail (256x64)
+2025-01-26 18:39:11,533 - src.presentation.displays.base_display - INFO - Subscribing display rail to events
+2025-01-26 18:39:11,533 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-26 18:39:11,533 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-26 18:39:11,533 - src.presentation.renderers.components.text - DEBUG - TextComponent initialized with text: 
+2025-01-26 18:39:11,533 - src.presentation.displays.rail_display - INFO - Rail display initialized
+2025-01-26 18:39:11,533 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-26 18:39:11,533 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-26 18:39:11,533 - src.presentation.displays.rail_display - INFO - Drawing error message: Waiting for data...
+2025-01-26 18:39:11,533 - src.presentation.renderers.components.text - DEBUG - Setting text style: align=center, color=1, padding=(0, 0, 0, 0)
+2025-01-26 18:39:11,533 - src.presentation.renderers.components.text - DEBUG - Setting text to: Waiting for data...
+2025-01-26 18:39:11,533 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:11,534 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,535 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,535 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,535 - src.presentation.renderers.components.text - DEBUG - Text size calculated: (83, 8) for text: Waiting for data...
+2025-01-26 18:39:11,535 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (0, 0)
+2025-01-26 18:39:11,536 - src.presentation.renderers.components.text - DEBUG - Created bitmap with size: (83, 8)
+2025-01-26 18:39:11,536 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:11,537 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,537 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,537 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,537 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:11,538 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:11,538 - src.presentation.displays.base_display - WARNING - No device set for display rail
+2025-01-26 18:39:11,729 - src.display_manager - INFO - MockDisplay initialized Primary (256x64)
+2025-01-26 18:39:11,730 - src.services.display_service - INFO - Registering display: rail
+2025-01-26 18:39:11,730 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:11,730 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,730 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,730 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,730 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:11,730 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,731 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,731 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,731 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:11,732 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:11,732 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:11,732 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:11,732 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:11,734 - src.presentation.displays.base_display - INFO - Initializing display tfl_secondary (256x64)
+2025-01-26 18:39:11,734 - src.presentation.displays.base_display - INFO - Subscribing display tfl_secondary to events
+2025-01-26 18:39:11,734 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-26 18:39:11,734 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-26 18:39:11,735 - src.presentation.renderers.components.text - DEBUG - TextComponent initialized with text: 
+2025-01-26 18:39:11,735 - src.presentation.displays.tfl_display - INFO - TfL display initialized
+2025-01-26 18:39:11,735 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-26 18:39:11,735 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-26 18:39:11,735 - src.presentation.displays.tfl_display - INFO - Drawing error message: Waiting for data...
+2025-01-26 18:39:11,735 - src.presentation.renderers.components.text - DEBUG - Setting text style: align=center, color=1, padding=(0, 0, 0, 0)
+2025-01-26 18:39:11,735 - src.presentation.renderers.components.text - DEBUG - Setting text to: Waiting for data...
+2025-01-26 18:39:11,735 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:11,735 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,735 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,735 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,736 - src.presentation.renderers.components.text - DEBUG - Text size calculated: (83, 8) for text: Waiting for data...
+2025-01-26 18:39:11,736 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (0, 0)
+2025-01-26 18:39:11,737 - src.presentation.renderers.components.text - DEBUG - Created bitmap with size: (83, 8)
+2025-01-26 18:39:11,737 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:11,737 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,738 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,738 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,738 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:11,739 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:11,739 - src.presentation.displays.base_display - WARNING - No device set for display tfl_secondary
+2025-01-26 18:39:11,769 - src.display_manager - INFO - MockDisplay initialized Secondary (256x64)
+2025-01-26 18:39:11,769 - src.services.display_service - INFO - Registering display: tfl_secondary
+2025-01-26 18:39:11,769 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:11,769 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,769 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,769 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,769 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:11,769 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,770 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,770 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,770 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:11,771 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:11,771 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:11,771 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:11,771 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:11,784 - src.infrastructure.event_bus - DEBUG - Added handler for service_update
+2025-01-26 18:39:11,784 - src.infrastructure.event_bus - DEBUG - Added handler for service_error
+2025-01-26 18:39:11,784 - __main__ - INFO - Starting train departure display...
+2025-01-26 18:39:11,784 - src.services.display_service - INFO - Updating display rail with content: {'error': 'Waiting for data...'}
+2025-01-26 18:39:11,784 - src.presentation.displays.rail_display - INFO - Updating display content: {'error': 'Waiting for data...'}
+2025-01-26 18:39:11,784 - src.presentation.displays.rail_display - INFO - Clearing display content
+2025-01-26 18:39:11,784 - src.presentation.renderers.components.text - DEBUG - Setting text to: 
+2025-01-26 18:39:11,784 - src.presentation.displays.rail_display - INFO - Drawing error message: Waiting for data...
+2025-01-26 18:39:11,784 - src.presentation.renderers.components.text - DEBUG - Setting text style: align=center, color=1, padding=(0, 0, 0, 0)
+2025-01-26 18:39:11,784 - src.presentation.renderers.components.text - DEBUG - Setting text to: Waiting for data...
+2025-01-26 18:39:11,784 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:11,784 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,785 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,785 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,786 - src.presentation.renderers.components.text - DEBUG - Text size calculated: (83, 8) for text: Waiting for data...
+2025-01-26 18:39:11,786 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (0, 0)
+2025-01-26 18:39:11,787 - src.presentation.renderers.components.text - DEBUG - Created bitmap with size: (83, 8)
+2025-01-26 18:39:11,787 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:11,787 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,788 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,788 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,788 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:11,789 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:11,789 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:11,789 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:11,789 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:11,800 - src.services.display_service - INFO - Rendering display rail
+2025-01-26 18:39:11,800 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:11,800 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,801 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,801 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,801 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:11,801 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,802 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,802 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,802 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:11,803 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:11,803 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:11,803 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:11,803 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:11,817 - src.infrastructure.event_bus - DEBUG - Queued event display_updated
+2025-01-26 18:39:11,817 - src.infrastructure.event_bus - DEBUG - Processing event display_updated
+2025-01-26 18:39:11,817 - src.services.display_service - WARNING - Display not found: tfl
+2025-01-26 18:39:11,817 - src.infrastructure.event_bus - DEBUG - Queued event service_error
+2025-01-26 18:39:11,817 - src.infrastructure.event_bus - DEBUG - Processing event service_error
+2025-01-26 18:39:11,817 - src.infrastructure.event_bus - DEBUG - Added handler for timer_tick
+2025-01-26 18:39:11,835 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): lite.realtime.nationalrail.co.uk:443
+2025-01-26 18:39:11,918 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:11,919 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:11,919 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,919 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,919 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,919 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:11,919 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,920 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,920 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,920 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:11,921 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:11,921 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:11,921 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:11,922 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:11,934 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:11,934 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,934 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,934 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,934 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:11,934 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:11,935 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:11,935 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:11,935 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:11,936 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:11,936 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:11,936 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:11,936 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,050 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:12,051 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:12,051 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,051 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,051 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,051 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,051 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,052 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,052 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,052 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,053 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,053 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:12,053 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,053 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,055 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:12,055 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,056 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,056 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,056 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,056 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,057 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,057 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,057 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,058 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,058 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:12,058 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,058 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,134 - urllib3.connectionpool - DEBUG - https://lite.realtime.nationalrail.co.uk:443 "POST /OpenLDBWS/ldb11.asmx HTTP/11" 200 31494
+2025-01-26 18:39:12,170 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:12,170 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:12,170 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,171 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,171 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,171 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,171 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,173 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,173 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,173 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,175 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,175 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:12,175 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,176 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,178 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:12,178 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,179 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,179 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,179 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,179 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,180 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,180 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,180 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,183 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,183 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:12,183 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,183 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,204 - src.trains - DEBUG - Processing departures for station: London Waterloo
+2025-01-26 18:39:12,205 - src.api.rail_client - INFO - Got 10 departures for London Waterloo
+2025-01-26 18:39:12,206 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): lite.realtime.nationalrail.co.uk:443
+2025-01-26 18:39:12,286 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:12,286 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:12,286 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,288 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,288 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,288 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,288 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,289 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,290 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,290 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,293 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,293 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:12,294 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,294 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,296 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:12,296 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,297 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,298 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,298 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,298 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,299 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,299 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,299 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,301 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,301 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:12,301 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,301 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,406 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:12,406 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:12,406 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,408 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,408 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,408 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,408 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,410 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,410 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,410 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,413 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,413 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:12,413 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,413 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,416 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:12,416 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,418 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,418 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,418 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,418 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,419 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,419 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,419 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,423 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,423 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:12,423 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,423 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,434 - urllib3.connectionpool - DEBUG - https://lite.realtime.nationalrail.co.uk:443 "POST /OpenLDBWS/ldb11.asmx HTTP/11" 200 33204
+2025-01-26 18:39:12,511 - src.trains - DEBUG - Processing departures for station: London Victoria
+2025-01-26 18:39:12,518 - src.api.rail_client - INFO - Got 10 departures for London Victoria
+2025-01-26 18:39:12,520 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): lite.realtime.nationalrail.co.uk:443
+2025-01-26 18:39:12,535 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:12,535 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:12,535 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,536 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,536 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,536 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,536 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,537 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,537 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,537 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,539 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,539 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:12,539 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,539 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,551 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:12,551 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,552 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,552 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,552 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,552 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,552 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,553 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,553 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,554 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,554 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:12,554 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,554 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,668 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:12,668 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:12,668 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,670 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,670 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,670 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,670 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,671 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,671 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,671 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,674 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,674 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:12,674 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,674 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,677 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:12,677 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,678 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,678 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,678 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,678 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,679 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,679 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,679 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,681 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,681 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:12,681 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,682 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,746 - urllib3.connectionpool - DEBUG - https://lite.realtime.nationalrail.co.uk:443 "POST /OpenLDBWS/ldb11.asmx HTTP/11" 200 30392
+2025-01-26 18:39:12,785 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:12,786 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:12,786 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,789 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,789 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,789 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,789 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,791 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,791 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,791 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,795 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,795 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:12,795 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,795 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,799 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:12,799 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,801 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,801 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,801 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,801 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,803 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,803 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,803 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,806 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,806 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:12,806 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,806 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,815 - src.trains - DEBUG - Processing departures for station: London Liverpool Street
+2025-01-26 18:39:12,816 - src.api.rail_client - INFO - Got 10 departures for London Liverpool Street
+2025-01-26 18:39:12,818 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): lite.realtime.nationalrail.co.uk:443
+2025-01-26 18:39:12,909 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:12,910 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:12,910 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,913 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,913 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,913 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,913 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,915 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,915 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,915 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,919 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,919 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:12,920 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,920 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:12,924 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:12,924 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,926 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,926 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,926 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:12,926 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:12,927 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:12,927 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:12,927 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:12,930 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:12,930 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:12,930 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:12,930 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,030 - urllib3.connectionpool - DEBUG - https://lite.realtime.nationalrail.co.uk:443 "POST /OpenLDBWS/ldb11.asmx HTTP/11" 200 19421
+2025-01-26 18:39:13,035 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:13,036 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,036 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,039 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,039 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,039 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,039 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,041 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,041 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,041 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,045 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,045 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,045 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,045 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,050 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:13,050 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,051 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,051 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,051 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,052 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,053 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,053 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,053 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,057 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,057 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:13,057 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,057 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,094 - src.trains - DEBUG - Processing departures for station: London Paddington
+2025-01-26 18:39:13,095 - src.api.rail_client - INFO - Got 10 departures for London Paddington
+2025-01-26 18:39:13,098 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): lite.realtime.nationalrail.co.uk:443
+2025-01-26 18:39:13,160 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:13,160 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,160 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,163 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,164 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,164 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,164 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,165 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,166 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,166 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,169 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,169 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,169 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,170 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,173 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:13,173 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,174 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,174 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,174 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,174 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,176 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,176 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,176 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,179 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,179 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:13,179 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,179 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,285 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:13,286 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,286 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,290 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,290 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,290 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,290 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,292 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,292 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,292 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,295 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,295 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,295 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,295 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,298 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:13,298 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,299 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,299 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,299 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,299 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,300 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,300 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,300 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,303 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,303 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:13,303 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,303 - urllib3.connectionpool - DEBUG - https://lite.realtime.nationalrail.co.uk:443 "POST /OpenLDBWS/ldb11.asmx HTTP/11" 200 1485
+2025-01-26 18:39:13,303 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,303 - src.trains - DEBUG - Processing departures for station: London Kings Cross
+2025-01-26 18:39:13,303 - src.api.rail_client - WARNING - No departures found for station KGX
+2025-01-26 18:39:13,306 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): lite.realtime.nationalrail.co.uk:443
+2025-01-26 18:39:13,407 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:13,407 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,407 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,411 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,411 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,411 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,411 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,414 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,414 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,414 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,417 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,417 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,417 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,417 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,419 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:13,419 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,420 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,420 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,420 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,420 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,421 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,421 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,421 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,423 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,423 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:13,423 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,423 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,535 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:13,535 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,535 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,537 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,537 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,537 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,537 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,539 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,539 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,539 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,542 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,542 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,542 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,542 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,545 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:13,545 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,546 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,546 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,546 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,546 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,547 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,547 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,547 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,550 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,550 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:13,550 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,550 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,653 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:13,653 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,654 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,657 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,657 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,657 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,657 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,658 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,658 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,658 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,662 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,662 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,662 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,662 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,664 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:13,665 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,666 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,666 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,666 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,666 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,667 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,667 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,667 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,670 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,670 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:13,670 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,670 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,736 - urllib3.connectionpool - DEBUG - https://lite.realtime.nationalrail.co.uk:443 "POST /OpenLDBWS/ldb11.asmx HTTP/11" 200 76298
+2025-01-26 18:39:13,773 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:13,773 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,773 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,775 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,776 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,776 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,776 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,778 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,778 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,778 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,782 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,782 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,782 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,783 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,788 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:13,788 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,790 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,790 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,790 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,790 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,791 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,791 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,791 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,794 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,794 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:13,795 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,795 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,902 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:13,902 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,902 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,905 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,905 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,905 - src.presentation.displays.rail_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,906 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,907 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,908 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,908 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,912 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,912 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,912 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,912 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,916 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:13,916 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,918 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,918 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,918 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:13,918 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:13,920 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:13,920 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:13,926 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:13,928 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,928 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:13,928 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,929 - src.trains - DEBUG - Processing departures for station: London Euston
+2025-01-26 18:39:13,929 - src.api.rail_client - INFO - Got 10 departures for London Euston
+2025-01-26 18:39:13,929 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:13,929 - src.infrastructure.event_bus - DEBUG - Queued event service_update
+2025-01-26 18:39:13,929 - src.infrastructure.event_bus - DEBUG - Processing event service_update
+2025-01-26 18:39:13,930 - src.services.display_service - INFO - Updating display rail with content: {'departures': [{'platform': '24', 'aimed_departure_time': '18:39', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Bracknell', 'calling_at_list': 'Vauxhall (18:43), Clapham Junction (18:48), Putney (18:52), Richmond (18:58), Twickenham (19:02), Feltham (19:08), Staines (19:15), Egham (19:20), Virginia Water (19:24), Longcross (19:27), Sunningdale (19:30), Ascot (19:36), Martins Heron (19:45) and Bracknell (19:48).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'platform': '21', 'aimed_departure_time': '18:44', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Windsor & Eton Riverside', 'calling_at_list': 'Vauxhall (18:48), Queenstown Road Battersea (18:51), Clapham Junction (18:54), Wandsworth Town (18:57), Putney (18:59), Barnes (19:03), Mortlake (19:05), North Sheen (19:07), Richmond (19:09), St Margarets (19:12), Twickenham (19:14), Whitton (19:18), Feltham (19:22), Ashford (19:26), Staines (19:30), Wraysbury (19:34), Sunnymeads (19:37), Datchet (19:40) and Windsor & Eton Riverside (19:44).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'platform': '23', 'aimed_departure_time': '18:50', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Woking', 'calling_at_list': 'Vauxhall (18:54), Queenstown Road Battersea (18:57), Clapham Junction (19:00), Wandsworth Town (19:03), Putney (19:05), Barnes (19:09), Barnes Bridge (19:11), Chiswick (19:13), Kew Bridge (19:16), Brentford (19:18), Syon Lane (19:21), Isleworth (19:23), Hounslow (19:26), Feltham (19:32), Ashford (19:37), Staines (19:40), Egham (19:45), Virginia Water (19:50), Chertsey (19:55), Addlestone (19:58), Byfleet & New Haw (20:02), West Byfleet (20:06) and Woking (20:11).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:02', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Portsmouth Harbour', 'calling_at_list': 'Clapham Junction (19:09), Woking (19:54), Guildford (20:03), Godalming (20:11), Haslemere (20:22), Petersfield (20:33), Havant (20:46), Fratton (20:55), Portsmouth & Southsea (20:59) and Portsmouth Harbour (21:03).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:05', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Weymouth', 'calling_at_list': 'Woking (19:59), Basingstoke (20:26), Winchester (20:43), Southampton Airport Parkway (20:53), Southampton Central (21:01), Brockenhurst (21:16), New Milton (21:24), Bournemouth (21:34), Branksome (21:44), Parkstone (21:47), Poole (21:50), Hamworthy (21:56), Wareham (22:02), Wool (22:09), Moreton (22:16), Dorchester South (22:24), Upwey (22:32) and Weymouth (22:36).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:09', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Bracknell', 'calling_at_list': 'Vauxhall (19:13), Clapham Junction (19:18), Putney (19:22), Richmond (19:28), Twickenham (19:32), Feltham (19:38), Staines (19:45), Egham (19:50), Virginia Water (19:54), Sunningdale (20:00), Ascot (20:06), Martins Heron (20:15) and Bracknell (20:18).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:14', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Shepperton', 'calling_at_list': 'Vauxhall (19:18), Queenstown Road Battersea (19:21), Clapham Junction (19:24), Wandsworth Town (19:27), Putney (19:29), Barnes (19:33), Mortlake (19:36), North Sheen (19:38), Richmond (19:40), St Margarets (19:43), Twickenham (19:45), Strawberry Hill (19:49), Fulwell (19:51), Hampton (19:55), Kempton Park (19:58), Sunbury (20:00), Upper Halliford (20:02) and Shepperton (20:06).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:18', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Poole', 'calling_at_list': 'Woking (20:14), Farnborough (20:32), Basingstoke (20:46), Micheldever (20:57), Winchester (21:06), Shawford (21:11), Eastleigh (21:17), Southampton Airport Parkway (21:26), Southampton Central (21:34), Totton (21:41), Ashurst New Forest (21:46), Beaulieu Road (21:50), Brockenhurst (21:56), Sway (22:01), New Milton (22:06), Hinton Admiral (22:10), Christchurch (22:15), Pokesdown (22:19), Bournemouth (22:23) and Poole (22:33).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:25', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Windsor & Eton Riverside', 'calling_at_list': 'Vauxhall (19:29), Clapham Junction (19:34), Putney (19:38), Richmond (19:45), Twickenham (19:49), Whitton (19:52), Feltham (19:56), Ashford (20:01), Staines (20:04), Datchet (20:12) and Windsor & Eton Riverside (20:17).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:36', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Yeovil Junction', 'calling_at_list': 'Woking (20:31), Basingstoke (21:05), Andover (21:23), Salisbury (21:43), Tisbury (22:07), Gillingham (22:17), Templecombe (22:25), Sherborne (22:32) and Yeovil Junction (22:38).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '18:38', 'expected_departure_time': 'On time', 'carriages': '10', 'operator': 'Southern', 'destination_name': 'Dorking', 'calling_at_list': 'Clapham Junction (18:45), Balham (18:50), Mitcham Eastfields (18:57), Mitcham Junction (19:00), Hackbridge (19:03), Carshalton (19:06), Sutton (19:10), Cheam (19:13), Ewell East (19:16), Epsom (19:20), Ashtead (19:26), Leatherhead (19:29), Boxhill & Westhumble (19:34) and Dorking (19:36).  --   A Southern Service formed of 10 coaches.', 'station_code': 'VIC'}, {'platform': '16', 'aimed_departure_time': '18:46', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Southern', 'destination_name': 'Bexhill', 'calling_at_list': 'Clapham Junction (18:52), East Croydon (19:02), Gatwick Airport (19:17), Haywards Heath (19:28), Wivelsfield (19:34), Plumpton (19:41), Cooksbridge (19:45), Lewes (19:50), Polegate (20:03), Eastbourne (20:11), Hampden Park (20:21), Pevensey & Westham (20:26), Normans Bay (20:31), Cooden Beach (20:36), Collington (20:39) and Bexhill (20:41).  --   A Southern Service formed of 8 coaches.', 'station_code': 'VIC'}, {'platform': '10', 'aimed_departure_time': '18:50', 'expected_departure_time': 'On time', 'carriages': '6', 'operator': 'Southern', 'destination_name': 'Crystal Palace', 'calling_at_list': 'Battersea Park (18:54), Clapham Junction (18:58), Wandsworth Common (19:01), Balham (19:04), Streatham Hill (19:08), West Norwood (19:12), Gipsy Hill (19:15) and Crystal Palace (19:20).  --   A Southern Service formed of 6 coaches.', 'station_code': 'VIC'}, {'platform': '15', 'aimed_departure_time': '18:51', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Southern', 'destination_name': 'East Grinstead', 'calling_at_list': 'Clapham Junction (18:57), East Croydon (19:08), Sanderstead (19:14), Riddlesdown (19:17), Upper Warlingham (19:21), Woldingham (19:25), Oxted (19:33), Hurst Green (19:36), Lingfield (19:43), Dormans (19:46) and East Grinstead (19:51).  --   A Southern Service formed of 8 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '18:59', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Gatwick Express', 'destination_name': 'Gatwick Airport', 'calling_at_list': 'Gatwick Airport (19:28) only.   --   A Gatwick Express Service formed of 8 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:00', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Southern', 'destination_name': 'Epsom Downs', 'calling_at_list': 'Battersea Park (19:04), Clapham Junction (19:08), Wandsworth Common (19:12), Balham (19:15), Streatham Common (19:19), Norbury (19:22), Thornton Heath (19:25), Selhurst (19:28), West Croydon (19:35), Waddon (19:38), Wallington (19:41), Carshalton Beeches (19:44), Sutton (19:48), Belmont (19:52), Banstead (19:56) and Epsom Downs (19:59).  --   A Southern Service formed of 8 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:02', 'expected_departure_time': 'On time', 'carriages': '12', 'operator': 'Southern', 'destination_name': 'Brighton', 'calling_at_list': 'Clapham Junction (19:08), East Croydon (19:18), Gatwick Airport (19:33), Three Bridges (19:39), Haywards Heath (19:48), Burgess Hill (19:54), Hassocks (19:57) and Brighton (20:07).  --   A Southern Service formed of 12 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:05', 'expected_departure_time': 'On time', 'carriages': '4', 'operator': 'Southern', 'destination_name': 'Reigate', 'calling_at_list': 'Clapham Junction (19:11), East Croydon (19:22), Purley (19:27), Coulsdon South (19:31), Merstham (19:36), Redhill (19:40) and Reigate (19:50).  --   A Southern Service formed of 4 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:08', 'expected_departure_time': 'On time', 'carriages': '10', 'operator': 'Southern', 'destination_name': 'Dorking', 'calling_at_list': 'Clapham Junction (19:15), Balham (19:20), Mitcham Eastfields (19:27), Mitcham Junction (19:30), Hackbridge (19:33), Carshalton (19:36), Sutton (19:40), Cheam (19:43), Ewell East (19:46), Epsom (19:50), Ashtead (19:56), Leatherhead (19:59), Boxhill & Westhumble (20:04) and Dorking (20:06).  --   A Southern Service formed of 10 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:16', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Southern', 'destination_name': 'Littlehampton', 'calling_at_list': 'Clapham Junction (19:22), East Croydon (19:32), Gatwick Airport (19:47), Haywards Heath (19:59), Burgess Hill (20:06), Hassocks (20:09), Preston Park (20:16), Hove (20:20), Portslade (20:24), Shoreham-by-Sea (20:28), Lancing (20:33), Worthing (20:37), West Worthing (20:39), Durrington-on-Sea (20:42), Goring-by-Sea (20:44), Angmering (20:48) and Littlehampton (20:58).  --   A Southern Service formed of 8 coaches.', 'station_code': 'VIC'}, {'platform': 'A', 'aimed_departure_time': '18:37', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Abbey Wood', 'calling_at_list': 'Whitechapel (18:39), Canary Wharf (18:43), Custom House (18:47), Woolwich (18:51) and Abbey Wood (18:56).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': 'B', 'aimed_departure_time': '18:39', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'London Paddington', 'calling_at_list': 'Farringdon (18:41), Tottenham Court Road (18:44), Bond Street (18:47) and London Paddington (18:52).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': 'A', 'aimed_departure_time': '18:41', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Stratford', 'calling_at_list': 'Whitechapel (18:44) and Stratford (18:49).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': '4', 'aimed_departure_time': '18:42', 'expected_departure_time': 'On time', 'carriages': '10', 'operator': 'Greater Anglia', 'destination_name': 'Hertford East', 'calling_at_list': 'Hackney Downs (18:49), Tottenham Hale (18:55), Ponders End (19:01), Brimsdown (19:03), Enfield Lock (19:05), Waltham Cross (19:08), Cheshunt (19:10), Broxbourne (19:15), Rye House (19:19), St Margarets (19:22), Ware (19:26) and Hertford East (19:32).  --   A Greater Anglia Service formed of 10 coaches.', 'station_code': 'LST'}, {'platform': 'B', 'aimed_departure_time': '18:42', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'London Paddington', 'calling_at_list': 'Farringdon (18:44), Tottenham Court Road (18:47), Bond Street (18:50) and London Paddington (18:53).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': 'A', 'aimed_departure_time': '18:45', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Abbey Wood', 'calling_at_list': 'Whitechapel (18:47), Canary Wharf (18:51), Custom House (18:55), Woolwich (18:59) and Abbey Wood (19:04).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': '3', 'aimed_departure_time': '18:45', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Cheshunt', 'calling_at_list': 'Bethnal Green (18:48), Cambridge Heath (18:50), London Fields (18:52), Hackney Downs (18:54), Rectory Road (18:57), Stoke Newington (18:58), Stamford Hill (19:00), Seven Sisters (19:02), Bruce Grove (19:05), White Hart Lane (19:07), Silver Street (19:09), Edmonton Green (19:11), Southbury (19:14), Turkey Street (19:17), Theobalds Grove (19:19) and Cheshunt (19:24).  --   A London Overground Service', 'station_code': 'LST'}, {'platform': 'B', 'aimed_departure_time': '18:46', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'London Paddington', 'calling_at_list': 'Farringdon (18:48), Tottenham Court Road (18:51), Bond Street (18:54) and London Paddington (18:59).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'aimed_departure_time': '18:48', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Chingford', 'calling_at_list': 'Bethnal Green (18:51), Hackney Downs (18:55), Clapton (18:58), St James Street (19:01), Walthamstow Central (19:03), Wood Street (19:06), Highams Park (19:09) and Chingford (19:14).  --   A London Overground Service', 'station_code': 'LST'}, {'platform': 'A', 'aimed_departure_time': '18:48', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Stratford', 'calling_at_list': 'Whitechapel (18:51) and Stratford (18:56).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'aimed_departure_time': '18:07', 'expected_departure_time': '18:44', 'carriages': 0, 'operator': 'Great Western Railway', 'destination_name': 'Swindon', 'calling_at_list': 'Slough (18:59), Maidenhead (19:06), Twyford (19:12), Reading (19:18), Didcot Parkway (19:32) and Swindon (19:50).  --   A Great Western Railway Service', 'station_code': 'PAD'}, {'aimed_departure_time': '18:36', 'expected_departure_time': 'Cancelled', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Heathrow Airport T5', 'calling_at_list': 'Ealing Broadway (18:46), Southall (18:51), Hayes & Harlington (18:54), Heathrow Airport T123 (19:01) and Heathrow Airport T5 (19:08).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'platform': '4', 'aimed_departure_time': '18:37', 'expected_departure_time': '18:40', 'carriages': 0, 'operator': 'Great Western Railway', 'destination_name': 'Bristol Parkway', 'calling_at_list': 'Reading (19:04), Swindon (19:34) and Bristol Parkway (20:00).  --   A Great Western Railway Service', 'station_code': 'PAD'}, {'platform': 'A', 'aimed_departure_time': '18:37', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Stratford', 'calling_at_list': 'Bond Street (18:40), Tottenham Court Road (18:42), Farringdon (18:45), London Liverpool Street (18:48), Whitechapel (18:51) and Stratford (18:56).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'aimed_departure_time': '18:39', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Heathrow Airport T5', 'calling_at_list': 'Ealing Broadway (18:46), Southall (18:51), Hayes & Harlington (18:54), Heathrow Airport T123 (19:01) and Heathrow Airport T5 (19:08).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'platform': 'A', 'aimed_departure_time': '18:41', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Abbey Wood', 'calling_at_list': 'Bond Street (18:44), Tottenham Court Road (18:46), Farringdon (18:49), London Liverpool Street (18:52), Whitechapel (18:54), Canary Wharf (18:58), Custom House (19:02), Woolwich (19:06) and Abbey Wood (19:11).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'aimed_departure_time': '18:45', 'expected_departure_time': 'Cancelled', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Stratford', 'calling_at_list': 'Bond Street (18:48), Tottenham Court Road (18:50), Farringdon (18:53), London Liverpool Street (18:56), Whitechapel (18:59) and Stratford (19:04).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'aimed_departure_time': '18:45', 'expected_departure_time': 'Cancelled', 'carriages': 0, 'operator': 'Great Western Railway', 'destination_name': 'Worcester Foregate Street', 'calling_at_list': 'Reading (19:12), Didcot Parkway (19:27), Oxford (19:45), Hanborough (19:54), Charlbury (20:00), Kingham (20:10), Moreton-in-Marsh (20:18), Honeybourne (20:30), Evesham (20:37), Pershore (20:44), Worcestershire Parkway (20:51), Worcester Shrub Hill (21:05) and Worcester Foregate Street (21:08).  --   A Great Western Railway Service', 'station_code': 'PAD'}, {'platform': 'B', 'aimed_departure_time': '18:47', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Heathrow Airport T4', 'calling_at_list': 'Ealing Broadway (18:54), Southall (18:59), Hayes & Harlington (19:02), Heathrow Airport T123 (19:09) and Heathrow Airport T4 (19:15).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'platform': 'A', 'aimed_departure_time': '18:49', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Abbey Wood', 'calling_at_list': 'Bond Street (18:52), Tottenham Court Road (18:54), Farringdon (18:57), London Liverpool Street (19:00), Whitechapel (19:02), Canary Wharf (19:06), Custom House (19:10), Woolwich (19:14) and Abbey Wood (19:19).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'platform': '8', 'aimed_departure_time': '18:45', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Rugby', 'calling_at_list': 'Milton Keynes Central (19:18) and Rugby (19:42).  --   A West Midlands Trains Service', 'station_code': 'EUS'}, {'aimed_departure_time': '18:45', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Watford Junction', 'calling_at_list': 'South Hampstead (18:50), Kilburn High Road (18:52), Queens Park (18:54), Kensal Green (18:56), Willesden Junction (18:59), Harlesden (19:01), Stonebridge Park (19:04), Wembley Central (19:06), North Wembley (19:08), South Kenton (19:10), Kenton (19:12), Harrow & Wealdstone (19:15), Headstone Lane (19:18), Hatch End (19:20), Carpenders Park (19:23), Bushey (19:26), Watford High Street (19:28) and Watford Junction (19:33).  --   A London Overground Service', 'station_code': 'EUS'}, {'platform': '10', 'aimed_departure_time': '18:52', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Milton Keynes Central', 'calling_at_list': 'Harrow & Wealdstone (19:03), Bushey (19:09), Watford Junction (19:12), Kings Langley (19:17), Apsley (19:21), Hemel Hempstead (19:24), Berkhamsted (19:29), Tring (19:36), Cheddington (19:41), Leighton Buzzard (19:46), Bletchley (19:53) and Milton Keynes Central (19:59).  --   A West Midlands Trains Service', 'station_code': 'EUS'}, {'platform': '11', 'aimed_departure_time': '18:56', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Birmingham New Street', 'calling_at_list': 'Leighton Buzzard (19:23), Bletchley (19:30), Milton Keynes Central (19:37), Wolverton (19:41), Northampton (19:54), Long Buckby (20:19), Rugby (20:30), Coventry (20:42), Canley (20:45), Tile Hill (20:49), Berkswell (20:53), Hampton-in-Arden (20:57), Birmingham International (21:01), Marston Green (21:04) and Birmingham New Street (21:13).  --   A West Midlands Trains Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:00', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Watford Junction', 'calling_at_list': 'South Hampstead (19:05), Kilburn High Road (19:07), Queens Park (19:09), Kensal Green (19:11), Willesden Junction (19:14), Harlesden (19:16), Stonebridge Park (19:19), Wembley Central (19:21), North Wembley (19:23), South Kenton (19:25), Kenton (19:27), Harrow & Wealdstone (19:30), Headstone Lane (19:33), Hatch End (19:35), Carpenders Park (19:38), Bushey (19:41), Watford High Street (19:43) and Watford Junction (19:48).  --   A London Overground Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:01', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Avanti West Coast', 'destination_name': 'Manchester Piccadilly', 'calling_at_list': 'Milton Keynes Central (19:32), Stafford (20:54), Stoke-on-Trent (21:13), Macclesfield (21:42), Stockport (21:56) and Manchester Piccadilly (22:07).  --   An Avanti West Coast Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:15', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Watford Junction', 'calling_at_list': 'South Hampstead (19:20), Kilburn High Road (19:22), Queens Park (19:24), Kensal Green (19:26), Willesden Junction (19:29), Harlesden (19:31), Stonebridge Park (19:34), Wembley Central (19:36), North Wembley (19:38), South Kenton (19:40), Kenton (19:42), Harrow & Wealdstone (19:45), Headstone Lane (19:48), Hatch End (19:50), Carpenders Park (19:53), Bushey (19:56), Watford High Street (19:58) and Watford Junction (20:03).  --   A London Overground Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:17', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Avanti West Coast', 'destination_name': 'Crewe', 'calling_at_list': 'Milton Keynes Central (19:53), Rugby (20:21), Coventry (20:32), Birmingham International (20:43), Birmingham New Street (20:55), Sandwell & Dudley (21:15), Wolverhampton (21:29), Stafford (21:45) and Crewe (22:07).  --   An Avanti West Coast Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:21', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Milton Keynes Central', 'calling_at_list': 'Harrow & Wealdstone (19:33), Bushey (19:39), Watford Junction (19:42), Kings Langley (19:47), Apsley (19:51), Hemel Hempstead (19:54), Berkhamsted (19:59), Tring (20:06), Cheddington (20:11), Leighton Buzzard (20:16), Bletchley (20:23) and Milton Keynes Central (20:29).  --   A West Midlands Trains Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:22', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Birmingham New Street', 'calling_at_list': 'Watford Junction (19:36), Leighton Buzzard (19:53), Bletchley (19:59), Milton Keynes Central (20:05), Wolverton (20:11), Northampton (20:24), Long Buckby (20:50), Rugby (21:01), Coventry (21:13), Canley (21:17), Tile Hill (21:20), Berkswell (21:24), Hampton-in-Arden (21:28), Birmingham International (21:32) and Birmingham New Street (21:42).  --   A West Midlands Trains Service', 'station_code': 'EUS'}]}
+2025-01-26 18:39:13,930 - src.presentation.displays.rail_display - INFO - Updating display content: {'departures': [{'platform': '24', 'aimed_departure_time': '18:39', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Bracknell', 'calling_at_list': 'Vauxhall (18:43), Clapham Junction (18:48), Putney (18:52), Richmond (18:58), Twickenham (19:02), Feltham (19:08), Staines (19:15), Egham (19:20), Virginia Water (19:24), Longcross (19:27), Sunningdale (19:30), Ascot (19:36), Martins Heron (19:45) and Bracknell (19:48).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'platform': '21', 'aimed_departure_time': '18:44', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Windsor & Eton Riverside', 'calling_at_list': 'Vauxhall (18:48), Queenstown Road Battersea (18:51), Clapham Junction (18:54), Wandsworth Town (18:57), Putney (18:59), Barnes (19:03), Mortlake (19:05), North Sheen (19:07), Richmond (19:09), St Margarets (19:12), Twickenham (19:14), Whitton (19:18), Feltham (19:22), Ashford (19:26), Staines (19:30), Wraysbury (19:34), Sunnymeads (19:37), Datchet (19:40) and Windsor & Eton Riverside (19:44).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'platform': '23', 'aimed_departure_time': '18:50', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Woking', 'calling_at_list': 'Vauxhall (18:54), Queenstown Road Battersea (18:57), Clapham Junction (19:00), Wandsworth Town (19:03), Putney (19:05), Barnes (19:09), Barnes Bridge (19:11), Chiswick (19:13), Kew Bridge (19:16), Brentford (19:18), Syon Lane (19:21), Isleworth (19:23), Hounslow (19:26), Feltham (19:32), Ashford (19:37), Staines (19:40), Egham (19:45), Virginia Water (19:50), Chertsey (19:55), Addlestone (19:58), Byfleet & New Haw (20:02), West Byfleet (20:06) and Woking (20:11).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:02', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Portsmouth Harbour', 'calling_at_list': 'Clapham Junction (19:09), Woking (19:54), Guildford (20:03), Godalming (20:11), Haslemere (20:22), Petersfield (20:33), Havant (20:46), Fratton (20:55), Portsmouth & Southsea (20:59) and Portsmouth Harbour (21:03).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:05', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Weymouth', 'calling_at_list': 'Woking (19:59), Basingstoke (20:26), Winchester (20:43), Southampton Airport Parkway (20:53), Southampton Central (21:01), Brockenhurst (21:16), New Milton (21:24), Bournemouth (21:34), Branksome (21:44), Parkstone (21:47), Poole (21:50), Hamworthy (21:56), Wareham (22:02), Wool (22:09), Moreton (22:16), Dorchester South (22:24), Upwey (22:32) and Weymouth (22:36).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:09', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Bracknell', 'calling_at_list': 'Vauxhall (19:13), Clapham Junction (19:18), Putney (19:22), Richmond (19:28), Twickenham (19:32), Feltham (19:38), Staines (19:45), Egham (19:50), Virginia Water (19:54), Sunningdale (20:00), Ascot (20:06), Martins Heron (20:15) and Bracknell (20:18).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:14', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Shepperton', 'calling_at_list': 'Vauxhall (19:18), Queenstown Road Battersea (19:21), Clapham Junction (19:24), Wandsworth Town (19:27), Putney (19:29), Barnes (19:33), Mortlake (19:36), North Sheen (19:38), Richmond (19:40), St Margarets (19:43), Twickenham (19:45), Strawberry Hill (19:49), Fulwell (19:51), Hampton (19:55), Kempton Park (19:58), Sunbury (20:00), Upper Halliford (20:02) and Shepperton (20:06).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:18', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Poole', 'calling_at_list': 'Woking (20:14), Farnborough (20:32), Basingstoke (20:46), Micheldever (20:57), Winchester (21:06), Shawford (21:11), Eastleigh (21:17), Southampton Airport Parkway (21:26), Southampton Central (21:34), Totton (21:41), Ashurst New Forest (21:46), Beaulieu Road (21:50), Brockenhurst (21:56), Sway (22:01), New Milton (22:06), Hinton Admiral (22:10), Christchurch (22:15), Pokesdown (22:19), Bournemouth (22:23) and Poole (22:33).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:25', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Windsor & Eton Riverside', 'calling_at_list': 'Vauxhall (19:29), Clapham Junction (19:34), Putney (19:38), Richmond (19:45), Twickenham (19:49), Whitton (19:52), Feltham (19:56), Ashford (20:01), Staines (20:04), Datchet (20:12) and Windsor & Eton Riverside (20:17).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '19:36', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'South Western Railway', 'destination_name': 'Yeovil Junction', 'calling_at_list': 'Woking (20:31), Basingstoke (21:05), Andover (21:23), Salisbury (21:43), Tisbury (22:07), Gillingham (22:17), Templecombe (22:25), Sherborne (22:32) and Yeovil Junction (22:38).  --   A South Western Railway Service', 'station_code': 'WAT'}, {'aimed_departure_time': '18:38', 'expected_departure_time': 'On time', 'carriages': '10', 'operator': 'Southern', 'destination_name': 'Dorking', 'calling_at_list': 'Clapham Junction (18:45), Balham (18:50), Mitcham Eastfields (18:57), Mitcham Junction (19:00), Hackbridge (19:03), Carshalton (19:06), Sutton (19:10), Cheam (19:13), Ewell East (19:16), Epsom (19:20), Ashtead (19:26), Leatherhead (19:29), Boxhill & Westhumble (19:34) and Dorking (19:36).  --   A Southern Service formed of 10 coaches.', 'station_code': 'VIC'}, {'platform': '16', 'aimed_departure_time': '18:46', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Southern', 'destination_name': 'Bexhill', 'calling_at_list': 'Clapham Junction (18:52), East Croydon (19:02), Gatwick Airport (19:17), Haywards Heath (19:28), Wivelsfield (19:34), Plumpton (19:41), Cooksbridge (19:45), Lewes (19:50), Polegate (20:03), Eastbourne (20:11), Hampden Park (20:21), Pevensey & Westham (20:26), Normans Bay (20:31), Cooden Beach (20:36), Collington (20:39) and Bexhill (20:41).  --   A Southern Service formed of 8 coaches.', 'station_code': 'VIC'}, {'platform': '10', 'aimed_departure_time': '18:50', 'expected_departure_time': 'On time', 'carriages': '6', 'operator': 'Southern', 'destination_name': 'Crystal Palace', 'calling_at_list': 'Battersea Park (18:54), Clapham Junction (18:58), Wandsworth Common (19:01), Balham (19:04), Streatham Hill (19:08), West Norwood (19:12), Gipsy Hill (19:15) and Crystal Palace (19:20).  --   A Southern Service formed of 6 coaches.', 'station_code': 'VIC'}, {'platform': '15', 'aimed_departure_time': '18:51', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Southern', 'destination_name': 'East Grinstead', 'calling_at_list': 'Clapham Junction (18:57), East Croydon (19:08), Sanderstead (19:14), Riddlesdown (19:17), Upper Warlingham (19:21), Woldingham (19:25), Oxted (19:33), Hurst Green (19:36), Lingfield (19:43), Dormans (19:46) and East Grinstead (19:51).  --   A Southern Service formed of 8 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '18:59', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Gatwick Express', 'destination_name': 'Gatwick Airport', 'calling_at_list': 'Gatwick Airport (19:28) only.   --   A Gatwick Express Service formed of 8 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:00', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Southern', 'destination_name': 'Epsom Downs', 'calling_at_list': 'Battersea Park (19:04), Clapham Junction (19:08), Wandsworth Common (19:12), Balham (19:15), Streatham Common (19:19), Norbury (19:22), Thornton Heath (19:25), Selhurst (19:28), West Croydon (19:35), Waddon (19:38), Wallington (19:41), Carshalton Beeches (19:44), Sutton (19:48), Belmont (19:52), Banstead (19:56) and Epsom Downs (19:59).  --   A Southern Service formed of 8 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:02', 'expected_departure_time': 'On time', 'carriages': '12', 'operator': 'Southern', 'destination_name': 'Brighton', 'calling_at_list': 'Clapham Junction (19:08), East Croydon (19:18), Gatwick Airport (19:33), Three Bridges (19:39), Haywards Heath (19:48), Burgess Hill (19:54), Hassocks (19:57) and Brighton (20:07).  --   A Southern Service formed of 12 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:05', 'expected_departure_time': 'On time', 'carriages': '4', 'operator': 'Southern', 'destination_name': 'Reigate', 'calling_at_list': 'Clapham Junction (19:11), East Croydon (19:22), Purley (19:27), Coulsdon South (19:31), Merstham (19:36), Redhill (19:40) and Reigate (19:50).  --   A Southern Service formed of 4 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:08', 'expected_departure_time': 'On time', 'carriages': '10', 'operator': 'Southern', 'destination_name': 'Dorking', 'calling_at_list': 'Clapham Junction (19:15), Balham (19:20), Mitcham Eastfields (19:27), Mitcham Junction (19:30), Hackbridge (19:33), Carshalton (19:36), Sutton (19:40), Cheam (19:43), Ewell East (19:46), Epsom (19:50), Ashtead (19:56), Leatherhead (19:59), Boxhill & Westhumble (20:04) and Dorking (20:06).  --   A Southern Service formed of 10 coaches.', 'station_code': 'VIC'}, {'aimed_departure_time': '19:16', 'expected_departure_time': 'On time', 'carriages': '8', 'operator': 'Southern', 'destination_name': 'Littlehampton', 'calling_at_list': 'Clapham Junction (19:22), East Croydon (19:32), Gatwick Airport (19:47), Haywards Heath (19:59), Burgess Hill (20:06), Hassocks (20:09), Preston Park (20:16), Hove (20:20), Portslade (20:24), Shoreham-by-Sea (20:28), Lancing (20:33), Worthing (20:37), West Worthing (20:39), Durrington-on-Sea (20:42), Goring-by-Sea (20:44), Angmering (20:48) and Littlehampton (20:58).  --   A Southern Service formed of 8 coaches.', 'station_code': 'VIC'}, {'platform': 'A', 'aimed_departure_time': '18:37', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Abbey Wood', 'calling_at_list': 'Whitechapel (18:39), Canary Wharf (18:43), Custom House (18:47), Woolwich (18:51) and Abbey Wood (18:56).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': 'B', 'aimed_departure_time': '18:39', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'London Paddington', 'calling_at_list': 'Farringdon (18:41), Tottenham Court Road (18:44), Bond Street (18:47) and London Paddington (18:52).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': 'A', 'aimed_departure_time': '18:41', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Stratford', 'calling_at_list': 'Whitechapel (18:44) and Stratford (18:49).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': '4', 'aimed_departure_time': '18:42', 'expected_departure_time': 'On time', 'carriages': '10', 'operator': 'Greater Anglia', 'destination_name': 'Hertford East', 'calling_at_list': 'Hackney Downs (18:49), Tottenham Hale (18:55), Ponders End (19:01), Brimsdown (19:03), Enfield Lock (19:05), Waltham Cross (19:08), Cheshunt (19:10), Broxbourne (19:15), Rye House (19:19), St Margarets (19:22), Ware (19:26) and Hertford East (19:32).  --   A Greater Anglia Service formed of 10 coaches.', 'station_code': 'LST'}, {'platform': 'B', 'aimed_departure_time': '18:42', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'London Paddington', 'calling_at_list': 'Farringdon (18:44), Tottenham Court Road (18:47), Bond Street (18:50) and London Paddington (18:53).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': 'A', 'aimed_departure_time': '18:45', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Abbey Wood', 'calling_at_list': 'Whitechapel (18:47), Canary Wharf (18:51), Custom House (18:55), Woolwich (18:59) and Abbey Wood (19:04).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'platform': '3', 'aimed_departure_time': '18:45', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Cheshunt', 'calling_at_list': 'Bethnal Green (18:48), Cambridge Heath (18:50), London Fields (18:52), Hackney Downs (18:54), Rectory Road (18:57), Stoke Newington (18:58), Stamford Hill (19:00), Seven Sisters (19:02), Bruce Grove (19:05), White Hart Lane (19:07), Silver Street (19:09), Edmonton Green (19:11), Southbury (19:14), Turkey Street (19:17), Theobalds Grove (19:19) and Cheshunt (19:24).  --   A London Overground Service', 'station_code': 'LST'}, {'platform': 'B', 'aimed_departure_time': '18:46', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'London Paddington', 'calling_at_list': 'Farringdon (18:48), Tottenham Court Road (18:51), Bond Street (18:54) and London Paddington (18:59).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'aimed_departure_time': '18:48', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Chingford', 'calling_at_list': 'Bethnal Green (18:51), Hackney Downs (18:55), Clapton (18:58), St James Street (19:01), Walthamstow Central (19:03), Wood Street (19:06), Highams Park (19:09) and Chingford (19:14).  --   A London Overground Service', 'station_code': 'LST'}, {'platform': 'A', 'aimed_departure_time': '18:48', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Stratford', 'calling_at_list': 'Whitechapel (18:51) and Stratford (18:56).  --   An Elizabeth Line Service', 'station_code': 'LST'}, {'aimed_departure_time': '18:07', 'expected_departure_time': '18:44', 'carriages': 0, 'operator': 'Great Western Railway', 'destination_name': 'Swindon', 'calling_at_list': 'Slough (18:59), Maidenhead (19:06), Twyford (19:12), Reading (19:18), Didcot Parkway (19:32) and Swindon (19:50).  --   A Great Western Railway Service', 'station_code': 'PAD'}, {'aimed_departure_time': '18:36', 'expected_departure_time': 'Cancelled', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Heathrow Airport T5', 'calling_at_list': 'Ealing Broadway (18:46), Southall (18:51), Hayes & Harlington (18:54), Heathrow Airport T123 (19:01) and Heathrow Airport T5 (19:08).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'platform': '4', 'aimed_departure_time': '18:37', 'expected_departure_time': '18:40', 'carriages': 0, 'operator': 'Great Western Railway', 'destination_name': 'Bristol Parkway', 'calling_at_list': 'Reading (19:04), Swindon (19:34) and Bristol Parkway (20:00).  --   A Great Western Railway Service', 'station_code': 'PAD'}, {'platform': 'A', 'aimed_departure_time': '18:37', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Stratford', 'calling_at_list': 'Bond Street (18:40), Tottenham Court Road (18:42), Farringdon (18:45), London Liverpool Street (18:48), Whitechapel (18:51) and Stratford (18:56).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'aimed_departure_time': '18:39', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Heathrow Airport T5', 'calling_at_list': 'Ealing Broadway (18:46), Southall (18:51), Hayes & Harlington (18:54), Heathrow Airport T123 (19:01) and Heathrow Airport T5 (19:08).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'platform': 'A', 'aimed_departure_time': '18:41', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Abbey Wood', 'calling_at_list': 'Bond Street (18:44), Tottenham Court Road (18:46), Farringdon (18:49), London Liverpool Street (18:52), Whitechapel (18:54), Canary Wharf (18:58), Custom House (19:02), Woolwich (19:06) and Abbey Wood (19:11).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'aimed_departure_time': '18:45', 'expected_departure_time': 'Cancelled', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Stratford', 'calling_at_list': 'Bond Street (18:48), Tottenham Court Road (18:50), Farringdon (18:53), London Liverpool Street (18:56), Whitechapel (18:59) and Stratford (19:04).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'aimed_departure_time': '18:45', 'expected_departure_time': 'Cancelled', 'carriages': 0, 'operator': 'Great Western Railway', 'destination_name': 'Worcester Foregate Street', 'calling_at_list': 'Reading (19:12), Didcot Parkway (19:27), Oxford (19:45), Hanborough (19:54), Charlbury (20:00), Kingham (20:10), Moreton-in-Marsh (20:18), Honeybourne (20:30), Evesham (20:37), Pershore (20:44), Worcestershire Parkway (20:51), Worcester Shrub Hill (21:05) and Worcester Foregate Street (21:08).  --   A Great Western Railway Service', 'station_code': 'PAD'}, {'platform': 'B', 'aimed_departure_time': '18:47', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Heathrow Airport T4', 'calling_at_list': 'Ealing Broadway (18:54), Southall (18:59), Hayes & Harlington (19:02), Heathrow Airport T123 (19:09) and Heathrow Airport T4 (19:15).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'platform': 'A', 'aimed_departure_time': '18:49', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Elizabeth Line', 'destination_name': 'Abbey Wood', 'calling_at_list': 'Bond Street (18:52), Tottenham Court Road (18:54), Farringdon (18:57), London Liverpool Street (19:00), Whitechapel (19:02), Canary Wharf (19:06), Custom House (19:10), Woolwich (19:14) and Abbey Wood (19:19).  --   An Elizabeth Line Service', 'station_code': 'PAD'}, {'platform': '8', 'aimed_departure_time': '18:45', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Rugby', 'calling_at_list': 'Milton Keynes Central (19:18) and Rugby (19:42).  --   A West Midlands Trains Service', 'station_code': 'EUS'}, {'aimed_departure_time': '18:45', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Watford Junction', 'calling_at_list': 'South Hampstead (18:50), Kilburn High Road (18:52), Queens Park (18:54), Kensal Green (18:56), Willesden Junction (18:59), Harlesden (19:01), Stonebridge Park (19:04), Wembley Central (19:06), North Wembley (19:08), South Kenton (19:10), Kenton (19:12), Harrow & Wealdstone (19:15), Headstone Lane (19:18), Hatch End (19:20), Carpenders Park (19:23), Bushey (19:26), Watford High Street (19:28) and Watford Junction (19:33).  --   A London Overground Service', 'station_code': 'EUS'}, {'platform': '10', 'aimed_departure_time': '18:52', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Milton Keynes Central', 'calling_at_list': 'Harrow & Wealdstone (19:03), Bushey (19:09), Watford Junction (19:12), Kings Langley (19:17), Apsley (19:21), Hemel Hempstead (19:24), Berkhamsted (19:29), Tring (19:36), Cheddington (19:41), Leighton Buzzard (19:46), Bletchley (19:53) and Milton Keynes Central (19:59).  --   A West Midlands Trains Service', 'station_code': 'EUS'}, {'platform': '11', 'aimed_departure_time': '18:56', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Birmingham New Street', 'calling_at_list': 'Leighton Buzzard (19:23), Bletchley (19:30), Milton Keynes Central (19:37), Wolverton (19:41), Northampton (19:54), Long Buckby (20:19), Rugby (20:30), Coventry (20:42), Canley (20:45), Tile Hill (20:49), Berkswell (20:53), Hampton-in-Arden (20:57), Birmingham International (21:01), Marston Green (21:04) and Birmingham New Street (21:13).  --   A West Midlands Trains Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:00', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Watford Junction', 'calling_at_list': 'South Hampstead (19:05), Kilburn High Road (19:07), Queens Park (19:09), Kensal Green (19:11), Willesden Junction (19:14), Harlesden (19:16), Stonebridge Park (19:19), Wembley Central (19:21), North Wembley (19:23), South Kenton (19:25), Kenton (19:27), Harrow & Wealdstone (19:30), Headstone Lane (19:33), Hatch End (19:35), Carpenders Park (19:38), Bushey (19:41), Watford High Street (19:43) and Watford Junction (19:48).  --   A London Overground Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:01', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Avanti West Coast', 'destination_name': 'Manchester Piccadilly', 'calling_at_list': 'Milton Keynes Central (19:32), Stafford (20:54), Stoke-on-Trent (21:13), Macclesfield (21:42), Stockport (21:56) and Manchester Piccadilly (22:07).  --   An Avanti West Coast Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:15', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'London Overground', 'destination_name': 'Watford Junction', 'calling_at_list': 'South Hampstead (19:20), Kilburn High Road (19:22), Queens Park (19:24), Kensal Green (19:26), Willesden Junction (19:29), Harlesden (19:31), Stonebridge Park (19:34), Wembley Central (19:36), North Wembley (19:38), South Kenton (19:40), Kenton (19:42), Harrow & Wealdstone (19:45), Headstone Lane (19:48), Hatch End (19:50), Carpenders Park (19:53), Bushey (19:56), Watford High Street (19:58) and Watford Junction (20:03).  --   A London Overground Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:17', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'Avanti West Coast', 'destination_name': 'Crewe', 'calling_at_list': 'Milton Keynes Central (19:53), Rugby (20:21), Coventry (20:32), Birmingham International (20:43), Birmingham New Street (20:55), Sandwell & Dudley (21:15), Wolverhampton (21:29), Stafford (21:45) and Crewe (22:07).  --   An Avanti West Coast Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:21', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Milton Keynes Central', 'calling_at_list': 'Harrow & Wealdstone (19:33), Bushey (19:39), Watford Junction (19:42), Kings Langley (19:47), Apsley (19:51), Hemel Hempstead (19:54), Berkhamsted (19:59), Tring (20:06), Cheddington (20:11), Leighton Buzzard (20:16), Bletchley (20:23) and Milton Keynes Central (20:29).  --   A West Midlands Trains Service', 'station_code': 'EUS'}, {'aimed_departure_time': '19:22', 'expected_departure_time': 'On time', 'carriages': 0, 'operator': 'West Midlands Trains', 'destination_name': 'Birmingham New Street', 'calling_at_list': 'Watford Junction (19:36), Leighton Buzzard (19:53), Bletchley (19:59), Milton Keynes Central (20:05), Wolverton (20:11), Northampton (20:24), Long Buckby (20:50), Rugby (21:01), Coventry (21:13), Canley (21:17), Tile Hill (21:20), Berkswell (21:24), Hampton-in-Arden (21:28), Birmingham International (21:32) and Birmingham New Street (21:42).  --   A West Midlands Trains Service', 'station_code': 'EUS'}]}
+2025-01-26 18:39:13,930 - src.presentation.displays.rail_display - INFO - Clearing display content
+2025-01-26 18:39:13,930 - src.presentation.renderers.components.text - DEBUG - Setting text to: 
+2025-01-26 18:39:13,930 - src.services.display_service - INFO - Rendering display rail
+2025-01-26 18:39:13,930 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:13,930 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Text size calculated: (0, 0) for text: 
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (0, 0)
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Created bitmap with size: (0, 0)
+2025-01-26 18:39:13,931 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:13,931 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:13,931 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:13,931 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:13,931 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:13,931 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:13,931 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,033 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,033 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,033 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,033 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,033 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,033 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,034 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,034 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,034 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,034 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,034 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,034 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,034 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,034 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,035 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,040 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:14,040 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,042 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,042 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,042 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:14,042 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,044 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,044 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,044 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:14,048 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,048 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:14,048 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,048 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:14,153 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,153 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,154 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,154 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,154 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,154 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,154 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,154 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,154 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,154 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,154 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,154 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,155 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,155 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,155 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,160 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:14,160 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,162 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,162 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,162 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:14,162 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,163 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,163 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,164 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:14,167 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,167 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:14,167 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,168 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:14,273 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,273 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,273 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,273 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,273 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,273 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,274 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,274 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,274 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,274 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,274 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,274 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,274 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,275 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,275 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,279 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:14,280 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,281 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,281 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,281 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:14,281 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,283 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,283 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,283 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:14,287 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,287 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:14,287 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,287 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:14,392 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,392 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,392 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,393 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,393 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,393 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,393 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,393 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,393 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,393 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,393 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,393 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,393 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,394 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,394 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,399 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:14,399 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,401 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,401 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,401 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:14,401 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,403 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,403 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,403 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:14,407 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,407 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:14,407 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,407 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:14,511 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,512 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,512 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,512 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,512 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,512 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,512 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,512 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,512 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,512 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,513 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,513 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,513 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,513 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,513 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,518 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:14,518 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,520 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,520 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,520 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:14,521 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,522 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,522 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,523 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:14,526 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,526 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:14,526 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,527 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:14,636 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,636 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,636 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,636 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,636 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,636 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,636 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,636 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,636 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,636 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,637 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,637 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,637 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,637 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,637 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,641 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:14,642 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,643 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,643 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,643 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:14,644 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,645 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,645 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,645 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:14,649 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,650 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:14,650 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,650 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:14,755 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,755 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,755 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,755 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,755 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,755 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,756 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,756 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,756 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,756 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,756 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,756 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,756 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,756 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,756 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,761 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:14,762 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,764 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,764 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,764 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:14,764 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,766 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,766 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,766 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:14,770 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,770 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:14,770 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,771 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:14,875 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,875 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,875 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,875 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,875 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,875 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,875 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,876 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,876 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,876 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,876 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,876 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,876 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,876 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,876 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:14,881 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:14,881 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,883 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,883 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,883 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:14,884 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:14,885 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:14,885 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:14,885 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:14,889 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,890 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:14,890 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,890 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:14,980 - src.display_manager - ERROR - Display update error: main thread is not in main loop
+2025-01-26 18:39:14,982 - src.infrastructure.event_bus - DEBUG - Queued event display_updated
+2025-01-26 18:39:14,983 - src.infrastructure.event_bus - DEBUG - Processing event display_updated
+2025-01-26 18:39:14,994 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:14,994 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:14,995 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,995 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,995 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,995 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:14,995 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:14,995 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:14,995 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:14,995 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:14,995 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:14,995 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:14,995 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:14,996 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:14,996 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,001 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,001 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,003 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,003 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,003 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,003 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,005 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,005 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,005 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,008 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,008 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,008 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,008 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:15,119 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:15,119 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:15,119 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,120 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,120 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,120 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:15,120 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,120 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,120 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,120 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:15,120 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,120 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:15,121 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,121 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:15,121 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,126 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,126 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,128 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,128 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,128 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,128 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,130 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,130 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,130 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,133 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,133 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,133 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,134 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:15,238 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:15,238 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:15,238 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,239 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,239 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,239 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:15,239 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,239 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,239 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,239 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:15,239 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,239 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:15,239 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,239 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:15,239 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,242 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,242 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,244 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,244 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,244 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,244 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,246 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,246 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,246 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,250 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,250 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,250 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,251 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:15,355 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:15,356 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:15,356 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,356 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,356 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,356 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:15,356 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,356 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,357 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,357 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:15,357 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,357 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:15,357 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,357 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:15,358 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,362 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,363 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,364 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,364 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,365 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,365 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,366 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,366 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,366 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,371 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,371 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,371 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,372 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:15,476 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:15,476 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:15,476 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,476 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,477 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,477 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:15,477 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,477 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,477 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,477 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:15,477 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,477 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:15,477 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,478 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:15,478 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,482 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,482 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,484 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,484 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,484 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,484 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,486 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,486 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,486 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,490 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,490 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,490 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,490 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:15,595 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:15,595 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:15,595 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,596 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,596 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,596 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:15,596 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,596 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,596 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,596 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:15,596 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,596 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:15,597 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,597 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:15,597 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,602 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,602 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,604 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,604 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,604 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,604 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,605 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,606 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,606 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,609 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,609 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,609 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,609 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:15,719 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:15,719 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:15,720 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,720 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,720 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,720 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:15,720 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,720 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,720 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,720 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:15,720 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,720 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:15,721 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,721 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:15,721 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,726 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,726 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,727 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,728 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,728 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,728 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,729 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,729 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,729 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,733 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,733 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,733 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,733 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:15,838 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:15,838 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:15,838 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,839 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,839 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,839 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:15,839 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,839 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,839 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,839 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:15,839 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,839 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:15,839 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,840 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:15,840 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,845 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,845 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,847 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,847 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,847 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,847 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,848 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,848 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,848 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,852 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,852 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,852 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,853 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:15,957 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:15,957 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:15,957 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,958 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,958 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,958 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:15,958 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:15,958 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:15,958 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:15,958 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:15,958 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,959 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:15,959 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,959 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:15,959 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:15,965 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:15,965 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,966 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,966 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,966 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:15,967 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:15,968 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:15,968 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:15,968 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:15,970 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:15,970 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:15,970 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:15,971 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:16,073 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:16,074 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:16,074 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,074 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,074 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,074 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:16,074 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,074 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,075 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,075 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:16,075 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,075 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:16,075 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,075 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:16,075 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:16,081 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:16,081 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,083 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,083 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,083 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:16,083 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,085 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,085 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,085 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:16,089 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,089 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:16,089 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,089 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:16,193 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:16,194 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:16,194 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,194 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,194 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,194 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:16,194 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,195 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,195 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,195 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:16,195 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,195 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:16,195 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,195 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:16,196 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:16,200 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:16,200 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,202 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,202 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,202 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:16,202 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,204 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,204 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,204 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:16,207 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,208 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:16,208 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,208 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:16,319 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:16,319 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:16,319 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,320 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,320 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,320 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:16,320 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,320 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,320 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,320 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:16,320 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,320 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:16,320 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,321 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:16,321 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:16,326 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:16,326 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,327 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,328 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,328 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:16,328 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,329 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,329 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,329 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:16,333 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,333 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:16,333 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,334 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:16,438 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:16,439 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:16,439 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,439 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,439 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,439 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:16,439 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,439 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,439 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,440 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:16,440 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,440 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:16,440 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,440 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:16,440 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:16,445 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:16,445 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,447 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,447 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,447 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:16,447 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,449 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,449 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,449 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:16,452 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,452 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:16,452 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,453 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)
+2025-01-26 18:39:16,558 - src.services.display_service - DEBUG - Updating all displays
+2025-01-26 18:39:16,558 - src.presentation.displays.rail_display - INFO - Rendering rail display
+2025-01-26 18:39:16,558 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,558 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,558 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,558 - src.presentation.displays.rail_display - DEBUG - Drawing text content: 
+2025-01-26 18:39:16,558 - src.presentation.renderers.components.text - DEBUG - Rendering text: 
+2025-01-26 18:39:16,559 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=0, bottom=0
+2025-01-26 18:39:16,559 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 0x0
+2025-01-26 18:39:16,559 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (128, 64)
+2025-01-26 18:39:16,559 - src.presentation.displays.rail_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,559 - src.presentation.displays.base_display - INFO - Updating device for display rail with image size (256, 64)
+2025-01-26 18:39:16,559 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,559 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 0/16384 (0.00%)
+2025-01-26 18:39:16,559 - src.display_manager - WARNING - No white pixels found in image - text may not be visible
+2025-01-26 18:39:16,563 - src.presentation.displays.tfl_display - INFO - Rendering TfL display
+2025-01-26 18:39:16,563 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,565 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,565 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,565 - src.presentation.displays.tfl_display - DEBUG - Drawing text content: Waiting for data...
+2025-01-26 18:39:16,565 - src.presentation.renderers.components.text - DEBUG - Rendering text: Waiting for data...
+2025-01-26 18:39:16,567 - src.presentation.renderers.components.text - DEBUG - Text bounds: left=0, top=0, right=83, bottom=8
+2025-01-26 18:39:16,567 - src.presentation.renderers.components.text - DEBUG - Text dimensions: 83x8
+2025-01-26 18:39:16,567 - src.presentation.renderers.components.text - DEBUG - Drawing text at position: (86, 56)
+2025-01-26 18:39:16,570 - src.presentation.displays.tfl_display - DEBUG - Drawing scroll content
+2025-01-26 18:39:16,570 - src.presentation.displays.base_display - INFO - Updating device for display tfl_secondary with image size (256, 64)
+2025-01-26 18:39:16,570 - src.display_manager - DEBUG - Received image mode: 1, size: (256, 64)
+2025-01-26 18:39:16,571 - src.display_manager - DEBUG - Image size: (256, 64), White pixels: 234/16384 (1.43%)

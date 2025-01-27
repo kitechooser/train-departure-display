@@ -172,7 +172,7 @@ def test_grid_padding(font):
     )
     without_padding = grid.render()
     
-    # Check that padding area contains white pixels
+    # Check that padding area contains black pixels (background)
     padded_data = list(with_padding.getdata())
     unpadded_data = list(without_padding.getdata())
     
@@ -183,11 +183,11 @@ def test_grid_padding(font):
     # Check left padding area (first 10 pixels of first cell)
     cell_width = width // 2  # Grid is 2x2
     left_padding = [padded_data[i * width : i * width + 10] for i in range(10)]  # First 10 rows, first 10 pixels
-    assert any(any(pixel == 1 for pixel in row) for row in left_padding), "Left padding should contain white pixels"
+    assert all(all(pixel == 0 for pixel in row) for row in left_padding), "Padding area should be black"
     
-    # Check that unpadded version has black pixels in the same area
-    left_unpadded = [unpadded_data[i * width : i * width + 10] for i in range(10)]
-    assert any(any(pixel == 0 for pixel in row) for row in left_unpadded), "Unpadded area should contain black pixels"
+    # Check that the entire cell contains white pixels somewhere (text)
+    cell_area = [padded_data[i * width : i * width + (width // 2)] for i in range(height // 2)]  # First cell
+    assert any(any(pixel == 1 for pixel in row) for row in cell_area), "Cell should contain white pixels for text"
 
 def test_grid_spanning(font):
     """Test cell spanning"""

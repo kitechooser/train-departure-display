@@ -88,11 +88,13 @@ def test_rail_display_handle_clear_event(display, station, services):
     assert display.station is None
     assert display.services == []
 
-def test_rail_display_event_subscription(display, event_bus):
+def test_rail_display_event_subscription(event_bus):
     """Test event subscriptions"""
-    display.subscribe_to_events()
-    # Should subscribe to both update and clear events
-    assert event_bus.subscribe.call_count == 2
+    # Event subscriptions happen in __init__
+    RailDisplay(800, 480, event_bus)
+    # Should subscribe to display_update and display_clear
+    assert event_bus.subscribe.call_args_list[0][0][0] == 'display_update'
+    assert event_bus.subscribe.call_args_list[1][0][0] == 'display_clear'
 
 def test_rail_display_cleanup(display, event_bus):
     """Test cleanup"""

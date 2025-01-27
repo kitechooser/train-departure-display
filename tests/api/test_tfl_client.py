@@ -1,7 +1,8 @@
 import pytest
 import responses
 from src.api.tfl_client import TflClient
-from src.domain.models import TflStation, TflService
+from src.domain.models.station import TflStation
+from src.domain.models.service import TflService
 
 @pytest.fixture
 def client():

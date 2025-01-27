@@ -1,6 +1,7 @@
 from typing import List, Dict, Any, Optional, Tuple
 import logging
-from src.domain.models import TflStation, TflService
+from src.domain.models.station import TflStation
+from src.domain.models.service import TflService
 
 logger = logging.getLogger(__name__)
 

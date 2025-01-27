@@ -95,7 +95,7 @@ class BaseAPIClient:
             raise APIError(f"Invalid JSON response: {str(e)}")
             
     @retry_on_error()
-    def get(self, endpoint: str, params: Optional[Dict[str, Any]] = None) -> Union[Dict[str, Any], list]:
+    def get(self, endpoint: str, params: Optional[Dict[str, Any]] = None, headers: Optional[Dict[str, str]] = None) -> Union[Dict[str, Any], list]:
         """Make GET request to API endpoint"""
         url = self._build_url(endpoint)
         logger.debug(f"Making GET request to {url}")
@@ -104,8 +104,31 @@ class BaseAPIClient:
             response = self.session.get(
                 url,
                 params=params,
+                headers=headers,
                 timeout=self.timeout
             )
+            return self._handle_response(response)
+        except requests.exceptions.Timeout:
+            raise APIError(f"Request timed out after {self.timeout}s")
+        except requests.exceptions.RequestException as e:
+            raise APIError(f"Request failed: {str(e)}")
+            
+    @retry_on_error()
+    def post(self, endpoint: str, data: Optional[Any] = None, headers: Optional[Dict[str, str]] = None) -> Union[Dict[str, Any], list, str]:
+        """Make POST request to API endpoint"""
+        url = self._build_url(endpoint)
+        logger.debug(f"Making POST request to {url}")
+        
+        try:
+            response = self.session.post(
+                url,
+                data=data,
+                headers=headers,
+                timeout=self.timeout
+            )
+            # For XML responses, return the raw text
+            if response.headers.get('content-type', '').startswith('text/xml'):
+                return response.text
             return self._handle_response(response)
         except requests.exceptions.Timeout:
             raise APIError(f"Request timed out after {self.timeout}s")

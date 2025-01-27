@@ -52,8 +52,22 @@ class AnnouncementConfig:
 class AnnouncementManager:
     """Manages train announcements with text-to-speech"""
     
+    _instance = None
+    _initialized = False
+    
+    def __new__(cls, config: Optional[AnnouncementConfig] = None):
+        if cls._instance is None:
+            cls._instance = super(AnnouncementManager, cls).__new__(cls)
+        return cls._instance
+    
     def __init__(self, config: Optional[AnnouncementConfig] = None):
         """Initialize the announcement manager with optional configuration"""
+        # Skip initialization if already done
+        if AnnouncementManager._initialized:
+            return
+            
+        AnnouncementManager._initialized = True
+        
         self.config = config or AnnouncementConfig()
         
         # Set up logging
@@ -424,7 +438,6 @@ def test_announcement_manager():
     config = AnnouncementConfig(
         enabled=True,
         volume=90,
-        rate=150,
         announcement_gap=3.0,
         log_level="DEBUG",  # Enable debug logging
         announcement_types={

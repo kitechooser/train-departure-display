@@ -1,0 +1,11 @@
+2025-01-26 18:09:38,086 - __main__ - INFO - Logging to file: logs/train_display_20250126_180938.log
+2025-01-26 18:09:38,086 - src.infrastructure.config_manager - INFO - Configuration loaded successfully
+2025-01-26 18:09:38,086 - src.infrastructure.event_bus - INFO - Event bus started in async mode
+2025-01-26 18:09:38,087 - src.announcements.announcements_module - INFO - Announcement Manager initialized with config: {'enabled': True, 'volume': 90, 'announcement_gap': 2.0, 'max_queue_size': 10, 'log_level': 'INFO', 'audio_config': {'echo': {'enabled': True, 'delay': 0.3, 'decay': 0.5, 'num_echoes': 3}}, 'announcement_types': {'delays': True, 'platform_changes': True, 'cancellations': True, 'on_time': False, 'departures': False, 'next_train': True, 'arriving': True, 'line_status': True}}
+2025-01-26 18:09:38,087 - src.infrastructure.event_bus - DEBUG - Added handler for announcement_request
+2025-01-26 18:09:38,087 - src.infrastructure.event_bus - DEBUG - Added handler for announcement_cancel
+2025-01-26 18:09:38,087 - src.infrastructure.event_bus - DEBUG - Added handler for display_update
+2025-01-26 18:09:38,087 - src.infrastructure.event_bus - DEBUG - Added handler for display_clear
+2025-01-26 18:09:38,087 - src.infrastructure.event_bus - DEBUG - Added handler for status_update
+2025-01-26 18:09:38,087 - src.infrastructure.event_bus - DEBUG - Added handler for status_request
+2025-01-26 18:09:38,099 - __main__ - ERROR - Error running application: RailDisplay.__init__() got an unexpected keyword argument 'display_id'

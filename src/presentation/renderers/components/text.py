@@ -1,8 +1,11 @@
 from typing import Optional, Tuple, Any, Dict
+import logging
 from PIL import Image, ImageDraw, ImageFont
 from dataclasses import dataclass
 from .base_component import BaseComponent
 from src.infrastructure.event_bus import EventBus
+
+logger = logging.getLogger(__name__)
 
 @dataclass
 class TextStyle:
@@ -21,6 +24,7 @@ class TextComponent(BaseComponent):
         self.style = style
         self._cached_size: Optional[Tuple[int, int]] = None
         self._cached_bitmap: Optional[Image.Image] = None
+        logger.debug(f"TextComponent initialized with text: {text}")
         
     def get_size(self) -> Tuple[int, int]:
         """Get the size of the text including padding"""
@@ -35,6 +39,7 @@ class TextComponent(BaseComponent):
             height = text_height + self.style.padding[1] + self.style.padding[3]
             
             self._cached_size = (width, height)
+            logger.debug(f"Text size calculated: {self._cached_size} for text: {self.text}")
         return self._cached_size
         
     def render(self, draw: Optional[ImageDraw.ImageDraw] = None, x: int = 0, y: int = 0) -> Optional[Image.Image]:
@@ -48,10 +53,13 @@ class TextComponent(BaseComponent):
         Returns:
             If draw is None, returns a new bitmap. Otherwise returns None.
         """
+        logger.debug(f"Rendering text: {self.text}")
         # Get text bounds for positioning
         left, top, right, bottom = self.style.font.getbbox(self.text)
         text_width = right - left
         text_height = bottom - top
+        logger.debug(f"Text bounds: left={left}, top={top}, right={right}, bottom={bottom}")
+        logger.debug(f"Text dimensions: {text_width}x{text_height}")
         
         # Get total size including padding
         width, height = self.get_size()
@@ -61,63 +69,64 @@ class TextComponent(BaseComponent):
             if self._cached_bitmap is not None:
                 return self._cached_bitmap
                 
-            # Create bitmap
-            bitmap = Image.new('1', (width, height))
+            # Create bitmap with black background
+            bitmap = Image.new('1', (width, height), 0)  # Black background
             draw = ImageDraw.Draw(bitmap)
             
-            # Create bitmap with extra space for alignment
-            render_width = max(width, text_width + 20)  # Add extra space to make alignment visible
-            bitmap = Image.new('1', (render_width, height))
-            draw = ImageDraw.Draw(bitmap)
-            
-            # Calculate text position
+            # Calculate text position within the bitmap
             if self.style.align == "center":
-                text_x = (render_width - text_width) // 2 - left
+                text_x = (width - text_width) // 2
+                text_y = (height - text_height) // 2
             elif self.style.align == "right":
-                text_x = render_width - text_width - self.style.padding[2] - left
+                text_x = width - text_width - self.style.padding[2]
+                text_y = (height - text_height) // 2
             else:  # left
-                text_x = self.style.padding[0] - left
+                text_x = self.style.padding[0]
+                text_y = (height - text_height) // 2
+
+            # Ensure text is not positioned outside the bitmap
+            text_x = max(0, min(text_x, width - text_width))
+            text_y = max(0, min(text_y, height - text_height))
                 
-            text_y = self.style.padding[1] - top
+            logger.debug(f"Drawing text at position: ({text_x}, {text_y})")
             
-            # Draw text
-            draw.text((text_x, text_y), self.text, font=self.style.font, fill=self.style.color)
-            
-            # Crop to original width if needed
-            if render_width > width:
-                bitmap = bitmap.crop((0, 0, width, height))
+            # Draw text in white
+            draw.text((text_x, text_y), self.text, font=self.style.font, fill=1)  # Always white text
             
             # Cache bitmap
             self._cached_bitmap = bitmap
+            logger.debug(f"Created bitmap with size: {bitmap.size}")
             return bitmap
         else:
-            # Create temporary bitmap with extra space
-            render_width = max(width, text_width + 20)  # Add extra space to make alignment visible
-            temp_bitmap = Image.new('1', (render_width, height))
-            temp_draw = ImageDraw.Draw(temp_bitmap)
+            # Get destination image size
+            dest_width = draw.im.size[0]
+            dest_height = draw.im.size[1]
             
-            # Calculate text position
+            # Calculate text position within the destination image
             if self.style.align == "center":
-                text_x = (render_width - text_width) // 2 - left
+                text_x = x + (dest_width - text_width) // 2
+                text_y = y + (dest_height - text_height) // 2
             elif self.style.align == "right":
-                text_x = render_width - text_width - self.style.padding[2] - left
+                text_x = x + dest_width - text_width - self.style.padding[2]
+                text_y = y + (dest_height - text_height) // 2
             else:  # left
-                text_x = self.style.padding[0] - left
+                text_x = x + self.style.padding[0]
+                text_y = y + (dest_height - text_height) // 2
+
+            # Ensure text is not positioned outside the destination image
+            text_x = max(x, min(text_x, x + dest_width - text_width))
+            text_y = max(y, min(text_y, y + dest_height - text_height))
                 
-            text_y = self.style.padding[1] - top
+            logger.debug(f"Drawing text at position: ({text_x}, {text_y})")
             
-            # Draw text
-            temp_draw.text((text_x, text_y), self.text, font=self.style.font, fill=self.style.color)
-            
-            # Crop and copy to destination
-            if render_width > width:
-                temp_bitmap = temp_bitmap.crop((0, 0, width, height))
-            draw.bitmap((x, y), temp_bitmap, fill=self.style.color)
+            # Draw text in white (1)
+            draw.text((text_x, text_y), self.text, font=self.style.font, fill=1)
             return None
             
     def set_text(self, text: str) -> None:
         """Update the text content"""
         if text != self.text:
+            logger.debug(f"Setting text to: {text}")
             self.text = text
             self._cached_size = None  # Invalidate size cache
             self._cached_bitmap = None  # Invalidate bitmap cache
@@ -125,6 +134,7 @@ class TextComponent(BaseComponent):
             
     def set_style(self, style: TextStyle) -> None:
         """Update the text style"""
+        logger.debug(f"Setting text style: align={style.align}, color={style.color}, padding={style.padding}")
         self.style = style
         self._cached_size = None  # Invalidate size cache
         self._cached_bitmap = None  # Invalidate bitmap cache

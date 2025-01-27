@@ -1,0 +1,85 @@
+{
+  "tfl": {
+    "app_id": "a432a817f61d4a65ba62e226e48e665b",
+    "app_key": "DepartureBoard",
+    "update_interval": 60
+  },
+  "rail": {
+    "api_key": "9dc15c51-f949-470a-8319-35f6a75f7271",
+    "update_interval": 60
+  },
+  "display": {
+    "width": 256,
+    "height": 64,
+    "rotation": 0,
+    "contrast": 128,
+    "refresh_rate": 1.0,
+    "previewMode": true,
+    "dualDisplays": true
+  },
+  "screen1": {
+    "outOfHoursName": "London Paddington",
+    "type": "rail",
+    "station": "PAD",
+    "platform": "1"
+  },
+  "screen2": {
+    "outOfHoursName": "Baker Street",
+    "type": "tfl",
+    "station": "Baker Street",
+    "platform": "2"
+  },
+  "announcements": {
+    "enabled": true,
+    "volume": 90,
+    "announcement_gap": 2.0,
+    "max_queue_size": 10,
+    "log_level": "INFO",
+    "audio_config": {
+      "echo": {
+        "enabled": true,
+        "delay": 0.3,
+        "decay": 0.5,
+        "num_echoes": 3
+      }
+    },
+    "announcement_types": {
+      "delays": true,
+      "platform_changes": true,
+      "cancellations": true,
+      "on_time": false,
+      "departures": false,
+      "next_train": true,
+      "arriving": true,
+      "line_status": true
+    }
+  },
+  "queues": {
+    "announcements": {
+      "max_size": 10,
+      "timeout": 5.0
+    },
+    "statuses": {
+      "max_size": 100,
+      "timeout": 60.0
+    },
+    "displays": {
+      "max_size": 50,
+      "timeout": 30.0
+    }
+  },
+  "logging": {
+    "retention_days": 10,
+    "directory": "logs",
+    "file_prefix": "train_display"
+  },
+  "migration": {
+    "phase1_enabled": true,
+    "phase2_enabled": true,
+    "phase3_enabled": true,
+    "phase4_enabled": true,
+    "use_new_api_client": true,
+    "use_event_system": true,
+    "use_new_display": true
+  }
+}

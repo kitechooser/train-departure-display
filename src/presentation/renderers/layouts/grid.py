@@ -37,6 +37,10 @@ class GridLayout:
         self.layout = Image.new('1', (width, height))
         self.layout_draw = ImageDraw.Draw(self.layout)
         
+    def clear(self) -> None:
+        """Clear all components from the grid"""
+        self.cells = []
+        
     def add_component(self, component: Renderable, row: int, col: int, 
                      row_span: int = 1, col_span: int = 1,
                      padding: Tuple[int, int, int, int] = (0, 0, 0, 0),
@@ -86,81 +90,60 @@ class GridLayout:
         Returns:
             If draw is None, returns the layout bitmap. Otherwise returns None.
         """
-        # Clear layout
-        self.layout_draw.rectangle(
-            [0, 0, self.width - 1, self.height - 1],
-            fill=0  # Black background
-        )
+        # Create new layout with black background
+        self.layout = Image.new('1', (self.width, self.height), 0)
+        self.layout_draw = ImageDraw.Draw(self.layout)
         
         # Render each cell
         for cell in self.cells:
             # Calculate cell bounds
-            cell_x = x + (cell.col * self.cell_width)
-            cell_y = y + (cell.row * self.cell_height)
+            cell_x = (cell.col * self.cell_width)
+            cell_y = (cell.row * self.cell_height)
             cell_width = cell.col_span * self.cell_width
             cell_height = cell.row_span * self.cell_height
             
-            # Create cell bitmap
-            cell_bitmap = Image.new('1', (cell_width, cell_height))
-            cell_draw = ImageDraw.Draw(cell_bitmap)
+            # Create content bitmap (size of available space minus padding)
+            content_width = cell_width - (cell.padding[0] + cell.padding[2])
+            content_height = cell_height - (cell.padding[1] + cell.padding[3])
+            content_bitmap = Image.new('1', (content_width, content_height), 0)  # Black background
+            content_draw = ImageDraw.Draw(content_bitmap)
             
-            # Clear cell background
-            cell_draw.rectangle(
-                [0, 0, cell_width - 1, cell_height - 1],
-                fill=0  # Black background
-            )
-            
-            # Draw padding area in white to make it visible
-            if any(p > 0 for p in cell.padding):
-                # Draw padding area as filled white rectangle
-                if cell.padding[0] > 0:  # Left padding
-                    cell_draw.rectangle(
-                        [0, 0, cell.padding[0], cell_height - 1],
-                        fill=1  # White padding
-                    )
-                if cell.padding[2] > 0:  # Right padding
-                    cell_draw.rectangle(
-                        [cell_width - cell.padding[2] - 1, 0, cell_width - 1, cell_height - 1],
-                        fill=1  # White padding
-                    )
-                if cell.padding[1] > 0:  # Top padding
-                    cell_draw.rectangle(
-                        [0, 0, cell_width - 1, cell.padding[1]],
-                        fill=1  # White padding
-                    )
-                if cell.padding[3] > 0:  # Bottom padding
-                    cell_draw.rectangle(
-                        [0, cell_height - cell.padding[3] - 1, cell_width - 1, cell_height - 1],
-                        fill=1  # White padding
-                    )
-            
-            # Create padded area
-            padded_width = cell_width - (cell.padding[0] + cell.padding[2])
-            padded_height = cell_height - (cell.padding[1] + cell.padding[3])
+            # Create white background for text area
+            text_width, text_height = cell.component.get_size()
+            text_x = (content_width - text_width) // 2 if cell.align_h == "center" else 0
+            text_y = (content_height - text_height) // 2 if cell.align_v == "center" else 0
+            content_draw.rectangle([text_x, text_y, text_x + text_width, text_y + text_height], fill=1)  # White background
             
             # Get component size
             comp_width, comp_height = cell.component.get_size()
             
-            # Calculate position within padded area
+            # Calculate position within content area
             if cell.align_h == "center":
-                base_x = cell.padding[0] + (padded_width - comp_width) // 2
+                content_x = (content_width - comp_width) // 2
             elif cell.align_h == "right":
-                base_x = cell_width - comp_width - cell.padding[2]
+                content_x = content_width - comp_width
             else:  # left
-                base_x = cell.padding[0]
-                
+                content_x = 0
+
             if cell.align_v == "center":
-                base_y = cell.padding[1] + (padded_height - comp_height) // 2
+                content_y = (content_height - comp_height) // 2
             elif cell.align_v == "bottom":
-                base_y = cell_height - comp_height - cell.padding[3]
+                content_y = content_height - comp_height
             else:  # top
-                base_y = cell.padding[1]
+                content_y = 0
                 
-            # Render component directly into cell
-            cell.component.render(cell_draw, base_x, base_y)
+            # Render component into content bitmap
+            cell.component.render(content_draw, content_x, content_y)
             
-            # Copy cell to layout
-            self.layout_draw.bitmap((cell_x, cell_y), cell_bitmap, fill=1)
+            # Create cell bitmap and mask (full size including padding) with black background
+            cell_bitmap = Image.new('1', (cell_width, cell_height), 0)
+            cell_mask = Image.new('1', (cell_width, cell_height), 0)
+            
+            # Paste content bitmap directly into cell bitmap at padding offset
+            cell_bitmap.paste(content_bitmap, (cell.padding[0], cell.padding[1]))
+            
+            # Paste cell bitmap directly into layout
+            self.layout.paste(cell_bitmap, (cell_x, cell_y))
             
         if draw is None:
             return self.layout

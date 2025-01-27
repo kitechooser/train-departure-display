@@ -4,11 +4,11 @@ import time
 
 class Service:
     """Base service model"""
-    def __init__(self):
-        self.platform: str = ''
-        self.display_platform: str = ''
-        self.destination: str = ''
-        self.calling_points: List[str] = []
+    def __init__(self, destination_name: str = '', platform: str = '', calling_at_list: List[str] = None):
+        self.platform: str = platform
+        self.display_platform: str = platform
+        self.destination: str = destination_name
+        self.calling_points: List[str] = calling_at_list if calling_at_list else []
 
 class TflService(Service):
     """TfL specific service model"""
